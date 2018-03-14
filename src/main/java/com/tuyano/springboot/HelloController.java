@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tuyano.springboot.form.Address;
+
 @Controller
 public class HelloController {
 
@@ -24,4 +26,17 @@ public class HelloController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/regist_address", method=RequestMethod.GET)
+	public ModelAndView registAddress(ModelAndView mav) {
+		System.out.println(">>>regist_address");
+		mav.setViewName("regist_address");
+		return mav;
+	}
+	
+	@RequestMapping(value="/regist_address", method=RequestMethod.POST)
+	public String registAddress(Address address) {
+		System.out.println(">>>regist_address:regist");
+		System.out.println(address);
+		return "index";
+	}
 }
