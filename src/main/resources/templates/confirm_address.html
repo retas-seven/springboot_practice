@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>登録内容確認</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <link href="/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
+    <link href="/css/confirm_address.css" th:href="@{/css/confirm_address.css}" rel="stylesheet" />
+</head>
+    <body>
+        <h1>登録内容確認</h1>
+        <hr />
+        <form method="post" action="/exec_regist_address">
+	        <ul class="address_table">
+                <li class="address_li"><div class="address_th">姓</div><div class="address_td"><label th:text="${registAddressForm.lastName}"></label></div></li>
+                <li class="address_li"><div class="address_th">名</div><div class="address_td"><label th:text="${registAddressForm.firstName}"></label></div></li>
+                <li class="address_li"><div class="address_th">電話番号</div><div class="address_td"><label th:text="${registAddressForm.homePhoneNumber}"></label></div></li>
+                <li class="address_li"><div class="address_th">電話番号（携帯）</div><div class="address_td"><label th:text="${registAddressForm.mobilePhoneNumber}"></label></div></li>
+                <li class="address_li"><div class="address_th">メールアドレス</div><div class="address_td"><label th:text="${registAddressForm.email}"></label></div></li>
+                <li class="address_li"><div class="address_th">郵便番号</div><div class="address_td"><label th:text="${registAddressForm.zipCode}"></label></div></li>
+                <li class="address_li"><div class="address_th">都道府県</div><div class="address_td"><label th:text="${registAddressForm.prefecture}"></label></div></li>
+                <li class="address_li"><div class="address_th">住所・番地</div><div class="address_td"><label th:text="${registAddressForm.address}"></label></div></li>
+                <li class="address_li"><div class="address_th">建物名</div><div class="address_td"><label th:text="${registAddressForm.buildingName}"></label></div></li>
+	        </ul>
+            <input type="submit" value="登録" />
+        </form>
+    </body>
+</html>

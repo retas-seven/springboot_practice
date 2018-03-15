@@ -1,9 +1,9 @@
 package com.tuyano.springboot;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tuyano.springboot.form.RegistAddressForm;
@@ -31,9 +31,10 @@ public class HelloController {
 	}
 	
 	@RequestMapping(value="/regist_address", method=RequestMethod.POST)
-	public String registAddress(RegistAddressForm address) {
-		System.out.println(">>>regist_address:regist");
-		System.out.println(address);
-		return "index";
+	public String registAddress(RegistAddressForm registAddressForm, Model model) {
+		System.out.println(registAddressForm);
+		model.addAttribute("registAddressForm", registAddressForm);
+		model.addAttribute("msg", "_");
+		return "confirm_address";
 	}
 }
