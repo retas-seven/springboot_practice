@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>住所登録</title>
-	<meta http-equiv="Content-Type"
-	       content="text/html" charset="UTF-8" />
+    <title>アドレス登録</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <link href="/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
+    <link href="/css/regist_address.css" th:href="@{/css/regist_address.css}" rel="stylesheet" />
 </head>
-	<body>
-	   <form method="post" action="/regist_address">
-           <input type="text" name="firstName" th:value="${firstName}" /><br />
-           <input type="text" name="lastName" th:value="${lastName}" /><br />
-           <input type="text" name="mobilePhoneNumber" th:value="${mobilePhoneNumber}" /><br />
-           <input type="text" name="homePhoneNumber" th:value="${homePhoneNumber}" /><br />
-           <input type="text" name="email" th:value="${email}" /><br />
-           <input type="text" name="zipCode" th:value="${zipCode}" /><br />
-           <input type="text" name="prefecture" th:value="${prefecture}" /><br />
-           <input type="text" name="address" th:value="${address}" /><br />
-           <input type="text" name="buildingName" th:value="${buildingName}" /><br />
-	       <input type="submit" value="登録" />
-	   </form>
-	</body>
+    <body>
+        <h1>アドレス登録</h1>
+        <hr />
+        <form method="post" action="/regist_address">
+	        <ul class="address_table">
+                <li class="address_li"><div class="address_th">姓</div><div class="address_td"><input type="text" name="lastName" th:value="${lastName}" /></div></li>
+                <li class="address_li"><div class="address_th">名</div><div class="address_td"><input type="text" name="firstName" th:value="${firstName}" /></div></li>
+                <li class="address_li"><div class="address_th">電話番号</div><div class="address_td"><input type="text" name="homePhoneNumber" th:value="${homePhoneNumber}" /></div></li>
+                <li class="address_li"><div class="address_th">電話番号（携帯）</div><div class="address_td"><input type="text" name="mobilePhoneNumber" th:value="${mobilePhoneNumber}" /></div></li>
+                <li class="address_li"><div class="address_th">メールアドレス</div><div class="address_td"><input type="text" name="email" th:value="${email}" /></div></li>
+                <li class="address_li"><div class="address_th">郵便番号</div><div class="address_td"><input type="text" name="zipCode" th:value="${zipCode}" /></div></li>
+                <li class="address_li"><div class="address_th">都道府県</div><div class="address_td"><input type="text" name="prefecture" th:value="${prefecture}" /></div></li>
+                <li class="address_li"><div class="address_th">住所・番地</div><div class="address_td"><input type="text" name="address" th:value="${address}" /></div></li>
+                <li class="address_li"><div class="address_th">建物名</div><div class="address_td"><input type="text" name="buildingName" th:value="${buildingName}" /></div></li>
+	        </ul>
+            <input type="submit" value="登録" />
+        </form>
+    </body>
 </html>

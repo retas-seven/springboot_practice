@@ -14,15 +14,12 @@ public class HelloController {
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ModelAndView index(ModelAndView mav) {
 		mav.setViewName("index");
-		mav.addObject("msg", "お名前を書いて送信してください");
 		return mav;
 	}
 	
 	@RequestMapping(value="/", method=RequestMethod.POST)
-	public ModelAndView send(@RequestParam("text1")String str,  ModelAndView mav) {
-		mav.addObject("msg", "こんにちは" + str + "さん！");
-		mav.addObject("value", str);
-		mav.setViewName("index");
+	public ModelAndView send(ModelAndView mav) {
+		mav.setViewName("regist_address");
 		return mav;
 	}
 	
