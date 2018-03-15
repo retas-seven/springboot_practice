@@ -1,6 +1,6 @@
 package com.tuyano.springboot.form;
 
-public class Address {
+public class RegistAddressForm {
 	
     private String firstName;
 
