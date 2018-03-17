@@ -1,4 +1,4 @@
-package com.tuyano.springboot.form;
+package com.tuyano.springboot.form.regist_address;
 
 public class InputAddressForm {
 	

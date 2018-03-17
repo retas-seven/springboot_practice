@@ -1,4 +1,4 @@
-package com.tuyano.springboot;
+package com.tuyano.springboot.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,13 +10,13 @@ public class HelloController {
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ModelAndView index(ModelAndView mav) {
-		mav.setViewName("index");
+		mav.setViewName("/index");
 		return mav;
 	}
 	
 	@RequestMapping(value="/", method=RequestMethod.POST)
 	public ModelAndView send(ModelAndView mav) {
-		mav.setViewName("input_address");
+		mav.setViewName("/regist_address/input");
 		return mav;
 	}
 }

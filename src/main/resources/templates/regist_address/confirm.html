@@ -4,12 +4,12 @@
     <title>登録内容確認</title>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <link href="/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
-    <link href="/css/confirm_address.css" th:href="@{/css/confirm_address.css}" rel="stylesheet" />
+    <link href="/css/confirm_address.css" th:href="@{/css/regist_address/confirm.css}" rel="stylesheet" />
 </head>
     <body>
         <h1>登録内容確認</h1>
         <hr />
-        <form method="post" action="/confirm_address">
+        <form method="post" action="/regist_address/confirm">
 	        <ul class="address_table">
                 <li class="address_li"><div class="address_th">姓</div><div class="address_td"><label th:text="${inputAddressForm.lastName}"></label></div></li>
                 <li class="address_li"><div class="address_th">名</div><div class="address_td"><label th:text="${inputAddressForm.firstName}"></label></div></li>
