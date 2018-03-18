@@ -13,5 +13,5 @@ import com.tuyano.springboot.entity.Reservation;
 public interface ReservationDao {
 
 	@Select
-	List<Reservation> findAll();
+	List<Reservation> selectAll();
 }

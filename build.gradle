@@ -19,6 +19,12 @@ group = 'com.tuyano.springboot'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
+// for Doma 2
+// JavaクラスとSQLファイルの出力先ディレクトリを同じにする
+processResources.destinationDir = compileJava.destinationDir
+// コンパイルより前にSQLファイルを出力先ディレクトリにコピーするために依存関係を逆転する
+compileJava.dependsOn processResources
+
 repositories {
 	mavenCentral()
 	maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }

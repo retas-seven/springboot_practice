@@ -17,7 +17,7 @@ public class RegistAddressService {
 
 	public void regist(InputAddressForm inputAddressForm) {
 		// DAOTest
-		List<Reservation> reservationList = reservationDao.findAll();
+		List<Reservation> reservationList = reservationDao.selectAll();
 		
 		for (Reservation r : reservationList) {
 			System.out.println(r.id + ", " + r.name);
