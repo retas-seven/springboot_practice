@@ -2,33 +2,54 @@ package com.tuyano.springboot.entity;
 
 import org.seasar.doma.Column;
 import org.seasar.doma.Entity;
-import org.seasar.doma.GeneratedValue;
-import org.seasar.doma.GenerationType;
 import org.seasar.doma.Id;
-import org.seasar.doma.SequenceGenerator;
+import org.seasar.doma.Table;
 
+/**
+ * 
+ */
 @Entity
+@Table(name = "address")
 public class Address {
-	@Id
-	public Integer id;
 
-	public String firstName;
-	
-	public String lastName;
-	
-	@Column(name = "MOBILE_PHONE_NUMBER")
-	public String mobilePhoneNumber;
-	
-	@Column(name = "HOME_PHONE_NUMBER")
-	public String homePhoneNumber;
-	
-	public String email;
-	
-	public String zipCode;
-	
-	public String prefecture;
-	
-	public String address;
-	
-	public String buildingName;
+    /**  */
+    @Id
+    @Column(name = "ID")
+    public String id;
+
+    /**  */
+    @Column(name = "LASTNAME")
+    public String lastname;
+
+    /**  */
+    @Column(name = "FIRSTNAME")
+    public String firstname;
+
+    /**  */
+    @Column(name = "HOME_PHONE_NUMBER")
+    public String homePhoneNumber;
+
+    /**  */
+    @Column(name = "MOBILE_PHONE_NUMBER")
+    public String mobilePhoneNumber;
+
+    /**  */
+    @Column(name = "EMAIL")
+    public String email;
+
+    /**  */
+    @Column(name = "ZIPCODE")
+    public String zipcode;
+
+    /**  */
+    @Column(name = "PREFECTURE")
+    public String prefecture;
+
+    /**  */
+    @Column(name = "ADDRESS")
+    public String address;
+
+    /**  */
+    @Column(name = "BUILDINGNAME")
+    public String buildingname;
 }

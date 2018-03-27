@@ -35,19 +35,19 @@ public class RegistAddressService {
 //					a.address + ", "+ a.buildingName);
 //		}
 		
-		Integer maxId = addressDao.selectMaxId();
+//		Integer maxId = addressDao.selectMaxId();
 		
 		Address address = new Address();
-		address.id = ++maxId;
-		address.firstName = form.getFirstName();
-		address.lastName = form.getLastName();
+//		address.id = ++maxId;
+		address.firstname = form.getFirstName();
+		address.lastname = form.getLastName();
 		address.mobilePhoneNumber = form.getMobilePhoneNumber();
 		address.homePhoneNumber = form.getHomePhoneNumber();
 		address.email = form.getEmail();
-		address.zipCode = form.getZipCode();
+		address.zipcode = form.getZipCode();
 		address.prefecture = form.getPrefecture();
 		address.address = form.getAddress();
-		address.buildingName = form.getBuildingName();
+		address.buildingname = form.getBuildingName();
 		
 		addressDao.insert(address);
 	}
