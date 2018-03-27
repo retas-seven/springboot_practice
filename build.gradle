@@ -48,7 +48,9 @@ dependencies {
 }
 
 task domaGen {
+    //def destBaseDir = 'src/main/java/com/tuyano/springboot'
     def basePackage = 'com.tuyano.springboot'
+    //def resourceDir = 'src/main/resources'
 
     ant.taskdef(resource: 'domagentask.properties',classpath: configurations.domaGenRuntime.asPath)
     ant.gen(url:'jdbc:mysql://localhost:3306/test01', user:'test01_user', password:'test01_user!') {

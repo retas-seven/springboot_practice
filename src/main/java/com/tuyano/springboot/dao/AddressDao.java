@@ -1,15 +1,20 @@
 package com.tuyano.springboot.dao;
 
-import com.tuyano.springboot.entity.Address;
+import java.util.List;
+
 import org.seasar.doma.Dao;
 import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.Update;
+import org.seasar.doma.boot.ConfigAutowireable;
+
+import com.tuyano.springboot.entity.Address;
 
 /**
  */
 @Dao
+@ConfigAutowireable
 public interface AddressDao {
 
     /**
@@ -47,4 +52,10 @@ public interface AddressDao {
      */
     @Delete
     int delete(Address entity);
+    
+	@Select
+	List<Address> selectAll();
+	
+	@Select
+	Integer selectMaxId();
 }

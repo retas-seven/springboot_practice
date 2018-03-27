@@ -5,9 +5,9 @@ SELECT
   HOME_PHONE_NUMBER   ,
   MOBILE_PHONE_NUMBER ,
   EMAIL               ,
-  ZIPCODE             ,
+  ZIP_CODE             ,
   PREFECTURE          ,
   ADDRESS             ,
-  BUILDINGNAME        
+  BUILDING_NAME        
 FROM Address
 ORDER BY id ASC
