@@ -4,6 +4,7 @@ import org.seasar.doma.Column;
 import org.seasar.doma.Entity;
 import org.seasar.doma.Id;
 import org.seasar.doma.Table;
+import org.seasar.doma.Version;
 
 /**
  * 
@@ -38,8 +39,8 @@ public class Address {
     public String email;
 
     /**  */
-    @Column(name = "ZIPCODE")
-    public String zipcode;
+    @Column(name = "ZIP_CODE")
+    public String zipCode;
 
     /**  */
     @Column(name = "PREFECTURE")
@@ -50,6 +51,11 @@ public class Address {
     public String address;
 
     /**  */
-    @Column(name = "BUILDINGNAME")
-    public String buildingname;
+    @Column(name = "BUILDING_NAME")
+    public String buildingName;
+
+    /**  */
+    @Version
+    @Column(name = "VERSION")
+    public Integer version;
 }

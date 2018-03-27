@@ -44,10 +44,10 @@ public class RegistAddressService {
 		address.mobilePhoneNumber = form.getMobilePhoneNumber();
 		address.homePhoneNumber = form.getHomePhoneNumber();
 		address.email = form.getEmail();
-		address.zipcode = form.getZipCode();
+		address.zipCode = form.getZipCode();
 		address.prefecture = form.getPrefecture();
 		address.address = form.getAddress();
-		address.buildingname = form.getBuildingName();
+		address.buildingName = form.getBuildingName();
 		
 		addressDao.insert(address);
 	}

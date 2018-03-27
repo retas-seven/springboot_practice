@@ -20,6 +20,14 @@ public interface AddressDao {
     Address selectById(String id);
 
     /**
+     * @param id
+     * @param version
+     * @return the Address entity
+     */
+    @Select(ensureResult = true)
+    Address selectByIdAndVersion(String id, Integer version);
+
+    /**
      * @param entity
      * @return affected rows
      */
