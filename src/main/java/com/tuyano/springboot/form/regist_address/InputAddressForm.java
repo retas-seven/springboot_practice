@@ -1,23 +1,40 @@
 package com.tuyano.springboot.form.regist_address;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class InputAddressForm {
 	
+	@NotNull
+	@Size(max = 50)
     private String firstName;
 
+	@Size(max = 50)
     private String lastName;
 
+    @Pattern(regexp="[0-9]*")
+	@Size(max = 15)
     private String mobilePhoneNumber;
 
+    @Pattern(regexp="[0-9]*")
+	@Size(max = 15)
     private String homePhoneNumber;
-    
+
+	@Size(max = 50)
     private String email;
     
+    @Pattern(regexp="[0-9]*")
+	@Size(max = 7)
     private String zipCode;
 
+	@Size(max = 50)
     private String prefecture;
-    
+
+	@Size(max = 50)
     private String address;
-    
+
+	@Size(max = 50)
     private String buildingName;
 
 	public String getFirstName() {

@@ -13,10 +13,10 @@ public class HelloController {
 		mav.setViewName("/index");
 		return mav;
 	}
-	
-	@RequestMapping(value="/", method=RequestMethod.POST)
-	public ModelAndView send(ModelAndView mav) {
-		mav.setViewName("/regist_address/input");
-		return mav;
-	}
+
+//	@RequestMapping(value="/", method=RequestMethod.POST)
+//	public ModelAndView send(ModelAndView mav) {
+//		mav.setViewName("/regist_address/input");
+//		return mav;
+//	}
 }
