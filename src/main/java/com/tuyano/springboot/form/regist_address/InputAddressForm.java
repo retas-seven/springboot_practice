@@ -6,7 +6,6 @@ import javax.validation.constraints.Size;
 
 public class InputAddressForm {
 	
-	@NotNull
 	@Size(max = 50)
     private String firstName;
 
