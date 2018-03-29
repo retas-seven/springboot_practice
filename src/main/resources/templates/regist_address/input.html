@@ -11,15 +11,15 @@
         <hr />
         <form method="post" action="/regist_address/input" th:object="${inputAddressForm}">
 	        <ul class="address_table">
-                <li class="address_li"><div class="address_th">姓</div><div class="address_td"><input type="text" th:field="*{lastName}" /><p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" /></div></li>
-                <li class="address_li"><div class="address_th">名</div><div class="address_td"><input type="text" th:field="*{firstName}" /><p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" /></div></li>
-                <li class="address_li"><div class="address_th">電話番号</div><div class="address_td"><input type="text" th:field="*{homePhoneNumber}" /><p th:if="${#fields.hasErrors('homePhoneNumber')}" th:errors="*{homePhoneNumber}" /></div></li>
-                <li class="address_li"><div class="address_th">電話番号（携帯）</div><div class="address_td"><input type="text" th:field="*{mobilePhoneNumber}" /><p th:if="${#fields.hasErrors('mobilePhoneNumber')}" th:errors="*{mobilePhoneNumber}" /></div></li>
-                <li class="address_li"><div class="address_th">メールアドレス</div><div class="address_td"><input type="text" th:field="*{email}" /><p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" /></div></li>
-                <li class="address_li"><div class="address_th">郵便番号</div><div class="address_td"><input type="text" th:field="*{zipCode}" /><p th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}" /></div></li>
-                <li class="address_li"><div class="address_th">都道府県</div><div class="address_td"><input type="text" th:field="*{prefecture}" /><p th:if="${#fields.hasErrors('prefecture')}" th:errors="*{prefecture}" /></div></li>
-                <li class="address_li"><div class="address_th">住所・番地</div><div class="address_td"><input type="text" th:field="*{address}" /><p th:if="${#fields.hasErrors('address')}" th:errors="*{address}" /></div></li>
-                <li class="address_li"><div class="address_th">建物名</div><div class="address_td"><input type="text" th:field="*{buildingName}" /><p th:if="${#fields.hasErrors('buildingName')}" th:errors="*{buildingName}" /></div></li>
+                <li class="address_li"><div class="address_th">姓</div><div class="address_td"><input type="text" th:field="*{lastName}" /><p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" th:errorclass="has-error" /></div></li>
+                <li class="address_li"><div class="address_th">名</div><div class="address_td"><input type="text" th:field="*{firstName}" /><p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" th:errorclass="has-error" /></div></li>
+                <li class="address_li"><div class="address_th">電話番号</div><div class="address_td"><input type="text" th:field="*{homePhoneNumber}" /><p th:if="${#fields.hasErrors('homePhoneNumber')}" th:errors="*{homePhoneNumber}" th:errorclass="has-error" /></div></li>
+                <li class="address_li"><div class="address_th">電話番号（携帯）</div><div class="address_td"><input type="text" th:field="*{mobilePhoneNumber}" /><p th:if="${#fields.hasErrors('mobilePhoneNumber')}" th:errors="*{mobilePhoneNumber}" th:errorclass="has-error" /></div></li>
+                <li class="address_li"><div class="address_th">メールアドレス</div><div class="address_td"><input type="text" th:field="*{email}" /><p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="has-error" /></div></li>
+                <li class="address_li"><div class="address_th">郵便番号</div><div class="address_td"><input type="text" th:field="*{zipCode}" /><p th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}" th:errorclass="has-error" /></div></li>
+                <li class="address_li"><div class="address_th">都道府県</div><div class="address_td"><input type="text" th:field="*{prefecture}" /><p th:if="${#fields.hasErrors('prefecture')}" th:errors="*{prefecture}" th:errorclass="has-error" /></div></li>
+                <li class="address_li"><div class="address_th">住所・番地</div><div class="address_td"><input type="text" th:field="*{address}" /><p th:if="${#fields.hasErrors('address')}" th:errors="*{address}" th:errorclass="has-error" /></div></li>
+                <li class="address_li"><div class="address_th">建物名</div><div class="address_td"><input type="text" th:field="*{buildingName}" /><p th:if="${#fields.hasErrors('buildingName')}" th:errors="*{buildingName}" th:errorclass="has-error" /></div></li>
 	        </ul>
             <input type="submit" value="確認" />
         </form>
