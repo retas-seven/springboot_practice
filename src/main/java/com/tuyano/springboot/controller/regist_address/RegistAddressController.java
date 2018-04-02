@@ -53,6 +53,6 @@ public class RegistAddressController {
 	public String completeAddress(SessionStatus sessionStatus) {
 		// 後処理：セッション削除
 		sessionStatus.setComplete(); 
-		return "/index";
+		return "/menu";
 	}
 }

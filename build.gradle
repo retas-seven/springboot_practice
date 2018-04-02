@@ -37,14 +37,20 @@ configurations {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile 'org.seasar.doma:doma:2.19.2'
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	domaGenRuntime 'org.seasar.doma:doma-gen:2.19.2'
-    domaGenRuntime 'mysql:mysql-connector-java:5.1.40'
+	compile('org.seasar.doma:doma:2.19.2')
+	domaGenRuntime('org.seasar.doma:doma-gen:2.19.2')
+    domaGenRuntime('mysql:mysql-connector-java:5.1.40')
 	
 	// DB
 	compile('org.seasar.doma.boot:doma-spring-boot-starter:1.1.1')
-	compile 'mysql:mysql-connector-java:5.1.40'
+	compile('mysql:mysql-connector-java:5.1.40')
+	
+    // SpringSecurity
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
+    
+    // Test
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 task domaGen {
@@ -54,7 +60,7 @@ task domaGen {
 
     ant.taskdef(resource: 'domagentask.properties',classpath: configurations.domaGenRuntime.asPath)
     ant.gen(url:'jdbc:mysql://localhost:3306/test01', user:'test01_user', password:'test01_user!') {
-        entityConfig(packageName:"${basePackage}.entity", useAccessor:false, useListener:false)
+        entityConfig(packageName:"${basePackage}.entity", useAccessor:false, useListener:false, overwrite:false)
         daoConfig(packageName:"${basePackage}.dao", overwrite:false)
         sqlConfig()
     }
