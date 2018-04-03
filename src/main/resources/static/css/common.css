@@ -1,3 +1,39 @@
+/* 画面構成 */
+body {
+    letter-spacing: .1em;
+    line-height: 1.5;
+}
+.flex_column{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.flex_header{
+    max-height: 60px;
+    background: rgb(228, 203, 178);
+}
+.flex_contents{
+    flex: 1;
+    background: rgb(254, 254, 254);
+    padding: 30px 10px;
+}
+.flex_footer{
+    height: 160px;
+    background: rgb(199, 150, 131);
+    padding: 20px;
+}
+
+/* エラーメッセージの色 */
 .has-error {
 	color: red;
+}
+
+/* copyright */
+.copyright {
+	text-align: right;
+}
+
+/* テキストボックスのオートコンプリート時の背景色 */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
