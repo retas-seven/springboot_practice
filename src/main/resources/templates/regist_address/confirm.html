@@ -11,21 +11,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
     <body>
-        <h1>登録内容確認</h1>
-        <hr />
-        <form method="post" action="/regist_address/confirm">
-	        <ul class="address_table">
-                <li class="address_li"><div class="address_th">姓</div><div class="address_td"><label th:text="${inputAddressForm.lastName}"></label></div></li>
-                <li class="address_li"><div class="address_th">名</div><div class="address_td"><label th:text="${inputAddressForm.firstName}"></label></div></li>
-                <li class="address_li"><div class="address_th">電話番号</div><div class="address_td"><label th:text="${inputAddressForm.homePhoneNumber}"></label></div></li>
-                <li class="address_li"><div class="address_th">電話番号（携帯）</div><div class="address_td"><label th:text="${inputAddressForm.mobilePhoneNumber}"></label></div></li>
-                <li class="address_li"><div class="address_th">メールアドレス</div><div class="address_td"><label th:text="${inputAddressForm.email}"></label></div></li>
-                <li class="address_li"><div class="address_th">郵便番号</div><div class="address_td"><label th:text="${inputAddressForm.zipCode}"></label></div></li>
-                <li class="address_li"><div class="address_th">都道府県</div><div class="address_td"><label th:text="${inputAddressForm.prefecture}"></label></div></li>
-                <li class="address_li"><div class="address_th">住所・番地</div><div class="address_td"><label th:text="${inputAddressForm.address}"></label></div></li>
-                <li class="address_li"><div class="address_th">建物名</div><div class="address_td"><label th:text="${inputAddressForm.buildingName}"></label></div></li>
-	        </ul>
-            <input type="submit" value="登録" />
-        </form>
+        <div class="container">
+	        <h1>登録内容確認</h1>
+	        <hr />
+	        <form method="post" action="/regist_address/confirm">
+		        <ul class="address_table">
+	                <li class="address_li"><div class="address_th">姓</div><div class="address_td"><label th:text="${inputAddressForm.lastName}"></label></div></li>
+	                <li class="address_li"><div class="address_th">名</div><div class="address_td"><label th:text="${inputAddressForm.firstName}"></label></div></li>
+	                <li class="address_li"><div class="address_th">電話番号</div><div class="address_td"><label th:text="${inputAddressForm.homePhoneNumber}"></label></div></li>
+	                <li class="address_li"><div class="address_th">電話番号（携帯）</div><div class="address_td"><label th:text="${inputAddressForm.mobilePhoneNumber}"></label></div></li>
+	                <li class="address_li"><div class="address_th">メールアドレス</div><div class="address_td"><label th:text="${inputAddressForm.email}"></label></div></li>
+	                <li class="address_li"><div class="address_th">郵便番号</div><div class="address_td"><label th:text="${inputAddressForm.zipCode}"></label></div></li>
+	                <li class="address_li"><div class="address_th">都道府県</div><div class="address_td"><label th:text="${inputAddressForm.prefecture}"></label></div></li>
+	                <li class="address_li"><div class="address_th">住所・番地</div><div class="address_td"><label th:text="${inputAddressForm.address}"></label></div></li>
+	                <li class="address_li"><div class="address_th">建物名</div><div class="address_td"><label th:text="${inputAddressForm.buildingName}"></label></div></li>
+		        </ul>
+	            <input type="submit" value="登録" />
+	        </form>
+        </div>
     </body>
 </html>
