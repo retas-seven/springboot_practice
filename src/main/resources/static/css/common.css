@@ -18,7 +18,7 @@ body {
     padding: 30px 10px;
 }
 .flex_footer{
-    height: 160px;
+    height: 140px;
     background: rgb(199, 150, 131);
     padding: 20px;
 }
@@ -36,4 +36,14 @@ body {
 /* テキストボックスのオートコンプリート時の背景色 */
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+/* hr ： 赤 */
+.hr_red {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #ffaaaa;
+  border: 0;
+  margin-bottom: 30px;
 }

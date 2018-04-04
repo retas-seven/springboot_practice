@@ -1,12 +1,12 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	    <link href="/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
-	    <link href="/css/login.css" th:href="@{/css/login.css}" rel="stylesheet" />
-        <title>Hello, world!</title>
+        <link href="../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
+        <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet" />
+        <title>WEB Addressbook</title>
     </head>
     
     <body>
@@ -24,9 +24,8 @@
             <!-- CONTENTS -->
             <div class="flex_contents bg_image">
                 <div class="container">
-                
                     <h2>ログイン</h2>
-                    <hr>
+                    <hr class="hr_red">
                     <form method="post" th:action="@{'/exec_login'}">
                       <div class="form-group">
                         <label for="email">メールアドレス</label>
