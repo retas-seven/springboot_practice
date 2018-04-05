@@ -1,3 +1,20 @@
+.bg_image{
+    background-image: url("../../img/bg.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin:0px;
+}
+
+.label_name {
+    /* background-color: rgba(255, 102, 13, 0.07); */
+    /*background-color: rgba(255, 255, 255, 0.2);*/
+    color: rgba(117, 27, 5, 0.87);
+    border-radius: 5px;
+    text-align: right;
+}
+
 .address_table {
 	display: table;
     list-style:none;

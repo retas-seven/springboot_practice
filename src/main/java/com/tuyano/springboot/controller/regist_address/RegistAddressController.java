@@ -22,7 +22,7 @@ public class RegistAddressController {
 	@Autowired
 	RegistAddressService registAddressService;
 	
-	@RequestMapping(value="/init", method=RequestMethod.POST)
+	@RequestMapping(value="/init")
 	public String send(Model model) {
 		model.addAttribute("inputAddressForm", new InputAddressForm());
 		return "/regist_address/input";
