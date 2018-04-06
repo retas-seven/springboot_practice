@@ -28,11 +28,11 @@
                     <hr class="hr_red">
                     <form method="post" th:action="@{'/exec_login'}">
                       <div class="form-group">
-                        <label for="email">メールアドレス</label>
+                        <label for="email" class="col_str">メールアドレス</label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="例）mail@example.com">
                       </div>
                       <div class="form-group">
-                        <label for="password">パスワード</label>
+                        <label for="password" class="col_str">パスワード</label>
                         <input type="password" class="form-control" id="password" name="password">
                       </div>
                       <!--
@@ -41,8 +41,9 @@
                         <label class="form-check-label" for="remember-me">ログイン状態を保持する</label>
                       </div>
                       -->
-                      <br>
-                      <button type="submit" id="login_button" class="btn btn-outline-info">ログイン</button>
+                      <div class="mt-4">
+                        <button type="submit" id="login_button" class="btn btn-info">ログイン</button>
+                      </div>
                     </form>
                 </div>
             </div>
