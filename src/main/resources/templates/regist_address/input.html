@@ -28,63 +28,63 @@
                       <div class="form-group row">
                         <label for="lastName" class="col-sm-2 col-form-label label_name">姓</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="lastName" th:field="*{lastName}" />
+                          <input type="text" class="form-control" id="lastName" name="lastName" th:field="*{lastName}" />
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="firstName" class="col-sm-2 col-form-label label_name">名</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="firstName" th:field="*{firstName}" />
+                          <input type="text" class="form-control" id="firstName" name="firstName" th:field="*{firstName}" />
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="homePhoneNumber" class="col-sm-2 col-form-label label_name">電話番号</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="homePhoneNumber" />
+                          <input type="text" class="form-control" id="homePhoneNumber" name="homePhoneNumber" th:field="*{homePhoneNumber}" />
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="mobilePhoneNumber" class="col-sm-2 col-form-label label_name">電話番号（携帯）</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="mobilePhoneNumber">
+                          <input type="text" class="form-control" id="mobilePhoneNumber" name="mobilePhoneNumber" th:field="*{mobilePhoneNumber}" />
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="email" class="col-sm-2 col-form-label label_name">メールアドレス</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="email" placeholder="例）mail@example.com" />
+                          <input type="text" class="form-control" id="email" name="email" th:field="*{email}" placeholder="例）mail@example.com" />
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="zipCode" class="col-sm-2 col-form-label label_name">郵便番号</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="zipCode" />
+                          <input type="text" class="form-control" id="zipCode" name="zipCode" th:field="*{zipCode}" />
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="prefecture" class="col-sm-2 col-form-label label_name">都道府県</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="prefecture" />
+                          <input type="text" class="form-control" id="prefecture" name="prefecture" th:field="*{prefecture}" />
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="address" class="col-sm-2 col-form-label label_name">住所・番地</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="address" />
+                          <input type="text" class="form-control" id="address" name="address" th:field="*{address}" />
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="buildingName" class="col-sm-2 col-form-label label_name">建物名</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="buildingName" />
+                          <input type="text" class="form-control" id="buildingName" name="buildingName" th:field="*{buildingName}" />
                         </div>
                       </div>
                       <button type="submit" id="login_button" class="btn btn-outline-info">確認</button>
