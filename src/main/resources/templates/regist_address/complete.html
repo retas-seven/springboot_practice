@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>登録完了</title>
-	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-    <link href="/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</head>
-	<body>
-        <div class="container">
-	        <h1>登録完了</h1>
-	        <hr />
-            <h2>登録が完了しました。</h2>
-            <p>「メニューへ戻る」ボタンを押すとメニュー画面へ戻ります。</p>
-	        <form method="post" action="/regist_address/complete">
-	            <input type="submit" value="メニューへ戻る" />
-	        </form>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="../../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
+        <link href="../../static/css/regist_address/complete.css" th:href="@{/css/regist_address/complete.css}" rel="stylesheet" />
+        <title>WEB Addressbook</title>
+    </head>
+    
+    <body>
+        <div class="flex_column">
+            <!-- HEADER -->
+            <div class="flex_header">
+                <nav class="navbar navbar-light">
+                    <a class="navbar-brand" href="#">WEB Addressbook</a>
+                </nav>
+            </div>
+
+            <!-- CONTENTS -->
+            <div class="flex_contents bg_image">
+                <div class="container">
+                    <div class="row">
+                        <h2>登録完了</h2>
+                        <hr class="hr_red">
+                        
+                        <p>登録が完了しました。<br />「メニューへ戻る」ボタンを押すとメニュー画面へ戻ります。</p>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <form method="post" action="/regist_address/complete">
+                            <button type="submit" id="menu_button" class="btn btn-info">メニューへ戻る</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="flex_footer">
+                <p class="copyright">Copyright © OsawaApps 2018. All rights reserved.</p>
+            </div>
         </div>
-	</body>
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
 </html>
