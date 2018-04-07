@@ -1,3 +1,3 @@
 SELECT
-  IfNull(max(id), "0")
+  max(cast(id as SIGNED)) 
 FROM address
