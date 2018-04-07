@@ -9,13 +9,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HelloController {
 
-	@RequestMapping(value="/", method=RequestMethod.GET)
+	@RequestMapping(value="/")
 	public ModelAndView index(ModelAndView mav) {
 		mav.setViewName("/login");
 		return mav;
 	}
 
-	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	@RequestMapping(value="/logout")
 	public ModelAndView logout(ModelAndView mav) {
 		mav.setViewName("/login");
 		return mav;
@@ -38,4 +38,10 @@ public class HelloController {
 		mav.setViewName("/menu");
 		return mav;
 	}
+	
+//	@RequestMapping(value="/error_notice")
+//	public ModelAndView errorNotice(ModelAndView mav) {
+//		mav.setViewName("/error_notice");
+//		return mav;
+//	}
 }
