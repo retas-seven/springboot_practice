@@ -14,11 +14,12 @@ import org.springframework.stereotype.Component;
 public class GenaralLogAop {
 	private static final Logger log = LoggerFactory.getLogger(GenaralLogAop.class);
 	
-    @Around("execution(* com.tuyano.springboot.service.*..*.*(..))")
+//    @Around("execution(* com.tuyano.springboot.service.*..*.*(..))")
+    @Around("execution(* com.tuyano.springboot.controller..*.*(..))")
     public Object invoke(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Object ret = null;
         try {
-            String startLog = String.format("[START] %s#%s%n",
+            String startLog = String.format("[START] %s#%s",
                     proceedingJoinPoint.getTarget().getClass(),
                     proceedingJoinPoint.getSignature().getName());
             log.info(startLog);
@@ -28,7 +29,7 @@ public class GenaralLogAop {
             ret = proceedingJoinPoint.proceed();
             
         } finally {
-        	String endLog = String.format("[END] %s#%s%n",
+        	String endLog = String.format("[END] %s#%s",
                     proceedingJoinPoint.getTarget().getClass(),
                     proceedingJoinPoint.getSignature().getName());
             log.info(endLog);
