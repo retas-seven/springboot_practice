@@ -18,3 +18,11 @@ CREATE TABLE ADDRESS (
   VERSION               int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (ID)
 );
+
+CREATE TABLE USER_INFO (
+  ID                    varchar(10) NOT NULL,
+  EMAIL                 VARCHAR(50),
+  PASSWORD              VARCHAR(100),
+  VERSION               int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (ID)
+);
