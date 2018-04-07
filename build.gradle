@@ -49,6 +49,9 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
     
+    // AOP
+    compile('org.springframework.boot:spring-boot-starter-aop')
+    
     // Test
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
