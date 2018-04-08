@@ -1,5 +1,7 @@
 package com.tuyano.springboot.handler;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -15,8 +17,8 @@ public class ApplicationExceptionHandler {
 	
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(ApplicationException.class)
-	public String handleException(Exception e) {
-		log.error("アプリケーションエラー発生", e);
+	public String handleException(HttpSession session) {
+		log.error("アプリケーションエラー発生");
 		return "notice";
 	}
 }
