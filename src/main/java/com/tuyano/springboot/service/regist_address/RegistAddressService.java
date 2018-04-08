@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.tuyano.springboot.dao.AddressDao;
 import com.tuyano.springboot.entity.Address;
+import com.tuyano.springboot.exceptioon.ApplicationException;
 import com.tuyano.springboot.exceptioon.SystemException;
 import com.tuyano.springboot.form.regist_address.InputAddressForm;
 
@@ -30,10 +31,14 @@ public class RegistAddressService {
 //					a.address + ", "+ a.buildingName);
 //		}
 		
-//		// システムエラーテスト用
-//		if ("syserr".equals(form.getFirstName())) {
-//			throw new SystemException();
-//		}
+		// システムエラーテスト用
+		if ("syserr".equals(form.getFirstName())) {
+			throw new SystemException();
+		}
+		// アプリケーションエラーテスト用
+		if ("syserr".equals(form.getFirstName())) {
+			throw new ApplicationException("アプリケーションエラー発生");
+		}
 		
 		Integer maxId = addressDao.selectMaxId();
 		
