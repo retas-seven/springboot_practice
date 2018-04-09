@@ -28,7 +28,7 @@ public class GenaralLogAop {
 
         // 例外発生時は内容をログに出力する。例外のハンドリングは例外ハンドラクラスで行うため、再スローする。
         } catch (ApplicationException e) {
-            log.warn("アプリケーションエラー発生：" + e.getMessage());
+            log.warn("アプリケーションエラー発生：" + e.getErrMsg());
             throw e;
             
         } catch (SystemException e) {

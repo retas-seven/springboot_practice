@@ -18,7 +18,6 @@ public class SystemExceptionHandler {
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(SystemException.class)
 	public String handleException(HttpSession session) {
-		log.error("システムエラー発生");
 		session.invalidate();
 		return "error_notice";
 	}

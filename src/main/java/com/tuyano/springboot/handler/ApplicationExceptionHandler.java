@@ -4,10 +4,10 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.tuyano.springboot.exceptioon.ApplicationException;
 
@@ -15,10 +15,13 @@ import com.tuyano.springboot.exceptioon.ApplicationException;
 public class ApplicationExceptionHandler {
 	private static final Logger log = LoggerFactory.getLogger(ApplicationExceptionHandler.class);
 	
-	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+//	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(ApplicationException.class)
-	public String handleException(HttpSession session) {
-		log.error("アプリケーションエラー発生");
-		return "notice";
+	public ModelAndView handleException(HttpSession session, ApplicationException e) {
+		session.invalidate();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("errMsg", e.getErrMsg());
+        modelAndView.setViewName("/notice");
+        return modelAndView;
 	}
 }

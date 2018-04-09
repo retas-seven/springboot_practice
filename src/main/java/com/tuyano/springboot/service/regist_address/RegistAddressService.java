@@ -36,8 +36,8 @@ public class RegistAddressService {
 			throw new SystemException();
 		}
 		// アプリケーションエラーテスト用
-		if ("syserr".equals(form.getFirstName())) {
-			throw new ApplicationException("アプリケーションエラー発生");
+		if ("apperr".equals(form.getFirstName())) {
+			throw new ApplicationException("アプリケーションエラーです。");
 		}
 		
 		Integer maxId = addressDao.selectMaxId();
