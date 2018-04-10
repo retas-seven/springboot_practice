@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="../static/css/dl/animate.css" th:href="@{/css/dl/animate.css}" rel="stylesheet" />
         <link href="../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
         <link href="../static/css/menu.css" th:href="@{/css/menu.css}" rel="stylesheet" />
         <title>WEB Addressbook</title>
@@ -26,19 +27,19 @@
 
                     <div class="row justify-content-center" style="margin-top: 50px;">
                         <div class="card-deck">
-                            <a th:href="@{'/regist_address/init'}" class="card text-center text-info bg-info menu_card">
+                            <a th:href="@{'/regist_address/init'}" class="card text-center text-info bg-info menu_card fadeInUpSmall animated">
                                 <img class="card-img" th:src="@{/img/1.png}" src="../static/img/1.png" />
                                 <div class="card-img-overlay">
                                     <h5 class="card-title menu_title">アドレス登録</h5>
                                 </div>
                             </a>
-                            <a href="#" class="card text-center text-success bg-success menu_card">
+                            <a href="#" class="card text-center text-success bg-success menu_card fadeInUpSmall animated">
                                 <img class="card-img" th:src="@{/img/2.png}" src="../static/img/2.png" />
                                 <div class="card-img-overlay">
                                     <h5 class="card-title menu_title">メンテナンス</h5>
                                 </div>
                             </a>
-                            <a href="#" class="card text-center text-primary bg-primary menu_card">
+                            <a href="#" class="card text-center text-primary bg-primary menu_card fadeInUpSmall animated">
                                 <img class="card-img" th:src="@{/img/3.png}" src="../static/img/3.png" />
                                 <div class="card-img-overlay">
                                     <h5 class="card-title menu_title">設定</h5>
