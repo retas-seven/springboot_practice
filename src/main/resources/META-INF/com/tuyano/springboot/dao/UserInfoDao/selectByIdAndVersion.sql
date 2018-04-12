@@ -3,6 +3,6 @@ select
 from
   user_info
 where
-  ID = /* id */'a'
+  ID = /* id */1
   and
   VERSION = /* version */1

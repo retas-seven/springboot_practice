@@ -3,4 +3,4 @@ select
 from
   user_info
 where
-  ID = /* id */'a'
+  ID = /* id */1

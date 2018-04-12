@@ -3,4 +3,4 @@ select
 from
   address
 where
-  ID = /* id */'a'
+  ID = /* id */1

@@ -1,3 +1,3 @@
 SELECT
-  max(cast(id as SIGNED)) 
+  max(id)
 FROM address
