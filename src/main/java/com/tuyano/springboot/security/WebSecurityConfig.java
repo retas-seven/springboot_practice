@@ -39,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //            .antMatchers("/**").hasRole("USER")
             .anyRequest().authenticated() // それ以外は全て認証無しの場合アクセス不許可
             .and()
-            .csrf().disable();
+            .csrf().disable()
             ;
 		
         // ログイン設定
@@ -53,6 +53,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .passwordParameter("password") // ユーザー名、パスワードのパラメータ名
             ;
 
+        // 自動ログインの設定
+        http.rememberMe()
+        .tokenValiditySeconds(86400) // 1ヶ月（秒）
+        .rememberMeParameter("remember-me")
+        .authenticationSuccessHandler(new RememberMeSuccessHandler())
+        ;
+        
         // ログアウト設定
         http.logout()
 //          .logoutRequestMatcher(new AntPathRequestMatcher("/logout**")) // ログアウト処理のパス
