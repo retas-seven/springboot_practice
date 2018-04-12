@@ -46,8 +46,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin()
             .loginProcessingUrl("/exec_login") // 認証処理のパス
             .loginPage("/") // ログインフォームのパス
-//          .failureUrl("/?error") // 認証失敗時に呼ばれるハンドラクラス
-            .failureHandler(new GeneralAuthenticationFailureHandler())
+//          .failureUrl("/?error")
+            .failureHandler(new GeneralAuthenticationFailureHandler()) // 認証失敗時に呼ばれるハンドラクラス
             .defaultSuccessUrl("/menu", true) // 認証成功時の遷移先
             .usernameParameter("email")
             .passwordParameter("password") // ユーザー名、パスワードのパラメータ名
@@ -55,8 +55,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // ログアウト設定
         http.logout()
-            .logoutRequestMatcher(new AntPathRequestMatcher("/logout**")) // ログアウト処理のパス
+//          .logoutRequestMatcher(new AntPathRequestMatcher("/logout**")) // ログアウト処理のパス
+            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
             .logoutSuccessUrl("/login") // ログアウト完了時のパス
+            .invalidateHttpSession(true)
+            .deleteCookies("JSESSIONID", "remember-me")
+            .permitAll()
             ;
     }
 
