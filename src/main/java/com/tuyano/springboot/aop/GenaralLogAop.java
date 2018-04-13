@@ -15,6 +15,7 @@ import com.tuyano.springboot.exceptioon.SystemException;
 public class GenaralLogAop {
 	private static final Logger log = LoggerFactory.getLogger(GenaralLogAop.class);
 	
+//    @Around("execution(* com.tuyano.springboot.controller..*.*(..)) || execution(* com.tuyano.springboot.security..*.*(..))")
     @Around("execution(* com.tuyano.springboot.controller..*.*(..))")
     public Object invoke(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Object ret = null;
@@ -40,7 +41,7 @@ public class GenaralLogAop {
             throw new SystemException(e);
             
         } finally {
-            log.info(String.format("[END] %s#%s",
+            log.info(String.format("[END  ] %s#%s",
                     proceedingJoinPoint.getTarget().getClass(),
                     proceedingJoinPoint.getSignature().getName()));
         }

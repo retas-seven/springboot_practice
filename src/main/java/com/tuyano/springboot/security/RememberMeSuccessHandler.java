@@ -29,6 +29,7 @@ public class RememberMeSuccessHandler implements
     HttpServletRequest httpServletRequest,
             HttpServletResponse httpServletResponse,
             Authentication authentication) throws IOException, ServletException {
+    	log.info("[START] class com.tuyano.springboot.security.RememberMeSuccessHandler#onAuthenticationSuccess");
     	
     	LoginUserDetails loginUserDetails = (LoginUserDetails) authentication.getPrincipal();
     	UserInfo userInfo = loginUserDetails.getUserInfo();
@@ -39,5 +40,7 @@ public class RememberMeSuccessHandler implements
         // remember-meログインをした場合、メニュー画面を最初に表示する
         String path = httpServletRequest.getContextPath() + "/menu";
         httpServletResponse.sendRedirect(path);
+        
+    	log.info("[END  ] class com.tuyano.springboot.security.RememberMeSuccessHandler#onAuthenticationSuccess");
     }
 }

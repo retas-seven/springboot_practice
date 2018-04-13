@@ -17,7 +17,7 @@ import com.tuyano.springboot.aop.GenaralLogAop;
 
 
 /**
- * Spring Securityの認証失敗時に呼ばれるハンドラクラス
+ * FormLoginの認証失敗時に実行するハンドラクラス
  */
 public class FormLoginFailureHandler implements
         AuthenticationFailureHandler {
@@ -27,8 +27,8 @@ public class FormLoginFailureHandler implements
     public void onAuthenticationFailure(
             HttpServletRequest httpServletRequest,
             HttpServletResponse httpServletResponse,
-            AuthenticationException authenticationException)
-                    throws IOException, ServletException {
+            AuthenticationException authenticationException) throws IOException, ServletException {
+    	log.info("[START] class com.tuyano.springboot.security.FormLoginFailureHandler#onAuthenticationFailure");
 
         if(authenticationException instanceof BadCredentialsException){
             log.info(authenticationException.getLocalizedMessage());
@@ -37,5 +37,7 @@ public class FormLoginFailureHandler implements
         // ログイン画面にリダイレクトする
         String path = httpServletRequest.getContextPath() + "/?error";
         httpServletResponse.sendRedirect(path);
+
+    	log.info("[END  ] class com.tuyano.springboot.security.FormLoginFailureHandler#onAuthenticationFailure");
     }
 }
