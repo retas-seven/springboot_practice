@@ -19,9 +19,9 @@ import com.tuyano.springboot.aop.GenaralLogAop;
 /**
  * Spring Securityの認証失敗時に呼ばれるハンドラクラス
  */
-public class GeneralAuthenticationFailureHandler implements
+public class FormLoginFailureHandler implements
         AuthenticationFailureHandler {
-	private static final Logger log = LoggerFactory.getLogger(GeneralAuthenticationFailureHandler.class);
+	private static final Logger log = LoggerFactory.getLogger(FormLoginFailureHandler.class);
 
     @Override
     public void onAuthenticationFailure(
