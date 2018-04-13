@@ -36,6 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // 認可の設定
         http.authorizeRequests()
             .antMatchers("/").permitAll() // indexは全ユーザーアクセス許可
+            .antMatchers("/regist_user/**").permitAll()
 //            .antMatchers("/**").hasRole("USER")
             .anyRequest().authenticated() // それ以外は全て認証無しの場合アクセス不許可
             .and()

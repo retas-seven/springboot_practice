@@ -1,0 +1,14 @@
+.bg_image{
+    background-image: url("../../img/bg_regist_user.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin:0px;
+}
+
+.label_name {
+    color: rgba(117, 27, 5, 0.87);
+    border-radius: 5px;
+    text-align: right;
+}
