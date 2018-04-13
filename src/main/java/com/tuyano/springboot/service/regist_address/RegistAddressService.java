@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.tuyano.springboot.dao.AddressDao;
 import com.tuyano.springboot.entity.Address;
+import com.tuyano.springboot.entity.UserInfo;
 import com.tuyano.springboot.exceptioon.ApplicationException;
 import com.tuyano.springboot.exceptioon.SystemException;
 import com.tuyano.springboot.form.regist_address.InputAddressForm;
+import com.tuyano.springboot.util.ApUtil;
 
 @Service
 public class RegistAddressService {
@@ -27,20 +29,22 @@ public class RegistAddressService {
 			throw new ApplicationException("アプリケーションエラーです。");
 		}
 		
+		UserInfo userInfo = ApUtil.getUserInfo();
+		
 		Address address = new Address();
-		address.firstname = form.getFirstName();
-		address.lastname = form.getLastName();
-		address.mobilePhoneNumber = form.getMobilePhoneNumber();
-		address.homePhoneNumber = form.getHomePhoneNumber();
-		address.email = form.getEmail();
-		address.zipCode = form.getZipCode();
-		address.prefecture = form.getPrefecture();
-		address.address = form.getAddress();
-		address.buildingName = form.getBuildingName();
-		address.registDate = LocalDateTime.now();
-		address.registUserId = "test"; // TODO ユーザIDを取得できるようにする
-		address.updateDate = LocalDateTime.now();
-		address.updateUserId = "test"; // TODO ユーザIDを取得できるようにする
+		address.setFirstname(form.getFirstName());
+		address.setLastname(form.getLastName());
+		address.setMobilePhoneNumber(form.getMobilePhoneNumber());
+		address.setHomePhoneNumber(form.getHomePhoneNumber());
+		address.setEmail(form.getEmail());
+		address.setZipCode(form.getZipCode());
+		address.setPrefecture(form.getPrefecture());
+		address.setAddress(form.getAddress());
+		address.setBuildingName(form.getBuildingName());
+		address.setRegistDate(LocalDateTime.now());
+		address.setRegistUserId(userInfo.getId().toString());
+		address.setUpdateDate(LocalDateTime.now());
+		address.setUpdateUserId(userInfo.getId().toString());
 		addressDao.insert(address);
 	}
 }

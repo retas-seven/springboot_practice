@@ -12,7 +12,7 @@ public class LoginUserDetails extends org.springframework.security.core.userdeta
     public LoginUserDetails(UserInfo userInfo) {
         // スーパークラスのユーザーID、パスワードに値をセットする
         // 実際の認証はスーパークラスのユーザーID、パスワードで行われる
-        super(userInfo.email, userInfo.password,
+        super(userInfo.getEmail(), userInfo.getPassword(),
                 AuthorityUtils.createAuthorityList("USER"));
         this.userInfo = userInfo;
     }
@@ -40,15 +40,19 @@ public class LoginUserDetails extends org.springframework.security.core.userdeta
 
     @Override
 	public String getUsername() {
-		return userInfo.email;
+		return userInfo.getEmail();
 	}
 
     @Override
 	public String getPassword() {
-		return userInfo.password;
+		return userInfo.getPassword();
 	}
 
-    public UserInfo getUser() {
+    public UserInfo getUserInfo() {
         return userInfo;
+    }
+    
+    public Integer getId() {
+    	return userInfo.getId();
     }
 }
