@@ -52,6 +52,9 @@ dependencies {
     // AOP
     compile('org.springframework.boot:spring-boot-starter-aop')
     
+    // Mail
+    compile('org.springframework.boot:spring-boot-starter-mail')
+    
     // Test
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

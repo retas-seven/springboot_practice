@@ -1,15 +1,22 @@
 package com.tuyano.springboot.util;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.tuyano.springboot.constant.ApConst;
 import com.tuyano.springboot.entity.UserInfo;
+import com.tuyano.springboot.exceptioon.SystemException;
 
 public class ApUtil {
-	
+	private static final Logger log = LoggerFactory.getLogger(ApUtil.class);
+
 	/**
 	 * アプリ内で使用するログインユーザ情報をセッションに保持する。
 	 * @param session セッションオブジェクト
@@ -29,4 +36,22 @@ public class ApUtil {
 	    UserInfo userInfo = (UserInfo) session.getAttribute(ApConst.SESSION_KEY_USER_INFO);
 	    return userInfo;
 	}
+	
+    /**
+     * URLエンコード処理を行う
+     * @param text URLエンコード対象文字列
+     * @return URLエンコードされた文字列
+     */
+    public static String urlEncode(String text) {
+    	String encodedResult = null;
+    	
+    	try {
+    		encodedResult = URLEncoder.encode(text, "UTF-8");
+    	} catch (UnsupportedEncodingException e) {
+    		throw new SystemException(e);
+    	}
+    	
+		log.debug("URLエンコード結果：" + encodedResult);
+		return encodedResult;
+    }
 }

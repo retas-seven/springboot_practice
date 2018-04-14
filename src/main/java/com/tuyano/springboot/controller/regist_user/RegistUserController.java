@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.tuyano.springboot.form.regist_user.RegistUserForm;
@@ -27,21 +28,30 @@ public class RegistUserController {
 	
 	@ModelAttribute(value = "registUserForm")
 	public RegistUserForm setUpRegistUserForm() {
+		log.info("Formを初期化");
 	    return new RegistUserForm();
 	}
 	
 	@RequestMapping(value="/init")
-	public String send(Model model) {
+	public String init(Model model) {
 		return "/regist_user/input";
 	}
 	
-	@RequestMapping(value="/temp_regist", method=RequestMethod.POST)
-	public String tempRegist(@Valid RegistUserForm registUserForm, BindingResult bindingResult) {
-
+	@RequestMapping(value="/regist", method=RequestMethod.POST)
+	public String tempRegist(@Valid RegistUserForm form, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "/regist_user/input";
         }
         
+        registUserService.tempRegist(form);
+        
 		return "/regist_user/complete";
+	}
+	
+	@RequestMapping(value="/regist", method=RequestMethod.GET)
+	public String mainRegist(@RequestParam String p, Model model) {
+		log.info(p);
+		registUserService.mainRegist(p);
+		return "/login";
 	}
 }
