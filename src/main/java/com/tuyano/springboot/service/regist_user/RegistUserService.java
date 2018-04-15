@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.mail.MailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class RegistUserService {
 	private HttpServletRequest req;
 	
 	@Autowired
-	private MailSender mailSender;
+	private MailUtil mailUtil;
 	
 	public void tempRegist(RegistUserForm form) {
 		StringBuilder mainRegistUrl = new StringBuilder();
@@ -62,10 +63,10 @@ public class RegistUserService {
 		// TODO: DB登録処理
 		
 		// 登録確認メール送信
-		// application.propertiesの下記項目を設定してから実行する
+		// mail.propertiesの下記項目を設定してから実行する
 		// ・spring.mail.username
 		// ・spring.mail.password
-		MailUtil.send(mailSender, form.getEmail(), url);
+		mailUtil.send(form.getEmail(), url);
 	}
 	
 	public void mainRegist(String param) {
