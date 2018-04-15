@@ -41,4 +41,5 @@ bin
 .factorypath
 
 #‚»‚Ì‘¼
-mail.properties
+src/main/resources/mail.properties
+
