@@ -40,6 +40,3 @@ bin
 .apt_generated
 .factorypath
 
-#‚»‚Ì‘¼
-src/main/resources/mail.properties
-
