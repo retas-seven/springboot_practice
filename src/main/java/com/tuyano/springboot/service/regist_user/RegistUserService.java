@@ -24,15 +24,13 @@ public class RegistUserService {
 	@Autowired
 	private MailUtil mailUtil;
 	
-	@Autowired
-	BCryptPasswordEncoder encoder;
-	
 	public void tempRegist(RegistUserForm form) {
 		StringBuilder mainRegistUrl = new StringBuilder();
 		int serverPort = req.getServerPort();
 		String contextPath = req.getContextPath();
-		String peVal = encoder.encode(form.getEmail());
-		String urlEVal = ApUtil.urlEncode(peVal);
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String encodeVal = encoder.encode(form.getEmail());
+		String urlEncodeVal = ApUtil.urlEncode(encodeVal);
 		
 		//-----------------------------
 		// 登録確認メールに記載するURLを構築
@@ -56,7 +54,7 @@ public class RegistUserService {
 		mainRegistUrl
 			.append(req.getServletPath())
 			.append("?p=")
-			.append(urlEVal);
+			.append(urlEncodeVal);
 		
 		String url = mainRegistUrl.toString();
 		log.info(url);
