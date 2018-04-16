@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
@@ -23,17 +24,14 @@ public class RegistUserService {
 	@Autowired
 	private MailUtil mailUtil;
 	
-	
 	@Autowired
-	
+	BCryptPasswordEncoder encoder;
 	
 	public void tempRegist(RegistUserForm form) {
 		StringBuilder mainRegistUrl = new StringBuilder();
 		int serverPort = req.getServerPort();
 		String contextPath = req.getContextPath();
-		//BCryptPasswordEncoder pe = new BCryptPasswordEncoder();
-		//String peVal = pe.encode(form.getEmail());
-		String peVal = DigestUtils.md5DigestAsHex(form.getEmail().getBytes());
+		String peVal = encoder.encode(form.getEmail());
 		String urlEVal = ApUtil.urlEncode(peVal);
 		
 		//-----------------------------
