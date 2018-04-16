@@ -40,5 +40,5 @@ bin
 .apt_generated
 .factorypath
 
-
+src/main/resources/mail.properties
 
