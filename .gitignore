@@ -36,9 +36,9 @@ bin
 *.swp
 *.bak
 
-#Doma�֘A
+#Doma
 .apt_generated
 .factorypath
 
-src/main/resources/mail.properties
+
 
