@@ -1,8 +1,10 @@
 package com.tuyano.springboot.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -37,7 +39,8 @@ public class GenaralLogAop {
             throw e;
             
         } catch (Exception e) {
-            log.error("例外発生：" + e.getMessage());
+            log.error("例外発生：" + e.getCause());
+            e.printStackTrace();
             throw new SystemException(e);
             
         } finally {
@@ -46,6 +49,24 @@ public class GenaralLogAop {
                     proceedingJoinPoint.getSignature().getName()));
         }
         
+        return ret;
+    }
+    
+    @Around("execution(* com.tuyano.springboot.service..*.*(..))")
+    public Object invokeService(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        Object ret = null;
+        
+        log.info(String.format("[START] %s#%s",
+                proceedingJoinPoint.getTarget().getClass(),
+                proceedingJoinPoint.getSignature().getName()));
+
+        // 業務処理実行
+        ret = proceedingJoinPoint.proceed();
+
+        log.info(String.format("[END  ] %s#%s",
+                proceedingJoinPoint.getTarget().getClass(),
+                proceedingJoinPoint.getSignature().getName()));
+
         return ret;
     }
 }

@@ -1,15 +1,23 @@
 package com.tuyano.springboot.service.regist_user;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.codec.Hex;
 import org.springframework.stereotype.Service;
-import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
 
+import com.tuyano.springboot.dao.TempUserInfoDao;
+import com.tuyano.springboot.entity.TempUserInfo;
+import com.tuyano.springboot.exceptioon.SystemException;
 import com.tuyano.springboot.form.regist_user.RegistUserForm;
 import com.tuyano.springboot.util.ApUtil;
 import com.tuyano.springboot.util.MailUtil;
@@ -24,13 +32,51 @@ public class RegistUserService {
 	@Autowired
 	private MailUtil mailUtil;
 	
+	@Autowired
+	TempUserInfoDao tempUserInfoDao;
+	
 	public void tempRegist(RegistUserForm form) {
+		String authKey = null;
+		
+		try {
+			MessageDigest salt = MessageDigest.getInstance("SHA-512");
+			salt.update(UUID.randomUUID().toString().getBytes("UTF-8"));
+			authKey = new String(Hex.encode(salt.digest()));
+			
+		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+			throw new SystemException(e);
+		}
+		
+		// DB登録処理
+		registTempUserInfo(form.getEmail(), authKey);
+		
+		// 認証用のURLを作成する
+		String url = buildUrl(authKey);
+		
+		// 登録確認メール送信
+		// mail.propertiesの下記項目を設定してから実行する
+		// ・spring.mail.username
+		// ・spring.mail.password
+		mailUtil.send(form.getEmail(), url);
+	}
+	
+	private void registTempUserInfo(String email, String authKey) {
+		TempUserInfo info = new TempUserInfo();
+		info.setAuthKey(authKey);
+		info.setEmail(email);
+		info.setRegistDate(LocalDateTime.now());
+		info.setRegistUserId("system");
+		info.setUpdateDate(LocalDateTime.now());
+		info.setUpdateUserId("system");
+		tempUserInfoDao.insert(info);
+	}
+	
+	private String buildUrl(String authKey) {
+		String ret = null;
 		StringBuilder mainRegistUrl = new StringBuilder();
 		int serverPort = req.getServerPort();
 		String contextPath = req.getContextPath();
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		String encodeVal = encoder.encode(form.getEmail());
-		String urlEncodeVal = ApUtil.urlEncode(encodeVal);
+		String urlEncodeVal = ApUtil.urlEncode(authKey);
 		
 		//-----------------------------
 		// 登録確認メールに記載するURLを構築
@@ -56,16 +102,10 @@ public class RegistUserService {
 			.append("?p=")
 			.append(urlEncodeVal);
 		
-		String url = mainRegistUrl.toString();
-		log.info(url);
+		ret = mainRegistUrl.toString();
+		log.info(ret);
 		
-		// TODO: DB登録処理
-		
-		// 登録確認メール送信
-		// mail.propertiesの下記項目を設定してから実行する
-		// ・spring.mail.username
-		// ・spring.mail.password
-		mailUtil.send(form.getEmail(), url);
+		return ret;
 	}
 	
 	public void mainRegist(String param) {

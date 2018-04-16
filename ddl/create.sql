@@ -24,13 +24,27 @@ CREATE TABLE ADDRESS (
 );
 
 CREATE TABLE USER_INFO (
-  ID                      INT(11)     NOT NULL AUTO_INCREMENT            COMMENT 'ID'
-  , EMAIL                 VARCHAR(50)                                    COMMENT 'メールアドレス'
-  , PASSWORD              VARCHAR(100)                                   COMMENT 'パスワード'
-  , REGIST_DATE           TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '登録年月日'
-  , REGIST_USER_ID        VARCHAR(11) NOT NULL                           COMMENT '登録ユーザID'
-  , UPDATE_DATE           TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新年月日'
-  , UPDATE_USER_ID        VARCHAR(11) NOT NULL                           COMMENT '更新ユーザID'
-  , VERSION               INT(11)     NOT NULL DEFAULT '0'               COMMENT 'バージョン（楽観ロック用）'
+  ID                      INT(11)      NOT NULL AUTO_INCREMENT            COMMENT 'ID'
+  , EMAIL                 VARCHAR(50)  NOT NULL                           COMMENT 'メールアドレス'
+  , PASSWORD              VARCHAR(100) NOT NULL                           COMMENT 'パスワード'
+  , REGIST_DATE           TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '登録年月日'
+  , REGIST_USER_ID        VARCHAR(11)  NOT NULL                           COMMENT '登録ユーザID'
+  , UPDATE_DATE           TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新年月日'
+  , UPDATE_USER_ID        VARCHAR(11)  NOT NULL                           COMMENT '更新ユーザID'
+  , VERSION               INT(11)      NOT NULL DEFAULT '0'               COMMENT 'バージョン（楽観ロック用）'
   , PRIMARY KEY (ID)
 );
+
+CREATE TABLE TEMP_USER_INFO (
+  ID                      INT(11)      NOT NULL AUTO_INCREMENT            COMMENT 'ID'
+  , AUTH_KEY              VARCHAR(150) NOT NULL                           COMMENT '認証キー'
+  , EMAIL                 VARCHAR(50)  NOT NULL                           COMMENT 'メールアドレス'
+  , REGIST_DATE           TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '登録年月日'
+  , REGIST_USER_ID        VARCHAR(11)  NOT NULL                           COMMENT '登録ユーザID'
+  , UPDATE_DATE           TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新年月日'
+  , UPDATE_USER_ID        VARCHAR(11)  NOT NULL                           COMMENT '更新ユーザID'
+  , VERSION               INT(11)      NOT NULL DEFAULT '0'               COMMENT 'バージョン（楽観ロック用）'
+  , PRIMARY KEY (ID)
+  , UNIQUE(AUTH_KEY)
+);
+
