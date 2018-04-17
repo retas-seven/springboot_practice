@@ -17,8 +17,12 @@ import com.tuyano.springboot.util.ApUtil;
 public class RegistAddressService {
 	
 	@Autowired
-	AddressDao addressDao;
+	private AddressDao addressDao;
 
+	/**
+	 * アドレス情報を登録する。
+	 * @param form アドレス登録機能Form
+	 */
 	public void regist(InputAddressForm form) {
 		// システムエラーテスト用
 		if ("syserr".equals(form.getFirstName())) {
@@ -30,7 +34,6 @@ public class RegistAddressService {
 		}
 		
 		UserInfo userInfo = ApUtil.getUserInfo();
-		
 		Address address = new Address();
 		address.setBelongUserId(userInfo.getId());
 		address.setFirstname(form.getFirstName());

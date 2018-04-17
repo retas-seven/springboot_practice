@@ -24,40 +24,71 @@ public class RegistAddressController {
 	private static final Logger log = LoggerFactory.getLogger(RegistAddressController.class);
 
 	@Autowired
-	RegistAddressService registAddressService;
+	private RegistAddressService registAddressService;
 	
+	/**
+	 * アドレス登録機能Formをセッションに登録する。
+	 * @return アドレス登録機能Form
+	 */
 	@ModelAttribute(value = "inputAddressForm")
 	public InputAddressForm setUpInputAddressForm() {
-		log.info("アドレス登録機能用のFormを初期化");
+		log.info("アドレス登録機能Formを初期化");
 	    return new InputAddressForm();
 	}
 	
+	/**
+	 * 初期処理。
+	 * @param model Model
+	 * @return アドレス情報入力画面パス
+	 */
 	@RequestMapping(value="/init")
 	public String send(Model model) {
 		return "/regist_address/input";
 	}
 	
+	/**
+	 * 登録内容確認へ遷移する。
+	 * @param inputAddressForm アドレス登録機能Form
+	 * @param bindingResult BindingResult
+	 * @return 登録内容確認画面パス
+	 */
 	@RequestMapping(value="/input", method=RequestMethod.POST)
 	public String registAddress(@Valid InputAddressForm inputAddressForm, BindingResult bindingResult) {
-		System.out.println(inputAddressForm);
-
         if (bindingResult.hasErrors()) {
             return "/regist_address/input";
         }
-        
 		return "/regist_address/confirm";
 	}
 	
-	@RequestMapping(value="/confirm", method=RequestMethod.POST)
+	 /**
+	  * アドレス情報を登録する。
+	  * @param inputAddressForm アドレス登録機能Form
+	  * @param model Model
+	  * @return 登録完了画面パス
+	  */
+	@RequestMapping(value="/confirm", params="regist_button", method=RequestMethod.POST)
 	public String confirmAddress(InputAddressForm inputAddressForm, Model model) {
-		System.out.println(inputAddressForm);
-		
 		// アドレス情報登録処理
 		registAddressService.regist(inputAddressForm);
-		
 		return "/regist_address/complete";
 	}
 	
+	 /**
+	  * アドレス情報入力画面へ戻る。
+	  * @param inputAddressForm アドレス登録機能Form
+	  * @param model Model
+	  * @return アドレス情報入力画面パス
+	  */
+	@RequestMapping(value="/confirm", params="back_button", method=RequestMethod.POST)
+	public String backInput(Model model) {
+		return "/regist_address/input";
+	}
+	
+	/**
+	 * メニュー画面へ戻る。
+	 * @param sessionStatus SessionStatus
+	 * @return メニュー画面パス
+	 */
 	@RequestMapping(value="/complete", method=RequestMethod.POST)
 	public String completeAddress(SessionStatus sessionStatus) {
 		// 後処理：セッション削除

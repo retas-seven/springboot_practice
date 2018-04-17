@@ -36,10 +36,10 @@ public class RegistUserService {
 	private MailUtil mailUtil;
 	
 	@Autowired
-	TempUserInfoDao tempUserInfoDao;
+	private TempUserInfoDao tempUserInfoDao;
 	
 	@Autowired
-	UserInfoDao userInfoDao;
+	private UserInfoDao userInfoDao;
 	
 	/**
 	 * ユーザ情報を仮登録し、登録確認メールを送信する。
