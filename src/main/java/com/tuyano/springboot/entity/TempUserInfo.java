@@ -30,6 +30,10 @@ public class TempUserInfo {
     @Column(name = "EMAIL")
     String email;
 
+    /** パスワード */
+    @Column(name = "PASSWORD")
+    String password;
+
     /** 登録年月日 */
     @Column(name = "REGIST_DATE")
     LocalDateTime registDate;
@@ -103,6 +107,24 @@ public class TempUserInfo {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /** 
+     * Returns the password.
+     * 
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /** 
+     * Sets the password.
+     * 
+     * @param password the password
+     */
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     /** 

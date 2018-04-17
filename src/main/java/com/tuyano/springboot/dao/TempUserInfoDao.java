@@ -51,4 +51,6 @@ public interface TempUserInfoDao {
     @Delete
     int delete(TempUserInfo entity);
 
+    @Select
+    TempUserInfo selectByAuthKey(String authKey);
 }

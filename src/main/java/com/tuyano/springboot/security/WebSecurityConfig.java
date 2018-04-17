@@ -81,7 +81,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         @Bean //パスワードの暗号化方式を設定
         public PasswordEncoder passwordEncoder() {
         	BCryptPasswordEncoder ret = new BCryptPasswordEncoder();
-        	System.out.println("aaa is [" + ret.encode("aaa") + "]");
             return ret; 
 //        	return org.springframework.security.crypto.password.NoOpPasswordEncoder.getInstance();
         }

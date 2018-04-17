@@ -11,12 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.codec.Hex;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.tuyano.springboot.dao.TempUserInfoDao;
+import com.tuyano.springboot.dao.UserInfoDao;
 import com.tuyano.springboot.entity.TempUserInfo;
+import com.tuyano.springboot.entity.UserInfo;
 import com.tuyano.springboot.exceptioon.SystemException;
 import com.tuyano.springboot.form.regist_user.RegistUserForm;
 import com.tuyano.springboot.util.ApUtil;
@@ -35,6 +38,9 @@ public class RegistUserService {
 	@Autowired
 	TempUserInfoDao tempUserInfoDao;
 	
+	@Autowired
+	UserInfoDao userInfoDao;
+	
 	public void tempRegist(RegistUserForm form) {
 		String authKey = null;
 		
@@ -48,7 +54,7 @@ public class RegistUserService {
 		}
 		
 		// DB登録処理
-		registTempUserInfo(form.getEmail(), authKey);
+		registTempUserInfo(form, authKey);
 		
 		// 認証用のURLを作成する
 		String url = buildUrl(authKey);
@@ -60,14 +66,19 @@ public class RegistUserService {
 		mailUtil.send(form.getEmail(), url);
 	}
 	
-	private void registTempUserInfo(String email, String authKey) {
+	private void registTempUserInfo(RegistUserForm form, String authKey) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String encordPassword = encoder.encode(form.getPassword());
+		
 		TempUserInfo info = new TempUserInfo();
 		info.setAuthKey(authKey);
-		info.setEmail(email);
+		info.setEmail(form.getEmail());
+		info.setPassword(encordPassword);
 		info.setRegistDate(LocalDateTime.now());
 		info.setRegistUserId("system");
 		info.setUpdateDate(LocalDateTime.now());
 		info.setUpdateUserId("system");
+		
 		tempUserInfoDao.insert(info);
 	}
 	
@@ -108,7 +119,16 @@ public class RegistUserService {
 		return ret;
 	}
 	
-	public void mainRegist(String param) {
-		// TODO: DB登録処理
+	public void mainRegist(String authKey) {
+		TempUserInfo tempUserInfo = tempUserInfoDao.selectByAuthKey(authKey);
+		
+		UserInfo userInfo = new UserInfo();
+		userInfo.setEmail(tempUserInfo.getEmail());
+		userInfo.setPassword(tempUserInfo.getPassword());
+		userInfo.setRegistDate(LocalDateTime.now());
+		userInfo.setRegistUserId("system");
+		userInfo.setUpdateDate(LocalDateTime.now());
+		userInfo.setUpdateUserId("system");
+		userInfoDao.insert(userInfo);
 	}
 }

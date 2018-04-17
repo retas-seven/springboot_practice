@@ -22,6 +22,10 @@ public class Address {
     @Column(name = "ID")
     Integer id;
 
+    /** 所属ユーザID */
+    @Column(name = "BELONG_USER_ID")
+    Integer belongUserId;
+
     /** 姓 */
     @Column(name = "LASTNAME")
     String lastname;
@@ -95,6 +99,24 @@ public class Address {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /** 
+     * Returns the belongUserId.
+     * 
+     * @return the belongUserId
+     */
+    public Integer getBelongUserId() {
+        return belongUserId;
+    }
+
+    /** 
+     * Sets the belongUserId.
+     * 
+     * @param belongUserId the belongUserId
+     */
+    public void setBelongUserId(Integer belongUserId) {
+        this.belongUserId = belongUserId;
     }
 
     /** 
