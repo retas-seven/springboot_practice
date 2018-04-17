@@ -41,6 +41,10 @@ public class RegistUserService {
 	@Autowired
 	UserInfoDao userInfoDao;
 	
+	/**
+	 * ユーザ情報を仮登録し、登録確認メールを送信する。
+	 * @param form RegistUserForm
+	 */
 	public void tempRegist(RegistUserForm form) {
 		String authKey = null;
 		
@@ -66,6 +70,11 @@ public class RegistUserService {
 		mailUtil.send(form.getEmail(), url);
 	}
 	
+	/**
+	 * ユーザ情報を仮登録する。
+	 * @param form RegistUserForm
+	 * @param authKey 認証キー
+	 */
 	private void registTempUserInfo(RegistUserForm form, String authKey) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		String encordPassword = encoder.encode(form.getPassword());
@@ -82,6 +91,11 @@ public class RegistUserService {
 		tempUserInfoDao.insert(info);
 	}
 	
+	/**
+	 * 仮登録ユーザを本登録するための認証用URLを作成する。
+	 * @param authKey 認証キー
+	 * @return 認証用URL
+	 */
 	private String buildUrl(String authKey) {
 		String ret = null;
 		StringBuilder mainRegistUrl = new StringBuilder();
@@ -119,6 +133,10 @@ public class RegistUserService {
 		return ret;
 	}
 	
+	/**
+	 * 仮登録されたユーザを本登録する。 
+	 * @param authKey 認証キー
+	 */
 	public void mainRegist(String authKey) {
 		TempUserInfo tempUserInfo = tempUserInfoDao.selectByAuthKey(authKey);
 		
