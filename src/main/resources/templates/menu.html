@@ -14,12 +14,7 @@
     <body>
         <div class="flex_column">
             <!-- HEADER -->
-            <div class="flex_header">
-                <nav class="navbar navbar-light">
-                    <a class="navbar-brand" href="#">WEB Addressbook</a>
-                    <a href="login.html" th:href="@{'/logout'}" class="btn btn-outline-info" title="ログアウト"><i class="fas fa-sign-out-alt fa-fw"></i>ログアウト</a>
-                </nav>
-            </div>
+            <div th:replace="/fragment/header.html::logout_header"></div>
             
             <!-- CONTENTS -->
             <div class="flex_contents bg_image">

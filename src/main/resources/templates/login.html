@@ -13,12 +13,7 @@
     <body>
         <div class="flex_column">
             <!-- HEADER -->
-            <div class="flex_header">
-                <nav class="navbar navbar-light">
-                    <a class="navbar-brand" href="#">WEB Addressbook</a>
-                    <a href="regist_user/input.html" th:href="@{'/regist_user/init'}" class="btn btn-success" title="新規登録"><i class="fas fa-cog fa-spin fa-fw"></i> 新規登録</a>
-                </nav>
-            </div>
+            <div th:replace="/fragment/header.html::sign_up_header"></div>
             
             <!-- CONTENTS -->
             <div class="flex_contents bg_image">

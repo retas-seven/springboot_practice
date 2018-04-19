@@ -1,11 +1,12 @@
 package com.tuyano.springboot.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tuyano.springboot.handler.ApplicationExceptionHandler;
@@ -14,6 +15,9 @@ import com.tuyano.springboot.handler.ApplicationExceptionHandler;
 public class HelloController {
 	private static final Logger log = LoggerFactory.getLogger(ApplicationExceptionHandler.class);
 
+	@Autowired
+	HttpSession session;
+	
 	@RequestMapping(value="/")
 	public ModelAndView index(ModelAndView mav) {
 		mav.setViewName("/login");
@@ -26,6 +30,12 @@ public class HelloController {
 //		return mav;
 //	}
 
+	@RequestMapping(value="/return_top")
+	public ModelAndView returnTop(ModelAndView mav) {
+		mav.setViewName("/login");
+		return mav;
+	}
+	
 	@RequestMapping(value="/login")
 	public ModelAndView login(ModelAndView mav) {
 		mav.setViewName("/login");

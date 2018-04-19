@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <!-- ボタンなしヘッダ -->
+        <div class="flex_header" th:fragment="no_button_header">
+            <nav class="navbar navbar-light">
+                <a class="navbar-brand" href="#">WEB Addressbook</a>
+            </nav>
+        </div>
+        
+        <!-- ログアウトボタンありヘッダ -->
+        <div class="flex_header"　th:fragment="logout_header">
+            <nav class="navbar navbar-light">
+                <a class="navbar-brand" href="#">WEB Addressbook</a>
+                <a href="../login.html" th:href="@{'/logout'}" class="btn btn-outline-info" title="ログアウト"><i class="fas fa-sign-out-alt fa-fw"></i>ログアウト</a>
+            </nav>
+        </div>
+        
+        <!-- 新規登録ボタンありヘッダ -->
+        <div class="flex_header"　th:fragment="sign_up_header">
+            <nav class="navbar navbar-light">
+                <a class="navbar-brand" href="#">WEB Addressbook</a>
+                <a href="regist_user/input.html" th:href="@{'/regist_user/init'}" class="btn btn-execute" title="新規登録"><i class="fas fa-cog fa-spin fa-fw"></i> 新規登録</a>
+            </nav>
+        </div>
+    </body>
+</html>

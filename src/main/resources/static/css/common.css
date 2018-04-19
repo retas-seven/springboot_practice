@@ -1,8 +1,17 @@
-/* ‰æ–Ê\¬ */
+@charset "utf-8";
+
+/** å…±é€š */
 body {
     letter-spacing: .1em;
     line-height: 1.5;
 }
+.btn {
+	/* Bootstrap ã® ã€Œbtnã€ ã¯ letter-spacingï¼Œline-height ã‚’ normal ã«ã™ã‚‹ */
+    letter-spacing: normal;
+    line-height: normal;
+}
+
+/* ç”»é¢æ§‹æˆ */
 .flex_column{
     min-height: 100vh;
     display: flex;
@@ -28,12 +37,12 @@ body {
 	text-align: right;
 }
 
-/* ƒeƒLƒXƒgƒ{ƒbƒNƒX‚ÌƒI[ƒgƒRƒ“ƒvƒŠ[ƒg‚Ì”wŒiF */
+/* ãƒ†ã‚­ã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ã®ã‚ªãƒ¼ãƒˆã‚³ãƒ³ãƒ—ãƒªãƒ¼ãƒˆæ™‚ã®èƒŒæ™¯è‰² */
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
-/* hr F Ô */
+/* hr ï¼š èµ¤ */
 .hr_red {
   display: block;
   width: 100%;
@@ -43,7 +52,7 @@ input:-webkit-autofill {
   margin-bottom: 30px;
 }
 
-/* ƒtƒF[ƒhƒCƒ“ */
+/* ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³ */
 @keyframes fadeInUpSmall {
     from {
         opacity: 0;
@@ -58,7 +67,7 @@ input:-webkit-autofill {
       animation-name: fadeInUpSmall;
 }    
 
-/* ƒGƒ‰[ƒƒbƒZ[ƒW */
+/* ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ */
 .has-error {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
@@ -72,6 +81,21 @@ input:-webkit-autofill {
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+/* ç‹¬è‡ªãƒœã‚¿ãƒ³ */
+.btn-execute {
+    background: rgb(255, 95, 95);
+    border: 1px solid;
+    border-color: rgb(255, 95, 95);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.86);
+}
+.btn-execute:hover {
+    background: rgb(255, 125, 2);
+    border-color: rgb(255, 125, 2);
+    color: rgb(255, 255, 255);
+}
+
 
 .col_str {
     color: rgba(117, 27, 5, 0.87);
