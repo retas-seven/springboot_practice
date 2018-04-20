@@ -12,19 +12,19 @@ public class InputAddressForm {
 	@Size(max = 50)
     private String lastName;
 
-    @Pattern(regexp="[0-9]*")
+    @Pattern(regexp="[0-9\\-]*", message="{Pattern.phoneNumber.message}")
 	@Size(max = 15)
     private String mobilePhoneNumber;
 
-    @Pattern(regexp="[0-9]*")
+    @Pattern(regexp="[0-9\\-]*", message="{Pattern.phoneNumber.message}")
 	@Size(max = 15)
     private String homePhoneNumber;
 
 	@Size(max = 50)
+	@Pattern(regexp="^$|^([\"*+!.&#$|\\'\\\\%\\/0-9a-z^_`{}=?~:-]*)@(([0-9a-z-]+\\.)+[0-9a-z]{2,})$", message="{Pattern.email.message}")
     private String email;
-    
-    @Pattern(regexp="[0-9]*")
-	@Size(max = 7)
+
+    @Pattern(regexp="^$|^\\d{3}\\-?\\d{4}$", message="{Pattern.zipCode.message}")
     private String zipCode;
 
 	@Size(max = 50)

@@ -21,6 +21,7 @@
                 <div class="container">
                     <h2>アドレス情報入力</h2>
                     <hr class="hr_red">
+                    <p th:errors="${inputAddressForm}" th:errorclass="has-global-error" />
 
                     <form method="post" action="/regist_address/input" th:object="${inputAddressForm}">
                       <div class="form-group row">
@@ -66,7 +67,7 @@
                       <div class="form-group row">
                         <label for="zipCode" class="col-sm-2 col-form-label label_name">郵便番号</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="zipCode" name="zipCode" th:field="*{zipCode}" />
+                          <input type="text" class="form-control" id="zipCode" name="zipCode" th:field="*{zipCode}" placeholder="例）100-0000" />
                           <p th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}" th:errorclass="has-error" />
                         </div>
                       </div>

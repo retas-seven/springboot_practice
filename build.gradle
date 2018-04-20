@@ -37,12 +37,14 @@ configurations {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	
+	// Doma
 	compile('org.seasar.doma:doma:2.19.2')
 	domaGenRuntime('org.seasar.doma:doma-gen:2.19.2')
     domaGenRuntime('mysql:mysql-connector-java:5.1.40')
+	compile('org.seasar.doma.boot:doma-spring-boot-starter:1.1.1')
 	
 	// DB
-	compile('org.seasar.doma.boot:doma-spring-boot-starter:1.1.1')
 	compile('mysql:mysql-connector-java:5.1.40')
 	
     // SpringSecurity
@@ -54,6 +56,9 @@ dependencies {
     
     // Mail
     compile('org.springframework.boot:spring-boot-starter-mail')
+    
+    // その他
+    compile('org.apache.commons:commons-lang3:3.7')
     
     // Test
     testCompile('org.springframework.boot:spring-boot-starter-test')

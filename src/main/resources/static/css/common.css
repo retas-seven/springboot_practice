@@ -5,8 +5,8 @@ body {
     letter-spacing: .1em;
     line-height: 1.5;
 }
-.btn {
-	/* Bootstrap の 「btn」 は letter-spacing，line-height を normal にする */
+/* Bootstrap のボタン（btn） とエラーメッセージ（has-error）は letter-spacing，line-heightをnormalにする */
+.btn, .has-error {
     letter-spacing: normal;
     line-height: normal;
 }
@@ -68,7 +68,7 @@ input:-webkit-autofill {
 }    
 
 /* エラーメッセージ */
-.has-error {
+.has-error, .has-global-error {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
@@ -78,8 +78,17 @@ input:-webkit-autofill {
     -webkit-animation-name: flipInX;
     animation-name: flipInX;
     color: red;
+    /*margin-top: 5px;*/
+    /*margin-bottom: 5px;*/
+}
+.has-error {
     margin-top: 5px;
     margin-bottom: 5px;
+}
+.has-global-error {
+    margin-bottom: 25px;
+    /*background: rgb(255, 125, 2);*/
+    /*padding: 10px;*/
 }
 
 /* 独自ボタン */

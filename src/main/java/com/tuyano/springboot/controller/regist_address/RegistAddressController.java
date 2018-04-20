@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.tuyano.springboot.form.regist_address.InputAddressForm;
+import com.tuyano.springboot.form.regist_address.InputAddressFormValidator;
 import com.tuyano.springboot.service.regist_address.RegistAddressService;
 
 @Controller
@@ -26,6 +29,14 @@ public class RegistAddressController {
 	@Autowired
 	private RegistAddressService registAddressService;
 	
+	@Autowired
+	InputAddressFormValidator inputAddressFormValidator;
+    
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.addValidators(inputAddressFormValidator);
+    }
+
 	/**
 	 * アドレス登録機能Formをセッションに登録する。
 	 * @return アドレス登録機能Form
