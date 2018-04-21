@@ -1,13 +1,19 @@
 package com.tuyano.springboot.form.regist_user;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-
+/**
+ * ユーザ登録機能Form
+ */
 public class RegistUserForm {
 	
+	@NotEmpty
 	@Size(max = 50)
+	@Pattern(regexp="^$|^([\"*+!.&#$|\\'\\\\%\\/0-9a-z^_`{}=?~:-]*)@(([0-9a-z-]+\\.)+[0-9a-z]{2,})$", message="{Pattern.email.message}")
     private String email;
-    
+
 	@Size(max = 100)
     private String password;
 

@@ -3,7 +3,9 @@ package com.tuyano.springboot.form.regist_address;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-
+/**
+ * アドレス登録機能Form
+ */
 public class InputAddressForm {
 	
 	@Size(max = 50)

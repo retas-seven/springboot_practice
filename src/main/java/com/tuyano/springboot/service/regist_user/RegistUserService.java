@@ -149,4 +149,19 @@ public class RegistUserService {
 		userInfo.setUpdateUserId("system");
 		userInfoDao.insert(userInfo);
 	}
+	
+	/**
+	 * ユーザの存在チェック。
+	 * @param email メールアドレス
+	 * @return 存在する：true, 存在しない：false
+	 */
+	public boolean existUser(String email) {
+		UserInfo u = userInfoDao.selectByEmail(email);
+		
+		if (u == null) {
+			return false;
+		}
+		
+		return true;
+	}
 }

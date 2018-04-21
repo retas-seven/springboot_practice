@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.tuyano.springboot.form.regist_user.RegistUserForm;
+import com.tuyano.springboot.form.regist_user.RegistUserFormValidator;
 import com.tuyano.springboot.service.regist_user.RegistUserService;
 
 @Controller
@@ -27,6 +30,14 @@ public class RegistUserController {
 	@Autowired
 	RegistUserService registUserService;
 	
+	@Autowired
+	private RegistUserFormValidator registUserFormValidator;
+    
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.addValidators(registUserFormValidator);
+    }
+    
 	/**
 	 * ユーザ登録機能Formをセッションに登録する。
 	 * @return ユーザ登録機能Form
@@ -82,7 +93,7 @@ public class RegistUserController {
 	 * @return ログイン画面パス
 	 */
 	@RequestMapping(value="/return_top", method=RequestMethod.POST)
-	public String completeAddress(SessionStatus sessionStatus) {
+	public String returnTop(SessionStatus sessionStatus) {
 		// 後処理：セッション削除
 		sessionStatus.setComplete(); 
 		return "/login";

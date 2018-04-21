@@ -21,6 +21,7 @@
                 <div class="container">
                     <h2>ユーザ情報入力</h2>
                     <hr class="hr_red">
+                    <p th:errors="${registUserForm}" th:errorclass="has-global-error" />
                     
                     <form method="post" action="/regist_user/regist" th:object="${registUserForm}">
                       <div class="form-group row">

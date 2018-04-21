@@ -30,7 +30,7 @@ public class RegistAddressController {
 	private RegistAddressService registAddressService;
 	
 	@Autowired
-	InputAddressFormValidator inputAddressFormValidator;
+	private InputAddressFormValidator inputAddressFormValidator;
     
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -53,7 +53,7 @@ public class RegistAddressController {
 	 * @return アドレス情報入力画面パス
 	 */
 	@RequestMapping(value="/init")
-	public String send(Model model) {
+	public String init(Model model) {
 		return "/regist_address/input";
 	}
 	
@@ -64,7 +64,7 @@ public class RegistAddressController {
 	 * @return 登録内容確認画面パス
 	 */
 	@RequestMapping(value="/input", method=RequestMethod.POST)
-	public String registAddress(@Valid InputAddressForm inputAddressForm, BindingResult bindingResult) {
+	public String confirmAddress(@Valid InputAddressForm inputAddressForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "/regist_address/input";
         }
@@ -78,7 +78,7 @@ public class RegistAddressController {
 	  * @return 登録完了画面パス
 	  */
 	@RequestMapping(value="/confirm", params="regist_button", method=RequestMethod.POST)
-	public String confirmAddress(InputAddressForm inputAddressForm, Model model) {
+	public String registAddress(InputAddressForm inputAddressForm, Model model) {
 		// アドレス情報登録処理
 		registAddressService.regist(inputAddressForm);
 		return "/regist_address/complete";
