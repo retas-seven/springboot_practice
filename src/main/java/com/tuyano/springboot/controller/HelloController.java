@@ -25,6 +25,11 @@ public class HelloController {
 		return mav;
 	}
 
+	/**
+	 * ログイン画面へ遷移する。ログインエラー時のに実行される。。
+	 * @param model Model
+	 * @return ログイン画面パス
+	 */
     @GetMapping("/login_error")
     public String loginError(Model model) {
         model.addAttribute("loginError", true);
