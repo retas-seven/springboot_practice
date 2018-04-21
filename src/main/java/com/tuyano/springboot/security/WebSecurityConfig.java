@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // 認可の設定
         http.authorizeRequests()
-            .antMatchers("/").permitAll() // indexは全ユーザーアクセス許可
+            .antMatchers("/", "/login_error").permitAll()
             .antMatchers("/regist_user/**").permitAll()
 //            .antMatchers("/**").hasRole("USER")
             .anyRequest().authenticated() // それ以外は全て認証無しの場合アクセス不許可
@@ -48,7 +48,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .loginProcessingUrl("/exec_login") // 認証処理のパス
             .loginPage("/") // ログインフォームのパス
 //          .failureUrl("/?error")
-            .failureHandler(new FormLoginFailureHandler()) // 認証失敗時に呼ばれるハンドラクラス
+            .failureUrl("/login_error")
+//          .failureHandler(new FormLoginFailureHandler()) // 認証失敗時に呼ばれるハンドラクラス
             .defaultSuccessUrl("/menu", true) // 認証成功時の遷移先
             .usernameParameter("email")
             .passwordParameter("password") // ユーザー名、パスワードのパラメータ名

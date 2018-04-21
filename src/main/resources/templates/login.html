@@ -20,6 +20,8 @@
                 <div class="container">
                     <h2>ログイン</h2>
                     <hr class="hr_red">
+                    <p th:if="${loginError}" class="has-global-error">メールアドレスまたはパスワードに誤りがあるか、登録されていません。</p>
+                    
                     <form method="post" th:action="@{'/exec_login'}">
                       <div class="form-group">
                         <label for="email" class="col_str">メールアドレス</label>
