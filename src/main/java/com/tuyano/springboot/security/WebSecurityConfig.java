@@ -65,7 +65,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.logout()
 //          .logoutRequestMatcher(new AntPathRequestMatcher("/logout**")) // ログアウト処理のパス
 //            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//            .logoutSuccessUrl("/spring_security_logout_success") // ログアウト完了時のURL
             .logoutSuccessUrl("/") // ログアウト完了時のURL
             .invalidateHttpSession(true)
             .deleteCookies("JSESSIONID", "remember-me")

@@ -23,18 +23,6 @@ public class HelloController {
 		return mav;
 	}
 
-//	/**
-//	 * ログイン画面へ遷移する（SpringSecurityによるログアウト処理完了後に実行される）。
-//	 * @param mav
-//	 * @return
-//	 */
-//	@RequestMapping(value="/spring_security_logout_success")
-//	public ModelAndView springSecurityLogoutSuccess(ModelAndView mav) {
-//		// リダイレクトしてブラウザのURL表示をクリーンにする
-//		mav.setViewName("redirect:/login");
-//		return mav;
-//	}
-	
 //  ログイン処理はSpringSecurityで行うため不要
 //	@RequestMapping(value="/login")
 //	public ModelAndView login(ModelAndView mav) {

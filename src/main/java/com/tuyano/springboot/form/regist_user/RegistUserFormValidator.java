@@ -25,13 +25,12 @@ public class RegistUserFormValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
     	RegistUserForm form = (RegistUserForm) target;
-        
     	validatePassword(form, errors);
     	validateExistUser(form, errors);
     }
     
     /**
-     * パスワードと確認用パスワードが一致するかチェックする。
+     * パスワードと確認用パスワードの入力チェック。
      * @param form　ユーザ登録機能Form
      * @param errors　入力チェックエラー情報
      */
@@ -53,7 +52,7 @@ public class RegistUserFormValidator implements Validator {
     }
     
     /**
-     * 既に登録されているメールアドレスかチェックする。
+     * メールアドレスの入力チェック。
      * @param form　ユーザ登録機能Form
      * @param errors　入力チェックエラー情報
      */
