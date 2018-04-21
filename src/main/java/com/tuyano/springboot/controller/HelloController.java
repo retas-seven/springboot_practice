@@ -26,7 +26,7 @@ public class HelloController {
 	}
 
 	/**
-	 * ログイン画面へ遷移する。ログインエラー時のに実行される。。
+	 * ログイン画面へ遷移する。ログインエラー時のに実行される。
 	 * @param model Model
 	 * @return ログイン画面パス
 	 */
