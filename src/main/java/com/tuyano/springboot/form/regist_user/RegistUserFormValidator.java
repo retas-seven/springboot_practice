@@ -38,10 +38,16 @@ public class RegistUserFormValidator implements Validator {
         if (errors.hasFieldErrors("password") || errors.hasFieldErrors("confirmPassword")) {
             return;
         }
-        
+
+    	// 未入力チェック
+    	if (StringUtils.isAllEmpty(form.getPassword(), form.getConfirmPassword())) {
+    		errors.rejectValue("confirmPassword", "bothPasswordEmpty.message");
+    		return;
+    	}
+    	
     	// 未入力チェック
     	if (StringUtils.isAnyEmpty(form.getPassword(), form.getConfirmPassword())) {
-    		errors.rejectValue("confirmPassword", "passwordEmpty.message");
+    		errors.rejectValue("confirmPassword", "onePasswordEmpty.message");
     		return;
     	}
     	

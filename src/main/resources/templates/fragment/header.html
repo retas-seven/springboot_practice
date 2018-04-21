@@ -18,6 +18,14 @@
                 <a href="../login.html" th:href="@{'/logout'}" class="btn btn-outline-info" title="ログアウト"><i class="fas fa-sign-out-alt fa-fw"></i>ログアウト</a>
             </nav>
         </div>
+
+        <!-- ログアウトボタンありヘッダ -->
+        <div class="flex_header"　th:fragment="return_top_header">
+            <nav class="navbar navbar-light">
+                <a class="navbar-brand" href="#">WEB Addressbook</a>
+                <a href="../login.html" th:href="@{'/menu'}" class="btn btn-outline-info" title="TOPへ戻る"><i class="fas fa-th-list fa-fw"></i> TOPへ戻る</a>
+            </nav>
+        </div>
         
         <!-- 新規登録ボタンありヘッダ -->
         <div class="flex_header"　th:fragment="sign_up_header">
