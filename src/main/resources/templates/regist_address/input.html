@@ -67,7 +67,7 @@
                       <div class="form-group row">
                         <label for="zipCode" class="col-sm-2 col-form-label label_name">郵便番号</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="zipCode" name="zipCode" th:field="*{zipCode}" placeholder="例）100-0000" />
+                          <input type="text" class="form-control" id="zipCode" name="zipCode" th:field="*{zipCode}" placeholder="例）100-0123" />
                           <p th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}" th:errorclass="has-error" />
                         </div>
                       </div>
