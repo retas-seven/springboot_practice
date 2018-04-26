@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link href="../../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
+        <link href="../../static/css/address_list/list.css" th:href="@{/css/address_list/list.css}" rel="stylesheet" />
+        <title>WEB Addressbook</title>
+    </head>
+    
+    <body>
+        <div class="flex_column">
+            <!-- HEADER -->
+            <div class="flex_header"　th:fragment="logout_header">
+                <nav class="navbar navbar-light">
+                    <a class="navbar-brand" href="#">WEB Addressbook</a>
+                    <a href="../login.html" th:href="@{'/logout'}" class="btn btn-outline-info" title="ログアウト"><i class="fas fa-sign-out-alt fa-fw"></i>ログアウト</a>
+                </nav>
+            </div>
+
+            <!-- CONTENTS -->
+            <div class="flex_contents bg_image">
+                <div class="container">
+                    <div class="row">
+                        <h2>アドレス帳</h2>
+                        <hr class="hr_red">
+                    </div>
+                    <form>
+                        <div class="row">
+                            <table class="table table-striped" style="background-color: rgba(220, 225, 200, 0.2)">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>名前</th>
+                                        <th>電話番号</th>
+                                        <th>メールアドレス</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>1</th>
+                                        <td>山田 太郎</td>
+                                        <td>090-5551-2525</td>
+                                        <td>yamadatarou@hanaq.com</td>
+                                        <td>
+                                            <i class="far fa-edit"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>2</th>
+                                        <td>鈴木 一郎</td>
+                                        <td>090-3211-6865</td>
+                                        <td>ichiro@hanaq.com</td>
+                                        <td>
+                                            <i class="far fa-edit"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>3</th>
+                                        <td>佐藤 太郎</td>
+                                        <td>090-5551-2525</td>
+                                        <td>yamadatarou@hanaq.com</td>
+                                        <td>
+                                            <i class="far fa-edit"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>4</th>
+                                        <td>木村 一郎</td>
+                                        <td>090-3211-6865</td>
+                                        <td>ichiro@hanaq.com</td>
+                                        <td>
+                                            <i class="far fa-edit"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>5</th>
+                                        <td>田村 次郎</td>
+                                        <td>090-3211-6865</td>
+                                        <td>jiro@hanaq.com</td>
+                                        <td>
+                                            <i class="far fa-edit"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="flex_footer" th:fragment="footer">
+                <p class="copyright">Copyright © OsawaApps 2018. All rights reserved.</p>
+            </div>
+        </div>
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>
