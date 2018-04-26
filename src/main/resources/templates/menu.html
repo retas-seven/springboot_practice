@@ -19,8 +19,10 @@
             <!-- CONTENTS -->
             <div class="flex_contents bg_image">
                 <div class="container">
-                    <h2>メニュー</h2>
-                    <hr class="hr_red">
+                    <div class="row">
+	                    <h2>メニュー</h2>
+	                    <hr class="hr_red">
+                    </div>
 
                     <div class="row justify-content-center" style="margin-top: 50px;">
                         <div class="card-deck">
@@ -33,7 +35,7 @@
                             <a th:href="@{'/address_list/init'}" class="card text-center text-success bg-success menu_card fadeInUpSmall animated">
                                 <img class="card-img" th:src="@{/img/2.png}" src="../static/img/2.png" />
                                 <div class="card-img-overlay">
-                                    <h5 class="card-title menu_title">アドレス帳</h5>
+                                    <h5 class="card-title menu_title">アドレス一覧</h5>
                                 </div>
                             </a>
                             <a href="#" class="card text-center text-primary bg-primary menu_card fadeInUpSmall animated">

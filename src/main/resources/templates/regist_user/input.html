@@ -19,10 +19,11 @@
             <!-- CONTENTS -->
             <div class="flex_contents bg_image">
                 <div class="container">
-                    <h2>ユーザ情報入力</h2>
-                    <hr class="hr_red">
-                    <p th:errors="${registUserForm}" th:errorclass="has-global-error" />
-                    
+                    <div class="row">
+	                    <h2>アカウント登録</h2>
+	                    <hr class="hr_red">
+	                    <p th:errors="${registUserForm}" th:errorclass="has-global-error" />
+                    </div>
                     <form method="post" action="/regist_user/regist" th:object="${registUserForm}">
                       <div class="form-group row">
                         <label for="email" class="col-sm-2 col-form-label label_name">メールアドレス</label>

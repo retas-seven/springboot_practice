@@ -19,10 +19,11 @@
             <!-- CONTENTS -->
             <div class="flex_contents bg_image">
                 <div class="container">
-                    <h2>アドレス情報入力</h2>
-                    <hr class="hr_red">
-                    <p th:errors="${inputAddressForm}" th:errorclass="has-global-error" />
-
+                    <div class="row">
+	                    <h2>アドレス入力</h2>
+	                    <hr class="hr_red">
+	                    <p th:errors="${inputAddressForm}" th:errorclass="has-global-error" />
+                    </div>
                     <form method="post" action="/regist_address/input" th:object="${inputAddressForm}">
                       <div class="form-group row">
                         <label for="lastName" class="col-sm-2 col-form-label label_name">姓</label>
