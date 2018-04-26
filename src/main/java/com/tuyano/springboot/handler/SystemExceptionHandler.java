@@ -19,6 +19,6 @@ public class SystemExceptionHandler {
     @ExceptionHandler(SystemException.class)
 	public String handleException(HttpSession session) {
 		session.invalidate();
-		return "error_notice";
+		return "error";
 	}
 }

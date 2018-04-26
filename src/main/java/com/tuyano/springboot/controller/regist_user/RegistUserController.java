@@ -2,6 +2,7 @@ package com.tuyano.springboot.controller.regist_user;
 
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,9 +82,15 @@ public class RegistUserController {
 	 * @return 本登録確定画面パス
 	 */
 	@RequestMapping(value="/regist", method=RequestMethod.GET)
-	public String mainRegist(@RequestParam String p, Model model) {
-		log.info(p);
+	public String mainRegist(@RequestParam(name = "p", required = false) String p, Model model) {
+		if (StringUtils.isEmpty(p)) {
+			// URLパラメータなしで手打ちされた場合の想定
+			return "/login";
+		}
+		
+		// 本登録
 		registUserService.mainRegist(p);
+		
 		return "/regist_user/complete";
 	}
 	
