@@ -52,7 +52,7 @@ public class MailUtil {
 	
 	        helper.setTo(sendToAddr);
 	        helper.setText(html, true);
-	        helper.setSubject("【Web Adressbook】 登録受付確認");
+	        helper.setSubject("【Web Addressbook】 登録受付確認");
 	        helper.setFrom("no-reply@webaddressbook.com");
 	
 	        emailSender.send(message);
