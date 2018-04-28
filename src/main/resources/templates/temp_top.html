@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.0.2/dist/css/glide.core.css">
+        <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.0.2/dist/css/glide.theme.min.css">
+        <link href="../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
+        <link href="../static/css/temp_top.css" th:href="@{/css/temp_top.css}" rel="stylesheet" />
+        <title>WEB Addressbook</title>
+    </head>
+    
+    <body>
+        <!-- HEADER 
+        <nav class="navbar navbar-light header">
+            <a class="navbar-brand" href="#">WEB Addressbook</a>
+        </nav>-->
+        
+	    <!-- CONTENTS -->
+        <div class="container-fluid">
+	        <div class="row bg_image01">
+	        
+		        <nav class="navbar navbar-light header">
+		            <a class="navbar-brand" href="#">WEB Addressbook</a>
+		        </nav>
+	        
+                <div class="col-5">
+                </div>
+                <div class="col-7 regist_box">
+                    <div class="form-group">
+                        <div class="regist_box_padding">
+                            <p class="title_text mt-4">WEB Addressbook</p>
+                            <p class="title_sub_text">Oh! That's Springboot Practice Web System! Yes,Yes,Yes OhMyGod!</p>
+                        </div>
+                        <hr class="hr_30" style="margin-right: -15px; margin-left: 15px;">
+                        <div class="regist_box_padding">
+                            <label for="mailaddress" class="mail_input_rabel"><i class="fas fa-check"></i> メールアドレス</label>
+                            <input type="text" class="form-control input-lg mail_input" id="mailaddress" placeholder="例）mail@example.com">
+                            <div style="margin-top: 20px"></div>
+                            <label for="password" class="mail_input_rabel"><i class="fas fa-check"></i> パスワード</label>
+                            <input type="password" class="form-control input-lg mail_input" id="password" placeholder="パスワードを設定">
+                            <div style="margin-top: 10px"></div>
+                            <input type="password" class="form-control input-lg mail_input" id="re_password" placeholder="同じパスワードを入力">
+                            <div style="text-align: right; margin-top: 30px; margin-bottom: 70px;">
+                                <a href="#" class="btn btn-execute" style="width: 150px; line-height: 30px" role="button"><i class="fas fa-leaf fa-fw"></i> 新規登録</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+	        </div>
+            <div class="row bg_image02">
+                <div class="col-12">
+
+                    <div class="glide" style="height: 300px; width: 800px;">
+                        <div class="glide__track" data-glide-el="track">
+                          <ul class="glide__slides">
+                                <li class="glide__slide"><img th:src="@{/img/bg.png}" src="../static/img/book.jpg" width="300px" height="200px" /></li>
+                                <li class="glide__slide"><img th:src="@{/img/bg.png}" src="../static/img/h.png" width="300px" height="200px" /></li>
+                                <li class="glide__slide"><img th:src="@{/img/bg.png}" src="../static/img/h2.jpg" width="300px" height="200px" /></li>
+                                <li class="glide__slide"><img th:src="@{/img/bg.png}" src="../static/img/heart.jpg" width="300px" height="200px" /></li>
+                                <li class="glide__slide"><img th:src="@{/img/bg.png}" src="../static/img/hr.png" width="300px" height="200px" /></li>
+                                <li class="glide__slide"><img th:src="@{/img/bg.png}" src="../static/img/hr30.png" width="300px" height="200px" /></li>
+                                <li class="glide__slide"><img th:src="@{/img/bg.png}" src="../static/img/key.jpg" width="300px" height="200px" /></li>
+                                <li class="glide__slide"><img th:src="@{/img/bg.png}" src="../static/img/_h.jpg" width="300px" height="200px" /></li>
+                          </ul>
+                        </div>
+                        <div class="glide__arrows" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--prev" data-glide-dir="<">prev</button>
+                            <button class="glide__arrow glide__arrow--next" data-glide-dir=">">next</button>
+                        </div>
+                        <div data-glide-el="controls">
+                        <button data-glide-dir="<">Start</button>
+                        <button data-glide-dir=">">End</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+        <!-- FOOTER -->
+        <div class="container-fluid footer">
+            <p class="copyright">Copyright © OsawaApps 2018. All rights reserved.</p>
+        </div>
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+        <script src="https://unpkg.com/@glidejs/glide@3.0.2/dist/glide.js"></script>
+        <script>
+            new Glide('.glide', {
+            type: 'carousel',
+            startAt: 0,
+            perView: 3
+            }).mount()
+        </script>
+    </body>
+</html>

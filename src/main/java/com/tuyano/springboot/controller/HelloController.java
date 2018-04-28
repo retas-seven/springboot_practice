@@ -53,4 +53,11 @@ public class HelloController {
 		mav.setViewName("/menu");
 		return mav;
 	}
+	
+	// 仮の処理：仮のトップ画面へ遷移する
+	@RequestMapping(value="/temp_top")
+	public ModelAndView tempTop(ModelAndView mav) {
+		mav.setViewName("/temp_top");
+		return mav;
+	}
 }
