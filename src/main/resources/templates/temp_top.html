@@ -33,8 +33,9 @@
                 <div class="col-7 regist_box">
                     <div class="form-group">
                         <div class="regist_box_padding">
-                            <p class="title_text mt-4">WEB Addressbook</p>
-                            <p class="title_sub_text">Oh! That's a Springboot Practice Web System! Yes!,Yes!,Yes! Oh My God!</p>
+                            <p class="app_name_text mt-4">WEB Addressbook</p>
+                            <!-- <p class="app_name_sub_text">Oh! That's a Springboot Practice Web System! Yes!,Yes!,Yes! Oh My God!</p>-->
+                            <p class="app_name_sub_text">Springboot Practice Web System</p>
                         </div>
                         <hr class="hr_30" style="margin-right: -15px; margin-left: 15px;">
                         <div class="regist_box_padding">
@@ -54,12 +55,12 @@
             </div>
             
             <!-- ２段目 -->
-            <div class="row bg_image02 row_2">
+            <div class="row bg_image02 row02">
 
                 <!-- アプリの特徴 -->
                 <div class="col-5">
                     <div class="feature">
-                        <p class="feature_title_text"><i class="fas fa-leaf fa-fw"></i> アプリの特徴</p>
+                        <p class="title_text"><i class="fas fa-leaf fa-fw em09"></i> アプリの特徴 <i class="fas fa-leaf fa-fw em09"></i></p>
                         <hr class="hr_23">
                         <ul>
                             <li type="disc" class="feature_text">オンラインでアドレスを管理できる便利な Springboot 練習用アプリです。</li>
@@ -69,39 +70,50 @@
                     </div>
                 </div>
 
-                <!-- カルーセル -->
                 <div class="col-7" style="border-left: dashed 1px rgb(200, 200, 200);">
-                    <div class="glide back_quote">
+
+ 
+                    
+                </div>
+            </div>
+
+            
+            <!-- ３段目 -->
+	        <div class="row row03 bg_image03">
+                <div class="col-12">
+                    <!--
+                    <p class="title_text"><i class="fas fa-leaf fa-fw em09"></i> お問い合わせ <i class="fas fa-leaf fa-fw em09"></i></p>
+                    -->
+                    <!-- カルーセル -->
+                    <div class="glide">
                         <div class="glide__track" data-glide-el="track">
                             <ul class="glide__slides">
-                                <li class="glide__slide">
-                                    <div class="sample2" style="width: 100%; height:300px;">
+                                <li class="glide__slide back_quote">
+                                    <div style="width: 100%; height:250px;">
                                         <blockquote>
-                                            <p class="customer_voice">オンラインでアドレスを管理できるなんて、便利なシステムですね。<br />僕もすぐに JOIN しました。</p>
-                                            <p class="customer_name">東京都 - 試験太郎 様より</p>
+                                            <p class="customer_voice">オンラインでアドレスを管理できるなんて、便利なシステムだね。<br />僕もすぐに JOIN したよ。</p>
+                                            <p class="customer_name">東京都 - 山田太郎 様</p>
                                         </blockquote>
                                     </div>
                                 </li>
-                                <li class="glide__slide">
-                                    <div class="sample2" style="width: 100%; height:300px;">
+                                <li class="glide__slide back_quote">
+                                    <div style="width: 100%; height:250px;">
                                         <blockquote>
                                             <p class="customer_voice">
-                                                ＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸ<br />
-                                                ＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸ。<br />
-                                                ＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸ。
+                                                Oh! That's a Springboot Practice Web System!<br />YES!,YES!,YES! "OH MY GOD"
                                             </p>
-                                            <p class="customer_name">青森県 - 試験二郎 様より</p>
+                                            <p class="customer_name">USA - J 様</p>
                                         </blockquote>
                                     </div>
                                 </li>
-                                <li class="glide__slide">
-                                    <div class="sample2" style="width: 100%; height:300px;">
+                                <li class="glide__slide back_quote">
+                                    <div style="width: 100%; height:250px;">
                                         <blockquote>
                                             <p class="customer_voice">
                                                 ＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸ<br />
-                                                ＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸ。<br />
+                                                ＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸ<br />
                                             </p>
-                                            <p class="customer_name">北海道 - 試験三郎 様より</p>
+                                            <p class="customer_name">北海道 - 試験一郎 様</p>
                                         </blockquote>
                                     </div>
                                 </li>
@@ -128,10 +140,9 @@
             new Glide('.glide', {
                 autoplay: 7000,
                 hoverpause: true,
-                animationDuration: 3000,
+                animationDuration: 2000,
                 navigation: true,
                 arrows: true,
-                keyboard: true
             }).mount()
         </script>
     </body>

@@ -1,13 +1,18 @@
+/* ------------------------------------------- */
+/* １段目 */
+/* ------------------------------------------- */
 .header{
     background: rgba(255, 255, 255, 0.5);
     width: 100%;
 }
+
 .login_flex_contents{
     flex: 1;
     background: rgb(254, 254, 254);
     padding: 0px;
     position: static;
 }
+
 .hr_30 {
     height: 30px;
     border: 0;
@@ -15,6 +20,7 @@
     margin-bottom: 23px;
     margin-top: 0px;
 }
+
 .hr_23 {
     height: 23px;
     border: 0;
@@ -22,17 +28,20 @@
     margin-bottom: 23px;
     margin-top: 5px;
 }
+
 .row01 {
     height: 550px;
 }
-.title_text{
+
+.app_name_text{
     color: rgb(255, 255, 255);
     font-size: 40px;
     font-weight: 300;
     /* text-shadow: 0px 3px 0px rgba(51, 20, 5, 0.4);*/ 
     margin-bottom: 0px;
 }
-.title_sub_text{
+
+.app_name_sub_text{
     color: rgb(255, 255, 255);
     font-weight: 300;
     font-size: 15px;
@@ -41,25 +50,30 @@
     margin-top: -5px;
     margin-bottom: 10px;
 }
+
 .mail_input_rabel {
     /*color: rgba(0, 58, 93, 0.76);*/
     color: rgb(232, 231, 220);
     font-size: 14px;
     text-shadow: 0px 1px 3px rgba(232, 231, 220, 0);
 }
+
 .mail_input {
     background-color: rgba(255,255,255,0.9);
     border-color: rgb(134, 73, 5);
     opacity: 0.85;
 }
+
 .regist_box {
     background: rgba(78, 71, 70, 0.63);
 }
+
 .regist_box .regist_box_padding {
     padding: 0px 40px;
 }
+
 .bg_image01{
-    background-image: url("../img/top_bg.png");
+    background-image: url("../img/tbg8.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -68,6 +82,9 @@
     z-index: -10;
  }
 
+/* ------------------------------------------- */
+/* ２段目 */
+/* ------------------------------------------- */
  .bg_image02{
     /*background-image: url("../img/bg.png");*/
     background: rgb(251, 251, 251);
@@ -80,6 +97,7 @@
     /* border: solid 1px; */
     height: 350px;
  }
+
 .bg_image02:before {
     content: "";
     position: absolute;
@@ -91,12 +109,13 @@
     transform:skewY(2deg);
     transform-origin: left top;
     z-index: -5;
+    /* border-top: 1px solid rgb(131, 88, 67); */
 }
 
 .bg_image02:after {
     content: "";
     position: absolute;
-    bottom: 0px;
+    bottom: -5px;
     left: 0px;
     width: 100%;
     height: 80px;
@@ -104,32 +123,55 @@
     transform:skewY(-2deg);
     transform-origin: right top;
     z-index: -5;
+    /* border-bottom: 1px solid rgb(131, 88, 67); */
 }
-.row_2 {
+
+.row02 {
     padding-left: 30px;
 }
+
 .feature {
     letter-spacing: 0.8px; 
     padding-right: 15px;
 }
-.feature_title_text {
-    color: rgb(131, 88, 67);
-    font-size: 28px;
-    font-weight: 300;
-    /* text-shadow: 0px 3px 0px rgba(51, 20, 5, 0.4);*/ 
-    margin-bottom: 0px;
-}
+
 .feature_text {
     margin-bottom: 9px;
 }
+
+/* ------------------------------------------- */
+/* ３段目 */
+/* ------------------------------------------- */
+.row03 {
+    height: 350px;
+}
+
+.bg_image03{
+    background-image: url("../img/heart_bk.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /*
+    background-color: rgba(255, 212, 0, 0.35);
+    */
+    position: relative;
+    z-index: -10;
+    padding: 70px 40px 40px;
+    /* overflow: hidden; */
+    /* border: solid 1px; */
+ }
+
 .customer_voice {
     font-size: 16px;
     /* line-height: 46px; */
     letter-spacing: 2px;
-    margin-top: 20px;
+    margin-top: 60px;
     margin-bottom: 10px;
     text-align: center;
+    color: rgb(223, 223, 223);
 }
+
 .customer_name {
     font-size: 14px;
     margin-top: 30px;
@@ -138,12 +180,33 @@
     font-weight: 700;
     text-align: center;
 }
+
+ .back_quote {
+    background: url("../img/bq.png") no-repeat 26% 13% ;
+}
+/* ------------------------------------------- */
+/* フッタ */
+/* ------------------------------------------- */
 .footer{
     height: 240px;
     background: rgb(199, 150, 131);
-    padding-top: 55px;
+    padding-top: 25px;
     position: relative;
     z-index: -10;
+}
+
+.footer:before {
+    content: "";
+    position: absolute;
+    top: -70px;
+    left: 0px;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(199, 150, 131);
+    transform:skewY(2deg);
+    transform-origin: left top;
+    z-index: -5;
+    /* border-top: 1px solid rgb(131, 88, 67); */
 }
 
 /* ------------------------------------------- */
@@ -171,27 +234,19 @@
 }
 
 /* ------------------------------------------- */
-/* 引用符の配置 */
+/* FontAwesome向けのフォントサイズ */
 /* ------------------------------------------- */
-.back_quote {
-    background: url("../img/bq.png") no-repeat 2% 6%;  
+.em09 {
+    font-size: 0.9em 
+    /*0.8倍の大きさに*/
 }
-.sample2 blockquote {  
-    /* background: url("../img/bq.png") no-repeat 2% 6%;  */
-    padding: 40px 40px;  
-    /*
-    border-top: 1px solid #CCC;  
-    border-bottom: 1px solid #CCC;  
-    */
-    color: #212121;  
-}  
-.sample2 p  {  
-    margin-bottom: 12px;  
-}  
-.sample2 .origin    {  
-    text-align: right;  
-    margin-bottom:0;  
-}  
-.sample2 .origin a  {  
-    color: #2D88B3;  
-}  
+
+
+.title_text {
+    text-align: center;
+    color: rgb(131, 88, 67);
+    font-size: 28px;
+    font-weight: 300;
+    /* text-shadow: 0px 3px 0px rgba(51, 20, 5, 0.4);*/ 
+    margin-bottom: 0px;
+}
