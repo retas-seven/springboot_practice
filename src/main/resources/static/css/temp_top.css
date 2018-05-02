@@ -1,6 +1,10 @@
 /* ------------------------------------------- */
 /* １段目 */
 /* ------------------------------------------- */
+.row01 {
+    height: 550px;
+}
+
 .header{
     background: rgba(255, 255, 255, 0.5);
     width: 100%;
@@ -27,10 +31,6 @@
     background: url("../img/hr23.png");
     margin-bottom: 23px;
     margin-top: 5px;
-}
-
-.row01 {
-    height: 550px;
 }
 
 .app_name_text{
@@ -78,27 +78,32 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    position: relative;
-    z-index: -10;
  }
 
 /* ------------------------------------------- */
 /* ２段目 */
 /* ------------------------------------------- */
+.row02 {
+    padding-left: 30px;
+    position: relative;
+    z-index: 9000;
+    height: 350px;
+}
+
  .bg_image02{
-    /*background-image: url("../img/bg.png");*/
-    background: rgb(251, 251, 251);
+    /*background-image: url("../img/bg.png");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    */
+    background: rgb(251, 251, 251);
     /*overflow: hidden;*/
-    position: relative;
     /* border: solid 1px; */
-    height: 350px;
+    /*height: 350px;*/
  }
 
-.bg_image02:before {
+.row02:before {
     content: "";
     position: absolute;
     top: -80px;
@@ -108,11 +113,11 @@
     background-color: rgb(251, 251, 251);
     transform:skewY(2deg);
     transform-origin: left top;
-    z-index: -5;
+    z-index: -1;
     /* border-top: 1px solid rgb(131, 88, 67); */
 }
 
-.bg_image02:after {
+.row02:after {
     content: "";
     position: absolute;
     bottom: -5px;
@@ -122,12 +127,8 @@
     background-color: rgb(251, 251, 251);
     transform:skewY(-2deg);
     transform-origin: right top;
-    z-index: -5;
+    z-index: -1;
     /* border-bottom: 1px solid rgb(131, 88, 67); */
-}
-
-.row02 {
-    padding-left: 30px;
 }
 
 .feature {
@@ -143,7 +144,10 @@
 /* ３段目 */
 /* ------------------------------------------- */
 .row03 {
-    height: 350px;
+    height: 370px;
+    position: relative;
+    z-index: 7000;
+    padding: 70px 40px 40px;
 }
 
 .bg_image03{
@@ -155,9 +159,6 @@
     /*
     background-color: rgba(255, 212, 0, 0.35);
     */
-    position: relative;
-    z-index: -10;
-    padding: 70px 40px 40px;
     /* overflow: hidden; */
     /* border: solid 1px; */
  }
@@ -189,10 +190,10 @@
 /* ------------------------------------------- */
 .footer{
     height: 240px;
-    background: rgb(199, 150, 131);
-    padding-top: 25px;
+    background-color: rgb(199, 150, 131);
+    padding-top: 30px;
     position: relative;
-    z-index: -10;
+    z-index: 8000;
 }
 
 .footer:before {
@@ -205,7 +206,7 @@
     background-color: rgb(199, 150, 131);
     transform:skewY(2deg);
     transform-origin: left top;
-    z-index: -5;
+    z-index: -1;
     /* border-top: 1px solid rgb(131, 88, 67); */
 }
 

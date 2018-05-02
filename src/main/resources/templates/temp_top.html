@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
-        <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.0.2/dist/css/glide.core.css">
-        <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.0.2/dist/css/glide.theme.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
         <link href="../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
         <link href="../static/css/temp_top.css" th:href="@{/css/temp_top.css}" rel="stylesheet" />
         <title>WEB Addressbook</title>
@@ -34,7 +34,6 @@
                     <div class="form-group">
                         <div class="regist_box_padding">
                             <p class="app_name_text mt-4">WEB Addressbook</p>
-                            <!-- <p class="app_name_sub_text">Oh! That's a Springboot Practice Web System! Yes!,Yes!,Yes! Oh My God!</p>-->
                             <p class="app_name_sub_text">Springboot Practice Web System</p>
                         </div>
                         <hr class="hr_30" style="margin-right: -15px; margin-left: 15px;">
@@ -70,10 +69,8 @@
                     </div>
                 </div>
 
-                <div class="col-7" style="border-left: dashed 1px rgb(200, 200, 200);">
-
- 
-                    
+                <div class="col-7" style="border-left: dashed 1px rgb(200, 200, 200)">
+                        <p class="customer_voice">オンラインでアドレスを管理できるなんて、便利なシステムだね。<br />僕もすぐに JOIN したよ。</p>
                 </div>
             </div>
 
@@ -81,43 +78,25 @@
             <!-- ３段目 -->
 	        <div class="row row03 bg_image03">
                 <div class="col-12">
-                    <!--
-                    <p class="title_text"><i class="fas fa-leaf fa-fw em09"></i> お問い合わせ <i class="fas fa-leaf fa-fw em09"></i></p>
-                    -->
-                    <!-- カルーセル -->
-                    <div class="glide">
-                        <div class="glide__track" data-glide-el="track">
-                            <ul class="glide__slides">
-                                <li class="glide__slide back_quote">
-                                    <div style="width: 100%; height:250px;">
-                                        <blockquote>
-                                            <p class="customer_voice">オンラインでアドレスを管理できるなんて、便利なシステムだね。<br />僕もすぐに JOIN したよ。</p>
-                                            <p class="customer_name">東京都 - 山田太郎 様</p>
-                                        </blockquote>
-                                    </div>
-                                </li>
-                                <li class="glide__slide back_quote">
-                                    <div style="width: 100%; height:250px;">
-                                        <blockquote>
-                                            <p class="customer_voice">
-                                                Oh! That's a Springboot Practice Web System!<br />YES!,YES!,YES! "OH MY GOD"
-                                            </p>
-                                            <p class="customer_name">USA - J 様</p>
-                                        </blockquote>
-                                    </div>
-                                </li>
-                                <li class="glide__slide back_quote">
-                                    <div style="width: 100%; height:250px;">
-                                        <blockquote>
-                                            <p class="customer_voice">
-                                                ＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸ<br />
-                                                ＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸ<br />
-                                            </p>
-                                            <p class="customer_name">北海道 - 試験一郎 様</p>
-                                        </blockquote>
-                                    </div>
-                                </li>
-                            </ul>
+
+                    <!-- スライダー -->
+                    <div class="slider">
+                        <div class="back_quote" style="width: 100%; height:190px;">
+                            <p class="customer_voice">オンラインでアドレスを管理できるなんて、便利なシステムだね。<br />僕もすぐに JOIN したよ。</p>
+                            <p class="customer_name">東京都 - 山田太郎 様</p>
+                        </div>
+                        <div class="back_quote" style="width: 100%; height:190px;">
+                            <p class="customer_voice">
+                                Oh! That's a Springboot Practice Web System!<br />YES!,YES!,YES! "OH MY GOD"
+                            </p>
+                            <p class="customer_name">USA - J 様</p>
+                        </div>
+                        <div class="back_quote" style="width: 100%; height:190px;">
+                            <p class="customer_voice">
+                                ＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸ<br />
+                                ＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸ<br />
+                            </p>
+                            <p class="customer_name">北海道 - 試験一郎 様</p>
                         </div>
                     </div>
 
@@ -125,25 +104,28 @@
             </div>
         </div>
 
-
         <!-- FOOTER -->
         <div class="container-fluid footer">
             <p class="copyright">Copyright © OsawaApps 2018. All rights reserved.</p>
         </div>
+
         <!-- Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        
-        <script src="https://unpkg.com/@glidejs/glide@3.0.2/dist/glide.js"></script>
+
+        <!-- スライダーの設定-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
         <script>
-            new Glide('.glide', {
-                autoplay: 7000,
-                hoverpause: true,
-                animationDuration: 2000,
-                navigation: true,
-                arrows: true,
-            }).mount()
+            $(".slider").slick({
+                infinite: true
+                , autoplay: true
+                , slidesToShow: 1
+                , slidesToScroll: 1
+                , arrows: true
+                , autoplaySpeed: 4000
+                , dots: true
+            });
         </script>
     </body>
 </html>
