@@ -63,9 +63,10 @@
                         <hr class="hr_23">
                         <ul>
                             <li type="disc" class="feature_text">オンラインでアドレス帳を管理できる便利な WEB アプリです。</li>
-                            <li type="disc" class="feature_text">お客様のお悩みにすぐに対応できるよう、専門のスタッフによるコールセンターとサービスセンターを用意しています。</li>
-                            <li type="disc" class="feature_text">SpringSecurity を使用してログイン機能を作成。</li>
-                            <li type="disc" class="feature_text">Bootstrap4 を使用して画面を作成。</li>
+                            <li type="disc" class="feature_text">お客様のお悩みにすぐに対応できるよう、専門のスタッフによるコールセンターを用意しています。</li>
+                            <li type="disc" class="feature_text">何となくいい感じのデザインになるように画面の構成を考える。</li>
+                            <li type="disc" class="feature_text">SpringSecurity を使用してログイン機能を作成する。</li>
+                            <li type="disc" class="feature_text">Bootstrap4 を使用して画面を作成する。</li>
                         </ul>
                     </div>
                     <!--
@@ -80,20 +81,26 @@
                 </div>
 
                 <!--<div class="col-6" style="border-left: dashed 1px rgb(200, 200, 200)">-->
-                <div class="col-6">
-                    <div class="news">
-                            <div class="card" style="height: 90%; width: 300px; margin: 0 20px;">
-                                <img class="card-img-top" src="../static/img/tbg.jpg">
-                                <div class="card-body">
-                                    <p class="card-text">NEWS</p>
-                                </div>
-                            </div>
-                            <div class="card" style="height: 90%; width: 300px; margin: 0 20px;">
-                                <img class="card-img-top" src="../static/img/top_bg.png">
-                                <div class="card-body">
-                                    <p class="card-text">BLOG</p>
-                                </div>
-                            </div>
+                <div class="col-3">
+                    <div class="card" style="height: 100%;">
+                        <a href="#"><img class="card-img-top" src="../static/img/t1.jpg"></a>
+                        <div class="card-body">
+                            <p class="card-text post_title">NEWS</p>
+                            <hr class="post_title_hr">
+                            <p class="card-text post_article">WEB Addressbook のキャンペーンや機能についての新情報をご覧いただけます。</p>
+                            <p class="card-text post_update_date">Update：2018/5/2 11:28</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card" style="height: 100%;">
+                        <a href="#"><img class="card-img-top" src="../static/img/t2.jpg"></a>
+                        <div class="card-body">
+                            <p class="card-text post_title">開発チーム BLOG</p>
+                            <hr class="post_title_hr">
+                            <p class="card-text post_article">WEB Addressbook 開発チームの活動記録です。</p>
+                            <p class="card-text post_update_date">Update：2018/4/30 18:01</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -130,7 +137,31 @@
 
         <!-- FOOTER -->
         <div class="container-fluid footer">
-            <p class="copyright">Copyright © OsawaApps 2018. All rights reserved.</p>
+            <div class="row">
+                <div class="col-12">
+                    <p style="font-size: 1.3rem; color: rgb(223, 223, 223);">
+                        WEB Addressbook
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <a href="#"><i class="fab fa-twitter fa-2x"></i></a>&nbsp;
+                    <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                </div>
+                <div class="col-8" style="text-align: right;">
+                    <a href="#" target="_blank">利用規約</a>
+                    <span class="margin_left_right">|</span>
+                    <a href="#" target="_blank">プライバシーポリシー</a>
+                    <span class="margin_left_right">|</span>
+                    <a href="#" target="_blank">お問い合わせ</a>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 90px;">
+                <div class="col-12">
+                    <p class="copyright">Copyright © OsawaApps 2018. All rights reserved.</p>
+                </div>
+            </div>
         </div>
 
         <!-- Bootstrap JS -->
