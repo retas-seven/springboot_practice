@@ -49,15 +49,15 @@ public class RegistUserController {
 	    return new RegistUserForm();
 	}
 	
-	/**
-	 * 初期処理。
-	 * @param model Model
-	 * @return ユーザ情報入力画面パス
-	 */
-	@RequestMapping(value="/init")
-	public String init(Model model) {
-		return "/regist_user/input";
-	}
+//	/**
+//	 * 初期処理。
+//	 * @param model Model
+//	 * @return ユーザ情報入力画面パス
+//	 */
+//	@RequestMapping(value="/init")
+//	public String init(Model model) {
+//		return "/regist_user/input";
+//	}
 	
 	/**
 	 * 仮登録確定画面へ遷移する。
