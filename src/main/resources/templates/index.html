@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
         <link href="../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
-        <link href="../static/css/temp_top.css" th:href="@{/css/temp_top.css}" rel="stylesheet" />
+        <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
         <title>WEB Addressbook</title>
     </head>
     
@@ -26,7 +26,7 @@
                 <!-- HEADER -->
 		        <nav class="navbar navbar-light header">
                     <a class="navbar-brand" href="#">WEB Addressbook</a>
-                    <a href="regist_user/input.html" th:href="@{'/regist_user/init'}" class="btn btn-info" style="margin-right: 40px; width: 130px;"><i class="fas fa-sign-in-alt fa-fw"></i> ログイン</a>
+                    <a href="login.html" th:href="@{'/login'}" class="btn btn-info" style="margin-right: 40px; width: 130px;"><i class="fas fa-sign-in-alt fa-fw"></i> ログイン</a>
 		        </nav>
 	        
                 <div class="col-5"></div>
@@ -84,7 +84,7 @@
                 <!--<div class="col-6" style="border-left: dashed 1px rgb(200, 200, 200)">-->
                 <div class="col-3">
                     <div class="card" style="height: 100%;">
-                        <a href="#"><img class="card-img-top" src="../static/img/t1.jpg"></a>
+                        <a href="#"><img class="card-img-top" th:src="@{/img/t1.jpg}" src="../static/img/t1.jpg"></a>
                         <div class="card-body">
                             <p class="card-text post_title">NEWS</p>
                             <hr class="post_title_hr">
@@ -95,7 +95,7 @@
                 </div>
                 <div class="col-3">
                     <div class="card" style="height: 100%;">
-                        <a href="#"><img class="card-img-top" src="../static/img/t2.jpg"></a>
+                        <a href="#"><img class="card-img-top" th:src="@{/img/t2.jpg}" src="../static/img/t2.jpg"></a>
                         <div class="card-body">
                             <p class="card-text post_title">開発チーム BLOG</p>
                             <hr class="post_title_hr">

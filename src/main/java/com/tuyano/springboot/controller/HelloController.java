@@ -14,16 +14,17 @@ import com.tuyano.springboot.handler.ApplicationExceptionHandler;
 public class HelloController {
 	private static final Logger log = LoggerFactory.getLogger(ApplicationExceptionHandler.class);
 
-	/**
-	 * ログイン画面へ遷移する。
-	 * @param mav ModelAndView
-	 * @return ログイン画面パス
-	 */
-	@RequestMapping(value="/")
-	public ModelAndView index(ModelAndView mav) {
-		mav.setViewName("/login");
-		return mav;
-	}
+//	/**
+//	 * TOP画面へ遷移する。
+//	 * @param mav ModelAndView
+//	 * @return TOP画面パス
+//	 */
+//	@RequestMapping(value="/")
+//	public ModelAndView index(ModelAndView mav) {
+////		mav.setViewName("/temp_top");
+//		mav.setViewName("/index");
+//		return mav;
+//	}
 
 	/**
 	 * ログイン画面へ遷移する。ログインエラー時に実行される。
@@ -35,13 +36,17 @@ public class HelloController {
         model.addAttribute("loginError", true);
         return "/login";
     }
-	
-//  ログイン処理はSpringSecurityで行うため不要
-//	@RequestMapping(value="/login")
-//	public ModelAndView login(ModelAndView mav) {
-//		mav.setViewName("/login");
-//		return mav;
-//	}
+    
+	/**
+	 * ログイン画面へ遷移する。
+	 * @param model Model
+	 * @return ログイン画面パス
+	 */
+	@RequestMapping(value="/login")
+	public ModelAndView tempTop(ModelAndView mav) {
+		mav.setViewName("/login");
+		return mav;
+	}
 	
 	/**
 	 * メニュー画面へ遷移する。
@@ -51,13 +56,6 @@ public class HelloController {
 	@RequestMapping(value="/menu")
 	public ModelAndView menu(ModelAndView mav) {
 		mav.setViewName("/menu");
-		return mav;
-	}
-	
-	// 仮の処理：仮のトップ画面へ遷移する
-	@RequestMapping(value="/temp_top")
-	public ModelAndView tempTop(ModelAndView mav) {
-		mav.setViewName("/temp_top");
 		return mav;
 	}
 }
