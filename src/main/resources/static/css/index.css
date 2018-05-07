@@ -6,7 +6,7 @@
 }
 
 .header{
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.63);
     width: 100%;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .bg_image01{
-    background-image: url("../img/tbg8.jpg");
+    background-image: url("../img/tbg8.png");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;

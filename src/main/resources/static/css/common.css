@@ -27,10 +27,16 @@ body {
     padding: 30px 10px;
 }
 .flex_footer{
-    height: 140px;
+    height: 120px;
     background: rgb(199, 150, 131);
-    padding: 20px;
+    padding: 20px 20px 20px 20px;
+    color: rgb(82, 51, 35);
 }
+
+.flex_footer a:link { color: rgb(82, 51, 35); }
+.flex_footer a:visited { color: rgb(82, 51, 35); }
+.flex_footer a:hover { color: rgb(82, 51, 35); }
+.flex_footer a:active { color: rgb(82, 51, 35); }
 
 /* copyright */
 .copyright {

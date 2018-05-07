@@ -15,15 +15,26 @@
         <div class="flex_header"　th:fragment="logout_header">
             <nav class="navbar navbar-light">
                 <a class="navbar-brand" href="#">WEB Addressbook</a>
-                <a href="../login.html" th:href="@{'/logout'}" class="btn btn-outline-info" title="ログアウト"><i class="fas fa-sign-out-alt fa-fw"></i>ログアウト</a>
+                <div class="justify-content-end">
+	                <a href="../login.html" th:href="@{'/menu'}" class="btn btn-outline-info ml-1" style="width: 130px;" title="メニューへ戻る"><i class="fas fa-th-list fa-fw"></i>メニュー</a>
+	                <a href="../login.html" th:href="@{'/logout'}" class="btn btn-outline-info" style="width: 130px;" title="ログアウト"><i class="fas fa-sign-out-alt fa-fw"></i>ログアウト</a>
+                </div>
             </nav>
         </div>
 
+        <!-- ログアウトボタンありヘッダ -->
+        <div class="flex_header"　th:fragment="logout_only_header">
+            <nav class="navbar navbar-light">
+                <a class="navbar-brand" href="#">WEB Addressbook</a>
+                <a href="../login.html" th:href="@{'/logout'}" class="btn btn-outline-info" style="width: 130px;" title="ログアウト"><i class="fas fa-sign-out-alt fa-fw"></i>ログアウト</a>
+            </nav>
+        </div>
+        
         <!-- TOPへ戻るボタンありヘッダ -->
         <div class="flex_header"　th:fragment="return_top_header">
             <nav class="navbar navbar-light">
                 <a class="navbar-brand" href="#">WEB Addressbook</a>
-                <a href="../login.html" th:href="@{'/menu'}" class="btn btn-outline-info" title="TOPへ戻る"><i class="fas fa-th-list fa-fw"></i> TOPへ戻る</a>
+                <a href="../login.html" th:href="@{'/'}" class="btn btn-outline-info" style="width: 90px;" title="TOPへ戻る"><i class="fas fa-th-list fa-fw"></i> TOP</a>
             </nav>
         </div>
         
