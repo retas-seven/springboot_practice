@@ -41,9 +41,17 @@ body {
 /* copyright */
 .copyright {
     text-align: center;
-    color: rgb(255, 247, 221);
+    /* color: rgb(255, 247, 221); */
+    color: rgb(82, 51, 35);
     font-weight: 300;
     letter-spacing: 0.09em;
+}
+
+/* ヘッダ部のメールアドレス表示 */
+.header_mail {
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-right: 30px;
 }
 
 .margin_left_right {
