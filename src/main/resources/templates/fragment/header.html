@@ -7,7 +7,7 @@
         <!-- ボタンなしヘッダ -->
         <div class="flex_header" th:fragment="no_button_header">
             <nav class="navbar navbar-light">
-                <a class="navbar-brand" href="#">WEB Addressbook</a>
+                <a class="navbar-brand" th:href="@{'/'}">WEB Addressbook</a>
                 <div class="justify-content-end">
                     <span th:if="${session.userInfo != null}">
                         <span class="header_mail" th:text="${session.userInfo.email}"></span>
@@ -19,7 +19,7 @@
         <!-- ログアウトボタンありヘッダ -->
         <div class="flex_header"　th:fragment="logout_header">
             <nav class="navbar navbar-light">
-                <a class="navbar-brand" href="#">WEB Addressbook</a>
+                <a class="navbar-brand" th:href="@{'/'}">WEB Addressbook</a>
                 <div class="justify-content-end">
                     <span th:if="${session.userInfo != null}">
                         <span class="header_mail" th:text="${session.userInfo.email}"></span>
@@ -33,34 +33,34 @@
         <!-- ログアウトボタンありヘッダ -->
         <div class="flex_header"　th:fragment="logout_only_header">
             <nav class="navbar navbar-light">
-                <a class="navbar-brand" href="#">WEB Addressbook</a>
+                <a class="navbar-brand" th:href="@{'/'}">WEB Addressbook</a>
                 <div class="justify-content-end">
                     <span th:if="${session.userInfo != null}">
                         <span class="header_mail" th:text="${session.userInfo.email}"></span>
                     </span>
-	                <a href="../login.html" th:href="@{'/'}" class="btn btn-outline-info" style="width: 90px; line-height: 26px;" title="TOPへ戻る"><i class="fas fa-th-list fa-fw"></i> TOP</a>
 	                <a href="../login.html" th:href="@{'/logout'}" class="btn btn-outline-info" style="width: 130px; line-height: 26px;" title="ログアウト"><i class="fas fa-sign-out-alt fa-fw"></i>ログアウト</a>
                 </div>
             </nav>
         </div>
         
         <!-- TOPへ戻るボタンありヘッダ -->
+        <!--
         <div class="flex_header"　th:fragment="return_top_header">
             <nav class="navbar navbar-light">
-                <a class="navbar-brand" href="#">WEB Addressbook</a>
+                <a class="navbar-brand" th:href="@{'/'}">WEB Addressbook</a>
                 <div class="justify-content-end">
                     <span th:if="${session.userInfo != null}">
                         <span class="header_mail" th:text="${session.userInfo.email}"></span>
                     </span>
-                    <a href="../login.html" th:href="@{'/'}" class="btn btn-outline-info" style="width: 90px; line-height: 26px;" title="TOPへ戻る"><i class="fas fa-th-list fa-fw"></i> TOP</a>
                 </div>
             </nav>
         </div>
+        -->
         
         <!-- 新規登録ボタンありヘッダ -->
         <div class="flex_header"　th:fragment="sign_up_header">
             <nav class="navbar navbar-light">
-                <a class="navbar-brand" href="#">WEB Addressbook</a>
+                <a class="navbar-brand" th:href="@{'/'}">WEB Addressbook</a>
                 <div class="justify-content-end">
                     <span th:if="${session.userInfo != null}">
                         <span class="header_mail" th:text="${session.userInfo.email}"></span>
