@@ -18,7 +18,7 @@ body {
     flex-direction: column;
 }
 .flex_header{
-    /* max-height: 60px; */
+    max-height: 72px;
     background: rgb(228, 203, 178);
 }
 .flex_contents{
@@ -52,6 +52,10 @@ body {
     font-size: 0.9em;
     font-weight: 600;
     margin-right: 30px;
+}
+
+.header_height {
+	height: 72px;
 }
 
 .margin_left_right {
@@ -141,6 +145,24 @@ input:-webkit-autofill {
     color: rgb(255, 255, 255);
 }
 
+.btn-header {
+    color: rgba(115, 77, 55, 0.86);
+    background-color: rgba(230, 109, 38, 0.35);
+    background-image: none;
+    border-color: rgba(255, 255, 255, 0);
+    width: 75px;
+    line-height: 12px;
+}
+
+.btn-header:hover {
+    color: #fff;
+    background-color: rgb(255, 125, 2);
+    border-color: rgb(255, 125, 2);
+}
+
+.button_header_font_size {
+    font-size: 0.5em;
+}
 
 .col_str {
     color: rgba(117, 27, 5, 0.87);
