@@ -149,7 +149,8 @@ input:-webkit-autofill {
     color: rgba(115, 77, 55, 0.86);
     background-color: rgba(230, 109, 38, 0.35);
     background-image: none;
-    border-color: rgba(255, 255, 255, 0);
+    /* border-color: rgba(115, 77, 55, 0.86); */
+    border: none;
     width: 75px;
     line-height: 12px;
 }
