@@ -49,13 +49,13 @@
                         <div class="regist_box_padding">
 	                        <form method="post" th:action="@{'/regist_user/regist'}">
 	                            <label for="email" class="mail_input_rabel"><i class="fas fa-check"></i> メールアドレス</label>
-			                    <input type="email" class="form-control input-lg mail_input" id="email" name="email" placeholder="例）mail@example.com" />
+			                    <input type="email" class="form-control input-lg mail_input" id="email" name="email" placeholder="例）mail@example.com" required/>
 	                            
 	                            <div style="margin-top: 20px"></div>
 	                            <label for="password" class="mail_input_rabel"><i class="fas fa-check"></i> パスワード</label>
-	                            <input type="password" class="form-control input-lg mail_input" id="password" name="password" placeholder="パスワードを設定">
+	                            <input type="password" class="form-control input-lg mail_input" id="password" name="password" placeholder="パスワードを設定" required>
 	                            <div style="margin-top: 10px"></div>
-	                            <input type="password" class="form-control input-lg mail_input" id="confirmPassword" name="confirmPassword" placeholder="同じパスワードを入力">
+	                            <input type="password" class="form-control input-lg mail_input" id="confirmPassword" name="confirmPassword" placeholder="同じパスワードを入力" required>
 	                            <div style="text-align: right; margin-top: 30px; margin-bottom: 70px;">
 	                                <button type="submit" id="regist_button" class="btn btn-execute" style="width: 150px; line-height: 30px"><i class="fas fa-leaf fa-fw"></i> 新規登録</button>
 	                            </div>
@@ -125,7 +125,7 @@
                     <!-- スライダー -->
                     <div class="slider">
                         <div class="back_quote" style="width: 100%; height:190px;">
-                            <p class="customer_voice">オンラインでアドレスを管理できるなんて、便利なシステムだね。<br />僕もすぐに JOIN したよ。</p>
+                            <p class="customer_voice">オンラインでアドレス管理できるなんて、便利なシステムだね。<br />僕もすぐに JOIN したよ。</p>
                             <p class="customer_name">東京都 - 山田太郎 様</p>
                         </div>
                         <div class="back_quote" style="width: 100%; height:190px;">
