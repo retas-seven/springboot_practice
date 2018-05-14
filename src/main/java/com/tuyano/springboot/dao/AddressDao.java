@@ -58,4 +58,8 @@ public interface AddressDao {
 	
 	@Select
 	Integer selectMaxId();
+	
+    @Select(ensureResult = true)
+    List<Address> selectByBelongUserEmail(String belongUserEmail);
+
 }

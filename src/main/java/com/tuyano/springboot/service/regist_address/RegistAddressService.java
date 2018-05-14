@@ -35,7 +35,7 @@ public class RegistAddressService {
 		
 		UserInfo userInfo = ApUtil.getUserInfo();
 		Address address = new Address();
-		address.setBelongUserId(userInfo.getId());
+		address.setBelongUserEmail(userInfo.getEmail());
 		address.setFirstname(form.getFirstName());
 		address.setLastname(form.getLastName());
 		address.setMobilePhoneNumber(form.getMobilePhoneNumber());
