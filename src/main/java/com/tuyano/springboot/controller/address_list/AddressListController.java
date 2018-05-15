@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -42,13 +43,22 @@ public class AddressListController {
 	 * @return アドレス一覧画面パス
 	 */
 	@RequestMapping(value="/init")
-	public String init(Model model) {
+	public String init(AddressListForm form, Model model) {
 		String belongUserEmail = ApUtil.getUserInfo().getEmail();
 		
 		// 一覧情報を取得する
 		List<Address> addressList = addressListService.searchAddress(belongUserEmail);
+		form.setAddressList(addressList);
 		
-		model.addAttribute("addressList", addressList);
+		return "/address_list/list";
+	}
+	
+	/**
+	 * 
+	 */
+	@RequestMapping(value="/update/{addressId}")
+	public String update(@PathVariable String addressId, AddressListForm form, Model model) {
+		System.out.println("■addressId:" + addressId);
 		return "/address_list/list";
 	}
 }

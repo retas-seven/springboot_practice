@@ -22,11 +22,11 @@
                         <h2 class="screen_title">アドレス一覧</h2>
                         <hr class="hr_red">
                     </div>
-                    <form>
+                    <form method="post" action="/address_list/update" th:object="${addressListForm}">
                         <div class="row">
-                            <table class="table table-striped" style="background-color: rgba(220, 225, 200, 0.2)">
+                            <table class="table table-striped main_table">
                                 <thead>
-                                    <tr>
+                                    <tr class="main_table_header">
                                         <th>名前</th>
                                         <th>電話番号</th>
                                         <th>メールアドレス</th>
@@ -34,54 +34,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!--
-                                    <tr>
-                                        <td>山田 太郎</td>
-                                        <td>090-5551-2525</td>
-                                        <td>yamadatarou@hanaq.com</td>
-                                        <td>
-                                            <i class="far fa-edit"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>鈴木 一郎</td>
-                                        <td>090-3211-6865</td>
-                                        <td>ichiro@hanaq.com</td>
-                                        <td>
-                                            <i class="far fa-edit"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>佐藤 太郎</td>
-                                        <td>090-5551-2525</td>
-                                        <td>yamadatarou@hanaq.com</td>
-                                        <td>
-                                            <i class="far fa-edit"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>木村 一郎</td>
-                                        <td>090-3211-6865</td>
-                                        <td>ichiro@hanaq.com</td>
-                                        <td>
-                                            <i class="far fa-edit"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>田村 次郎</td>
-                                        <td>090-3211-6865</td>
-                                        <td>jiro@hanaq.com</td>
-                                        <td>
-                                            <i class="far fa-edit"></i>
-                                        </td>
-                                    </tr>
-                                    -->
-                                    <tr th:each="address : ${addressList}">
+                                    <tr th:each="address : *{addressList}">
                                         <td th:text="${address.lastname}">試験一郎</td>
                                         <td th:text="${address.mobilePhoneNumber}">090-1111-2222</td>
                                         <td th:text="${address.email}">test@wabk.com</td>
                                         <td>
-                                            <i class="far fa-edit"></i>
+                                            <i th:id="${address.id}" class="edit_btn far fa-edit"></i>
                                         </td>
                                     </tr>
                                     
@@ -99,5 +57,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- 本画面用のJS -->
+        <script type="text/javascript" src="../../static/js/address_list/list.js" th:src="@{/js/address_list/list.js}"></script>
     </body>
 </html>

@@ -7,3 +7,25 @@
     margin:0px;
 }
 
+.edit_btn {
+    color: rgb(33, 37, 41);
+}
+
+.edit_btn:hover {
+    color: rgb(254, 254, 242);
+}
+
+.main_table {
+    background-color: rgba(195, 171, 137, 0.2);
+    border-radius: 7px;
+}
+
+.main_table_header {
+    color: rgb(117, 90, 90);
+}
+
+/* Bootstrap‚Ìtable‚Ì’è‹`‚ğã‘‚« */
+.table td, .table th {
+    border-top: none;
+}
+
