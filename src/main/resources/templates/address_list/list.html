@@ -28,6 +28,7 @@
                                 <thead>
                                     <tr class="main_table_header">
                                         <th>名前</th>
+                                        <th>携帯電話番号</th>
                                         <th>電話番号</th>
                                         <th>メールアドレス</th>
                                         <th></th>
@@ -35,11 +36,22 @@
                                 </thead>
                                 <tbody>
                                     <tr th:each="address : *{addressList}">
-                                        <td th:text="${address.lastname}">試験一郎</td>
+                                        <td th:text="${address.lastname} + ' ' + ${address.firstname}">試験 一郎</td>
                                         <td th:text="${address.mobilePhoneNumber}">090-1111-2222</td>
+                                        <td th:text="${address.homePhoneNumber}">0144-11-2222</td>
                                         <td th:text="${address.email}">test@wabk.com</td>
-                                        <td>
-                                            <i th:id="${address.id}" class="edit_btn far fa-edit"></i>
+                                        <td th:id="${address.id}" >
+                                            <i class="detail_btn far fa-lg fa-address-card"></i>
+                                            <i class="ml-4 edit_btn fa-lg far fa-edit"></i>
+                                            
+                                            <input type="hidden" name="fullname" th:value="${address.lastname} + ' ' + ${address.firstname}" />
+                                            <input type="hidden" name="homePhoneNumber" th:value="${address.homePhoneNumber}" />
+                                            <input type="hidden" name="mobilePhoneNumber" th:value="${address.mobilePhoneNumber}" />
+                                            <input type="hidden" name="email" th:value="${address.email}" />
+                                            <input type="hidden" name="zipCode" th:value="${address.zipCode}" />
+                                            <input type="hidden" name="prefecture" th:value="${address.prefecture}" />
+                                            <input type="hidden" name="address" th:value="${address.address}" />
+                                            <input type="hidden" name="buildingName" th:value="${address.buildingName}" />
                                         </td>
                                     </tr>
                                     
@@ -49,7 +61,10 @@
                     </form>
                 </div>
             </div>
-
+            
+            <!-- MODAL -->
+            <div th:replace="/fragment/address_modal.html::fragment_address_modal"></div>
+            
             <!-- FOOTER -->
             <div th:replace="/fragment/footer.html::footer"></div>
         </div>

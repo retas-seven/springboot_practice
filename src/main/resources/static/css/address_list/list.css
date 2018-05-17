@@ -7,11 +7,12 @@
     margin:0px;
 }
 
-.edit_btn {
+.edit_btn, .detail_btn {
     color: rgb(33, 37, 41);
+    cursor: pointer;
 }
 
-.edit_btn:hover {
+.edit_btn:hover, .detail_btn:hover {
     color: rgb(254, 254, 242);
 }
 
