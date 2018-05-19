@@ -40,21 +40,20 @@
                                         <td th:text="${address.mobilePhoneNumber}">090-1111-2222</td>
                                         <td th:text="${address.homePhoneNumber}">0144-11-2222</td>
                                         <td th:text="${address.email}">test@wabk.com</td>
-                                        <td th:id="${address.id}" >
+                                        <td data-th-data-id="${address.id}"
+                                            data-th-data-fullname="${address.lastname} + ' ' + ${address.firstname}"
+                                            data-th-data-home_phone_number="${#strings.defaultString(address.homePhoneNumber, ' ')}"
+                                            data-th-data-mobile_phone_number="${#strings.defaultString(address.mobilePhoneNumber, ' ')}"
+                                            data-th-data-email="${#strings.defaultString(address.email, ' ')}"
+                                            data-th-data-zip_code="${#strings.defaultString(address.zipCode, ' ')}"
+                                            data-th-data-prefecture="${#strings.defaultString(address.prefecture, ' ')}"
+                                            data-th-data-address="${#strings.defaultString(address.address, ' ')}"
+                                            data-th-data-building_name="${#strings.defaultString(address.buildingName, ' ')}">
+                                            
                                             <i class="detail_btn far fa-lg fa-address-card"></i>
                                             <i class="ml-4 edit_btn fa-lg far fa-edit"></i>
-                                            
-                                            <input type="hidden" name="fullname" th:value="${address.lastname} + ' ' + ${address.firstname}" />
-                                            <input type="hidden" name="homePhoneNumber" th:value="${address.homePhoneNumber}" />
-                                            <input type="hidden" name="mobilePhoneNumber" th:value="${address.mobilePhoneNumber}" />
-                                            <input type="hidden" name="email" th:value="${address.email}" />
-                                            <input type="hidden" name="zipCode" th:value="${address.zipCode}" />
-                                            <input type="hidden" name="prefecture" th:value="${address.prefecture}" />
-                                            <input type="hidden" name="address" th:value="${address.address}" />
-                                            <input type="hidden" name="buildingName" th:value="${address.buildingName}" />
                                         </td>
                                     </tr>
-                                    
                                 </tbody>
                             </table>
                         </div>

@@ -3,15 +3,16 @@ $(function() {
      * 詳細ボタン押下時の処理
      */
     $('.detail_btn').click(function(e) {
-        var fullname = $(this).siblings('input[name=fullname]').val();
-        var homePhoneNumber = $(this).siblings('input[name=homePhoneNumber]').val();
-        var mobilePhoneNumber = $(this).siblings('input[name=mobilePhoneNumber]').val();
-        var email = $(this).siblings('input[name=email]').val();
-        var zipCode = $(this).siblings('input[name=zipCode]').val();
-        var prefecture = $(this).siblings('input[name=prefecture]').val();
-        var address = $(this).siblings('input[name=address]').val();
-        var buildingName = $(this).siblings('input[name=buildingName]').val();
-        
+    	var tmp = $(this).parent('td');
+        var fullname = tmp.attr('data-fullname');
+        var homePhoneNumber = tmp.attr('data-home_phone_number');
+        var mobilePhoneNumber = tmp.attr('data-mobile_phone_number');
+        var email = tmp.attr('data-email');
+        var zipCode = tmp.attr('data-zip_code');
+        var prefecture = tmp.attr('data-prefecture');
+        var address = tmp.attr('data-address');
+        var buildingName = tmp.attr('data-building_name');
+        	
         $('#modalFullname').text(fullname);
         $('#modalHomePhoneNumber').text(homePhoneNumber);
         $('#modalMobilePhoneNumber').text(mobilePhoneNumber);
