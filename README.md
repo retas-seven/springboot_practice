@@ -1,6 +1,4 @@
-﻿# springboot_practice
-
-<br />
+﻿# WEBアドレス帳（Springboot Practice）
 
 ## 概要
 
@@ -27,3 +25,13 @@
 * Spring徹底入門
 
     * https://www.shoeisha.co.jp/book/detail/9784798142470
+
+## 画像素材
+
+* 写真AC
+
+    * https://www.photo-ac.com/
+
+* Illust AC
+
+    * https://www.ac-illust.com/
