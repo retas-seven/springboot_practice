@@ -40,7 +40,7 @@ body {
 
 /* copyright */
 .copyright {
-    text-align: center;
+    text-align: right;
     /* color: rgb(255, 247, 221); */
     color: rgb(82, 51, 35);
     font-weight: 300;
