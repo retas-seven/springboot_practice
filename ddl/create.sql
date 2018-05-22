@@ -12,7 +12,7 @@ CREATE TABLE ADDRESS (
   , HOME_PHONE_NUMBER     VARCHAR(15)                                    COMMENT '電話番号'
   , MOBILE_PHONE_NUMBER   VARCHAR(15)                                    COMMENT '携帯電話番号'
   , EMAIL                 VARCHAR(50)                                    COMMENT 'メールアドレス'
-  , ZIP_CODE              VARCHAR(7)                                     COMMENT '郵便番号'
+  , ZIP_CODE              VARCHAR(8)                                     COMMENT '郵便番号'
   , PREFECTURE            VARCHAR(50)                                    COMMENT '都道府県'
   , ADDRESS               VARCHAR(50)                                    COMMENT '住所・番地'
   , BUILDING_NAME         VARCHAR(50)                                    COMMENT '建物名'
