@@ -27,7 +27,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers(
                             "/img/**",
                             "/css/**",
-                            "/js/**"
+                            "/js/**",
+                            "/doc/**"
                             );
     }
 
