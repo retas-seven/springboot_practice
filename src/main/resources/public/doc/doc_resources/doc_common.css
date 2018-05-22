@@ -92,18 +92,3 @@ h3 {
     border: 0;
 }
 
-/* フェードイン */
-@keyframes fadeInUpSmall {
-    from {
-        opacity: 0;
-        transform: translate3d(0, 25px, 0);
-    }
-    to {
-        opacity: 1;
-          transform: none;
-    }
-}
-.fadeInUpSmall {
-      animation-name: fadeInUpSmall;
-}    
-
