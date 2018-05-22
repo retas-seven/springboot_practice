@@ -48,8 +48,8 @@ body {
 }
 
 .bg {
-    background-color: rgb(239, 235, 232);
-    /*background-image: url("sima.jpg");*/
+    /*background-color: rgb(239, 235, 232);*/
+    background-image: url("sima.png");
 }
 
 .content {
