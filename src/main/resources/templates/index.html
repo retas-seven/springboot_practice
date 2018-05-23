@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" style="scroll-behavior:smooth;">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
+        <link href="../static/css/dl/animate.css" th:href="@{/css/dl/animate.css}" rel="stylesheet" />
         <link href="../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
         <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
         <title>WEB Addressbook</title>
@@ -18,7 +19,7 @@
             <a class="navbar-brand" href="#">WEB Addressbook</a>
         </nav>-->
         
-        <div class="container-fluid">
+        <div class="container-fluid" id="top">
 
             <!-- １段目 -->
 	        <div class="row row01 bg_image01">
@@ -169,10 +170,15 @@
                     <a href="/doc/contact.html" target="_blank">お問い合わせ</a>
                 </div>
             </div>
-            <div class="row" style="margin-top: 90px;">
+            <div class="row" style="margin-top: 10px;">
                 <div class="col-12">
                     <p class="copyright">Copyright © OsawaApps 2018. All rights reserved.</p>
                 </div>
+            </div>
+            <div style="text-align: center;" class="animated wow slideInUp">
+                <a href="#top" title="TOPへ戻る">
+                    <i class="fas fa-angle-double-up return_top_cursor"></i>
+                </a>
             </div>
         </div>
 
@@ -181,9 +187,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         
+        <!-- WOW-->
+        <script src="../static/js/dl/wow.min.js" th:src="@{/js/dl/wow.min.js}"></script>
+
         <!-- スライダーの設定-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
         <script>
+            new WOW().init();
+
             $(".slider").slick({
                 infinite: true
                 , autoplay: true

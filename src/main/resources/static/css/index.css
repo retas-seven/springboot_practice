@@ -300,6 +300,12 @@
 .footer a:hover { color: rgb(82, 51, 35); }
 .footer a:active { color: rgb(82, 51, 35); }
 
+.return_top_cursor {
+    font-size: 1.9em;
+    color: #f1deea;
+    margin-top: 40px;
+}
+
 /* ------------------------------------------- */
 /* プレースホルダの色 */
 /* ------------------------------------------- */
