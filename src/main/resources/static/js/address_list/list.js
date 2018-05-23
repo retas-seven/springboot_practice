@@ -13,8 +13,13 @@ $(function() {
         var prefecture = tmp.attr('data-prefecture');
         var address = tmp.attr('data-address');
         var buildingName = tmp.attr('data-building_name');
-        	
-        $('#modalFullnameKana').text('【' + fullnameKana + '】');
+        
+        if (fullnameKana.trim() != '') {
+            $('#modalFullnameKana').text('【' + fullnameKana + '】');
+        } else {
+        	$('#modalFullnameKana').text('');
+        }
+        
         $('#modalFullname').text(fullname);
         $('#modalHomePhoneNumber').text(homePhoneNumber);
         $('#modalMobilePhoneNumber').text(mobilePhoneNumber);

@@ -8,9 +8,11 @@ import javax.validation.constraints.Size;
  */
 public class InputAddressForm {
 	
+	@Pattern(regexp="[・＝ァ-ヴー]*", message="{Pattern.kanaName.message}")
 	@Size(max = 50)
     private String firstNameKana;
 
+	@Pattern(regexp="[・＝ァ-ヴー]*", message="{Pattern.kanaName.message}")
 	@Size(max = 50)
     private String lastNameKana;
 
