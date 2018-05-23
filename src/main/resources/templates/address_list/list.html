@@ -41,6 +41,7 @@
                                         <td th:text="${address.homePhoneNumber}">0144-11-2222</td>
                                         <td th:text="${address.email}">test@wabk.com</td>
                                         <td data-th-data-id="${address.id}"
+                                            data-th-data-fullname_kana="${address.lastnameKana} + ' ' + ${address.firstnameKana}"
                                             data-th-data-fullname="${address.lastname} + ' ' + ${address.firstname}"
                                             data-th-data-home_phone_number="${#strings.defaultString(address.homePhoneNumber, ' ')}"
                                             data-th-data-mobile_phone_number="${#strings.defaultString(address.mobilePhoneNumber, ' ')}"

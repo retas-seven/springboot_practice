@@ -24,18 +24,20 @@ public class RegistAddressService {
 	 * @param form アドレス登録機能Form
 	 */
 	public void regist(InputAddressForm form) {
-		// システムエラーテスト用
-		if ("syserr".equals(form.getFirstName())) {
-			throw new SystemException();
-		}
-		// アプリケーションエラーテスト用
-		if ("apperr".equals(form.getFirstName())) {
-			throw new ApplicationException("アプリケーションエラーです。");
-		}
-		
+//		// システムエラーテスト用
+//		if ("syserr".equals(form.getFirstName())) {
+//			throw new SystemException();
+//		}
+//		// アプリケーションエラーテスト用
+//		if ("apperr".equals(form.getFirstName())) {
+//			throw new ApplicationException("アプリケーションエラーです。");
+//		}
+
 		UserInfo userInfo = ApUtil.getUserInfo();
 		Address address = new Address();
 		address.setBelongUserEmail(userInfo.getEmail());
+		address.setFirstnameKana(form.getFirstNameKana());
+		address.setLastnameKana(form.getLastNameKana());
 		address.setFirstname(form.getFirstName());
 		address.setLastname(form.getLastName());
 		address.setMobilePhoneNumber(form.getMobilePhoneNumber());

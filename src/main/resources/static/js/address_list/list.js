@@ -4,6 +4,7 @@ $(function() {
      */
     $('.detail_btn').click(function(e) {
     	var tmp = $(this).parent('td');
+        var fullnameKana = tmp.attr('data-fullname_kana');
         var fullname = tmp.attr('data-fullname');
         var homePhoneNumber = tmp.attr('data-home_phone_number');
         var mobilePhoneNumber = tmp.attr('data-mobile_phone_number');
@@ -13,6 +14,7 @@ $(function() {
         var address = tmp.attr('data-address');
         var buildingName = tmp.attr('data-building_name');
         	
+        $('#modalFullnameKana').text('【' + fullnameKana + '】');
         $('#modalFullname').text(fullname);
         $('#modalHomePhoneNumber').text(homePhoneNumber);
         $('#modalMobilePhoneNumber').text(mobilePhoneNumber);

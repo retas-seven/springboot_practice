@@ -9,11 +9,17 @@ import javax.validation.constraints.Size;
 public class InputAddressForm {
 	
 	@Size(max = 50)
+    private String firstNameKana;
+
+	@Size(max = 50)
+    private String lastNameKana;
+
+	@Size(max = 50)
     private String firstName;
 
 	@Size(max = 50)
     private String lastName;
-
+	
     @Pattern(regexp="[0-9\\-]*", message="{Pattern.phoneNumber.message}")
 	@Size(max = 15)
     private String mobilePhoneNumber;
@@ -37,6 +43,22 @@ public class InputAddressForm {
 
 	@Size(max = 50)
     private String buildingName;
+
+	public String getFirstNameKana() {
+		return firstNameKana;
+	}
+
+	public void setFirstNameKana(String firstNameKana) {
+		this.firstNameKana = firstNameKana;
+	}
+
+	public String getLastNameKana() {
+		return lastNameKana;
+	}
+
+	public void setLastNameKana(String lastNameKana) {
+		this.lastNameKana = lastNameKana;
+	}
 
 	public String getFirstName() {
 		return firstName;

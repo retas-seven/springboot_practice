@@ -26,6 +26,14 @@ public class Address {
     @Column(name = "BELONG_USER_EMAIL")
     String belongUserEmail;
 
+    /** 姓カナ */
+    @Column(name = "LASTNAME_KANA")
+    String lastnameKana;
+
+    /** 名カナ */
+    @Column(name = "FIRSTNAME_KANA")
+    String firstnameKana;
+
     /** 姓 */
     @Column(name = "LASTNAME")
     String lastname;
@@ -117,6 +125,42 @@ public class Address {
      */
     public void setBelongUserEmail(String belongUserEmail) {
         this.belongUserEmail = belongUserEmail;
+    }
+
+    /** 
+     * Returns the lastnameKana.
+     * 
+     * @return the lastnameKana
+     */
+    public String getLastnameKana() {
+        return lastnameKana;
+    }
+
+    /** 
+     * Sets the lastnameKana.
+     * 
+     * @param lastnameKana the lastnameKana
+     */
+    public void setLastnameKana(String lastnameKana) {
+        this.lastnameKana = lastnameKana;
+    }
+
+    /** 
+     * Returns the firstnameKana.
+     * 
+     * @return the firstnameKana
+     */
+    public String getFirstnameKana() {
+        return firstnameKana;
+    }
+
+    /** 
+     * Sets the firstnameKana.
+     * 
+     * @param firstnameKana the firstnameKana
+     */
+    public void setFirstnameKana(String firstnameKana) {
+        this.firstnameKana = firstnameKana;
     }
 
     /** 

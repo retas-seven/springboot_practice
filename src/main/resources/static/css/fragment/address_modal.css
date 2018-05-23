@@ -7,3 +7,12 @@
 .address_modal_header {
     background-color: rgb(228, 203, 178);
 }
+
+.address_modal_title {
+	display: flex;
+	align-items: center;"
+}
+
+.fullname_kana_size {
+	font-size: 0.6em;
+}

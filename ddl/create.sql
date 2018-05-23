@@ -7,6 +7,8 @@ GRANT ALL ON test01.* TO test01_user;
 CREATE TABLE ADDRESS (
   ID                      INT(11)     NOT NULL AUTO_INCREMENT            COMMENT 'ID'
   , BELONG_USER_EMAIL     VARCHAR(50) NOT NULL                           COMMENT '所属ユーザメールアドレス'
+  , LASTNAME_KANA         VARCHAR(50)                                    COMMENT '姓カナ'
+  , FIRSTNAME_KANA        VARCHAR(50)                                    COMMENT '名カナ'
   , LASTNAME              VARCHAR(50)                                    COMMENT '姓'
   , FIRSTNAME             VARCHAR(50)                                    COMMENT '名'
   , HOME_PHONE_NUMBER     VARCHAR(15)                                    COMMENT '電話番号'
