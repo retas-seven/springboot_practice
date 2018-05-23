@@ -21,7 +21,9 @@ public class InputAddressFormValidator implements Validator {
         InputAddressForm form = (InputAddressForm) target;
         
         boolean isAllEmpty = StringUtils.isAllEmpty(
-                form.getFirstName()
+        		form.getFirstNameKana()
+        		, form.getLastNameKana()
+                , form.getFirstName()
                 , form.getLastName()
                 , form.getMobilePhoneNumber()
                 , form.getHomePhoneNumber()
