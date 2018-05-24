@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
         <link href="../../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
         <link href="../../static/css/notice.css" th:href="@{/css/notice.css}" rel="stylesheet" />
         <title>WEB Addressbook</title>
@@ -23,13 +24,15 @@
 	                </div>
                     <div class="row">
                         <p th:text="${errMsg}"></p>
-                        <p>「TOPへ戻る」ボタンを押し、処理をやり直してください。</p>
                     </div>
                     
                     <div class="row mt-4">
+                        <!--
                         <form method="post" action="/">
-                            <button type="submit" id="top_button" class="btn btn-info">TOPへ戻る</button>
+                            <button type="submit" id="top_button" class="btn btn-info"><i class="fas fa-th-list fa-fw"></i> TOPへ戻る</button>
                         </form>
+                        -->
+                        <a th:href="@{'/'}" class="btn btn-info"><i class="fas fa-th-list fa-fw"></i> TOPへ戻る</a>
                     </div>
                 </div>
             </div>

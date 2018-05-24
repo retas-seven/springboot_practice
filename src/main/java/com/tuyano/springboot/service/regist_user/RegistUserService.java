@@ -20,6 +20,7 @@ import com.tuyano.springboot.dao.TempUserInfoDao;
 import com.tuyano.springboot.dao.UserInfoDao;
 import com.tuyano.springboot.entity.TempUserInfo;
 import com.tuyano.springboot.entity.UserInfo;
+import com.tuyano.springboot.exceptioon.ApplicationException;
 import com.tuyano.springboot.exceptioon.SystemException;
 import com.tuyano.springboot.form.regist_user.RegistUserForm;
 import com.tuyano.springboot.util.ApUtil;
@@ -139,6 +140,11 @@ public class RegistUserService {
 	 */
 	public void mainRegist(String authKey) {
 		TempUserInfo tempUserInfo = tempUserInfoDao.selectByAuthKey(authKey);
+		
+        // 既に登録されているメールアドレスかチェック
+    	if (existUser(tempUserInfo.getEmail())) {
+    		throw new ApplicationException("既に本登録済です。TOP画面からログインしてください。");
+    	}
 		
 		UserInfo userInfo = new UserInfo();
 		userInfo.setEmail(tempUserInfo.getEmail());

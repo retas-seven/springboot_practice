@@ -82,7 +82,7 @@ public class RegistUserController {
 	 * @return 本登録確定画面パス
 	 */
 	@RequestMapping(value="/regist", method=RequestMethod.GET)
-	public String mainRegist(@RequestParam(name = "p", required = false) String p, Model model) {
+	public String mainRegist(@RequestParam(name = "p", required = false) String p, Model model, SessionStatus sessionStatus) {
 		if (StringUtils.isEmpty(p)) {
 			// URLパラメータなしで手打ちされた場合の想定
 			return "/login";
@@ -91,18 +91,21 @@ public class RegistUserController {
 		// 本登録
 		registUserService.mainRegist(p);
 		
+		// 後処理：セッション削除
+		sessionStatus.setComplete(); 
+		
 		return "/regist_user/complete";
 	}
 	
-	/**
-	 * ログイン画面へ戻る。
-	 * @param sessionStatus SessionStatus
-	 * @return ログイン画面パス
-	 */
-	@RequestMapping(value="/return_top", method=RequestMethod.POST)
-	public String returnTop(SessionStatus sessionStatus) {
-		// 後処理：セッション削除
-		sessionStatus.setComplete(); 
-		return "/login";
-	}
+//	/**
+//	 * TOP画面へ戻る。
+//	 * @param sessionStatus SessionStatus
+//	 * @return TOP面パス
+//	 */
+//	@RequestMapping(value="/return_top", method=RequestMethod.POST)
+//	public String returnTop(SessionStatus sessionStatus) {
+//		// 後処理：セッション削除
+//		sessionStatus.setComplete(); 
+//		return "/index";
+//	}
 }
