@@ -23,13 +23,18 @@
 	                    <hr class="hr_red">
 	                </div>
                     <div class="row">
-                        <p>登録が完了しました。<br />「メニューへ戻る」ボタンを押すとメニュー画面へ戻ります。</p>
+                        <div class="col-12">
+                            <p>登録が完了しました。<br />他のアドレスを登録する場合は「登録を続ける」ボタンを押してください。</p>
+                        </div>
                     </div>
                     
                     <div class="row mt-4">
-                        <form method="post" action="/regist_address/complete">
-                            <button type="submit" id="menu_button" class="btn btn-info"><i class="fas fa-th-list fa-fw"></i> メニューへ戻る</button>
-                        </form>
+                        <div class="col-12">
+                            <form method="post" action="/regist_address/complete">
+                                <button type="submit" id="saitouroku_button" name="saitouroku_button" class="mr-2 btn btn-info"><i class="fas fa-edit fa-fw"></i> 登録を続ける</button>
+                                <button type="submit" id="menu_button" name="menu_button" class="btn btn-info"><i class="fas fa-th-list fa-fw"></i> メニューへ戻る</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

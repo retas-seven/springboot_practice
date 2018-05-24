@@ -100,10 +100,22 @@ public class RegistAddressController {
 	 * @param sessionStatus SessionStatus
 	 * @return メニュー画面パス
 	 */
-	@RequestMapping(value="/complete", method=RequestMethod.POST)
+	@RequestMapping(value="/complete", params="menu_button", method=RequestMethod.POST)
 	public String completeAddress(SessionStatus sessionStatus) {
 		// 後処理：セッション削除
-		sessionStatus.setComplete(); 
+		sessionStatus.setComplete();
 		return "/menu";
+	}
+	
+
+	/**
+	 * 登録完了画面の「登録を続ける」ボタン押下時の処理。
+	 * @param model Model
+	 * @return アドレス情報入力画面パス
+	 */
+	@RequestMapping(value="/complete", params="saitouroku_button", method=RequestMethod.POST)
+	public String saitourokuAddress(Model model) {
+		model.addAttribute(new InputAddressForm());
+		return "/regist_address/input";
 	}
 }
