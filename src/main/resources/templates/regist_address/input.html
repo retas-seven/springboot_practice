@@ -29,14 +29,14 @@
 	                  <div class="form-group row">
 	                    <label for="lastName" class="col-sm-2 col-form-label label_name">名前（カナ）</label>
 	                    <div class="col-sm-5">
-	                      <input type="text" class="form-control" id="lastNameKana" name="lastNameKana" th:field="*{lastNameKana}" />
+	                      <input type="text" class="form-control" id="lastNameKana" name="lastNameKana" th:field="*{lastNameKana}" placeholder="姓（カナ）" />
 	                      <p th:if="${#fields.hasErrors('lastNameKana')}" th:errors="*{lastNameKana}" th:errorclass="has-error" />
 	                    </div>
 	                    <!-- 
 	                    <label for="firstNameKana" class="col-sm-1 col-form-label label_name">名カナ</label>
 	                    -->
 	                    <div class="col-sm-5">
-	                      <input type="text" class="form-control" id="firstNameKana" name="firstNameKana" th:field="*{firstNameKana}" />
+	                      <input type="text" class="form-control" id="firstNameKana" name="firstNameKana" th:field="*{firstNameKana}"  placeholder="名（カナ）"/>
 	                      <p th:if="${#fields.hasErrors('firstNameKana')}" th:errors="*{firstNameKana}" th:errorclass="has-error" />
 	                    </div>
 	                  </div>
@@ -44,14 +44,14 @@
                       <div class="form-group row">
                         <label for="lastName" class="col-sm-2 col-form-label label_name">名前</label>
                         <div class="col-sm-5">
-                          <input type="text" class="form-control" id="lastName" name="lastName" th:field="*{lastName}" />
+                          <input type="text" class="form-control" id="lastName" name="lastName" th:field="*{lastName}" placeholder="姓" />
                           <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" th:errorclass="has-error" />
                         </div>
                         <!-- 
                         <label for="firstName" class="col-sm-1 col-form-label label_name">名</label>
                         -->
                         <div class="col-sm-5">
-                          <input type="text" class="form-control" id="firstName" name="firstName" th:field="*{firstName}" />
+                          <input type="text" class="form-control" id="firstName" name="firstName" th:field="*{firstName}" placeholder="名" />
                           <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" th:errorclass="has-error" />
                         </div>
                       </div>

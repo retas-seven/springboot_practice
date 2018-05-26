@@ -92,21 +92,6 @@ input:-webkit-autofill {
     margin-top: 7px;
 }
 
-/* フェードイン */
-@keyframes fadeInUpSmall {
-    from {
-        opacity: 0;
-        transform: translate3d(0, 25px, 0);
-    }
-    to {
-        opacity: 1;
-          transform: none;
-    }
-}
-.fadeInUpSmall {
-      animation-name: fadeInUpSmall;
-}    
-
 /* エラーメッセージ */
 .has-error, .has-global-error {
     -webkit-animation-duration: 1s;
@@ -154,13 +139,11 @@ input:-webkit-autofill {
     width: 75px;
     line-height: 12px;
 }
-
 .btn-header:hover {
     color: #fff;
     background-color: rgb(255, 125, 2);
     border-color: rgb(255, 125, 2);
 }
-
 .button_header_font_size {
     font-size: 0.5em;
 }
@@ -168,4 +151,43 @@ input:-webkit-autofill {
 .col_str {
     color: rgba(117, 27, 5, 0.87);
 }
+
+/* ------------------------------------------- */
+/* プレースホルダの色 */
+/* ------------------------------------------- */
+/* for Webkit */
+.form-control::-webkit-input-placeholder{
+    color: rgba(73, 48, 0, 0.7);
+    font-size: 0.9em;
+}
+/* for Firefox */
+.form-control::-moz-placeholder{
+    color: rgba(73, 48, 0, 0.7);
+    font-size: 0.9em;
+}
+ /* for Firefox 18以前 */
+.form-control:-moz-placeholder{
+    color: rgba(73, 48, 0, 0.7);
+    font-size: 0.9em;
+}
+ /* for Windows IE */
+.form-control:-ms-input-placeholder{
+    color: rgba(73, 48, 0, 0.7);
+    font-size: 0.9em;
+}
+
+/* フェードイン */
+@keyframes fadeInUpSmall {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 25px, 0);
+    }
+    to {
+        opacity: 1;
+          transform: none;
+    }
+}
+.fadeInUpSmall {
+      animation-name: fadeInUpSmall;
+}    
 
