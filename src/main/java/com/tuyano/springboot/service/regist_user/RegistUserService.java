@@ -16,6 +16,7 @@ import org.springframework.security.crypto.codec.Hex;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import com.tuyano.springboot.constant.ApConst;
 import com.tuyano.springboot.dao.TempUserInfoDao;
 import com.tuyano.springboot.dao.UserInfoDao;
 import com.tuyano.springboot.entity.TempUserInfo;
@@ -81,14 +82,15 @@ public class RegistUserService {
 		String encordPassword = encoder.encode(form.getPassword());
 		
 		TempUserInfo info = new TempUserInfo();
+		LocalDateTime sysDate = ApUtil.getSysdate();
+		
 		info.setAuthKey(authKey);
 		info.setEmail(form.getEmail());
 		info.setPassword(encordPassword);
-		info.setRegistDate(LocalDateTime.now());
-		info.setRegistUserId("system");
-		info.setUpdateDate(LocalDateTime.now());
-		info.setUpdateUserId("system");
-		
+		info.setRegistDate(sysDate);
+		info.setRegistUserId(ApConst.TEMP_USER_NAME);
+		info.setUpdateDate(sysDate);
+		info.setUpdateUserId(ApConst.TEMP_USER_NAME);
 		tempUserInfoDao.insert(info);
 	}
 	
@@ -140,6 +142,7 @@ public class RegistUserService {
 	 */
 	public void mainRegist(String authKey) {
 		TempUserInfo tempUserInfo = tempUserInfoDao.selectByAuthKey(authKey);
+		LocalDateTime sysDate = ApUtil.getSysdate();
 		
         // 既に登録されているメールアドレスかチェック
     	if (existUser(tempUserInfo.getEmail())) {
@@ -149,10 +152,10 @@ public class RegistUserService {
 		UserInfo userInfo = new UserInfo();
 		userInfo.setEmail(tempUserInfo.getEmail());
 		userInfo.setPassword(tempUserInfo.getPassword());
-		userInfo.setRegistDate(LocalDateTime.now());
-		userInfo.setRegistUserId("system");
-		userInfo.setUpdateDate(LocalDateTime.now());
-		userInfo.setUpdateUserId("system");
+		userInfo.setRegistDate(sysDate);
+		userInfo.setRegistUserId(ApConst.TEMP_USER_NAME);
+		userInfo.setUpdateDate(sysDate);
+		userInfo.setUpdateUserId(ApConst.TEMP_USER_NAME);
 		userInfoDao.insert(userInfo);
 	}
 	

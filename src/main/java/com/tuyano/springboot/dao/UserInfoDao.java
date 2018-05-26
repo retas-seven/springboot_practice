@@ -1,5 +1,7 @@
 package com.tuyano.springboot.dao;
 
+import java.time.LocalDateTime;
+
 import org.seasar.doma.Dao;
 import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
@@ -53,4 +55,7 @@ public interface UserInfoDao {
     
     @Select
     UserInfo selectByEmail(String email);
+    
+    @Select
+    LocalDateTime getDateTime();
 }

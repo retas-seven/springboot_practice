@@ -2,7 +2,9 @@ package com.tuyano.springboot.util;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.time.LocalDateTime;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -35,6 +37,18 @@ public class ApUtil {
 	    HttpSession session = attr.getRequest().getSession();
 	    UserInfo userInfo = (UserInfo) session.getAttribute(ApConst.SESSION_KEY_USER_INFO);
 	    return userInfo;
+	}
+
+    /**
+     * リクエストに保持したシステム日付を取得する。
+     * @return システム日付
+     */
+    public static LocalDateTime getSysdate() {
+        LocalDateTime ret = null;
+        HttpServletRequest request = 
+                ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
+        ret = (LocalDateTime) request.getAttribute(ApConst.REQUEST_KEY_SYSDATE);
+        return ret;
 	}
 	
     /**

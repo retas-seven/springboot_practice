@@ -34,6 +34,8 @@ public class RegistAddressService {
 //		}
 
 		UserInfo userInfo = ApUtil.getUserInfo();
+		LocalDateTime sysDate = ApUtil.getSysdate();
+		
 		Address address = new Address();
 		address.setBelongUserEmail(userInfo.getEmail());
 		address.setFirstnameKana(form.getFirstNameKana());
@@ -47,9 +49,9 @@ public class RegistAddressService {
 		address.setPrefecture(form.getPrefecture());
 		address.setAddress(form.getAddress());
 		address.setBuildingName(form.getBuildingName());
-		address.setRegistDate(LocalDateTime.now());
+		address.setRegistDate(sysDate);
 		address.setRegistUserId(userInfo.getId().toString());
-		address.setUpdateDate(LocalDateTime.now());
+		address.setUpdateDate(sysDate);
 		address.setUpdateUserId(userInfo.getId().toString());
 		addressDao.insert(address);
 	}

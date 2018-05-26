@@ -1,14 +1,21 @@
 package com.tuyano.springboot.aop;
 
+import java.time.LocalDateTime;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import com.tuyano.springboot.constant.ApConst;
+import com.tuyano.springboot.dao.UserInfoDao;
 import com.tuyano.springboot.exceptioon.ApplicationException;
 import com.tuyano.springboot.exceptioon.SystemException;
 
@@ -16,6 +23,9 @@ import com.tuyano.springboot.exceptioon.SystemException;
 @Component
 public class GenaralLogAop {
 	private static final Logger log = LoggerFactory.getLogger(GenaralLogAop.class);
+	
+	@Autowired
+	private UserInfoDao userInfoDao;
 	
 //    @Around("execution(* com.tuyano.springboot.controller..*.*(..)) || execution(* com.tuyano.springboot.security..*.*(..))")
     @Around("execution(* com.tuyano.springboot.controller..*.*(..))")
@@ -26,6 +36,12 @@ public class GenaralLogAop {
                     proceedingJoinPoint.getTarget().getClass(),
                     proceedingJoinPoint.getSignature().getName()));
 
+            // 業務処理で使用するシステム日付を取得する
+            LocalDateTime dt = userInfoDao.getDateTime();
+            HttpServletRequest request = 
+            		((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
+            request.setAttribute(ApConst.REQUEST_KEY_SYSDATE, dt);
+            
             // 業務処理実行
             ret = proceedingJoinPoint.proceed();
 
