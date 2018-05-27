@@ -22,7 +22,7 @@
         <div class="container-fluid" id="top">
 
             <!-- １段目 -->
-	        <div class="row row01 bg_image01">
+	        <div class="row row01 parallax-window" data-parallax="scroll" data-speed="0.2" data-image-src="../static/img/tbg8.png" data-th-data-image-src="@{/img/tbg8.png}">
             
                 <!-- HEADER -->
 		        <nav class="navbar navbar-light header">
@@ -120,7 +120,7 @@
 
             
             <!-- ３段目 -->
-	        <div class="row row03 bg_image03">
+	        <div class="row row03 parallax-window" data-parallax="scroll" data-speed="0.2" data-image-src="../static/img/back_heart.jpg" data-th-data-image-src="@{/img/back_heart.jpg}">
                 <div class="col-12">
 
                     <!-- スライダー -->
@@ -189,7 +189,10 @@
         
         <!-- WOW-->
         <script src="../static/js/dl/wow.min.js" th:src="@{/js/dl/wow.min.js}"></script>
-
+        
+        <!-- parallax-->
+        <script src="../static/js/dl/parallax.min.js" th:src="@{/js/dl/parallax.min.js}"></script>
+        
         <!-- スライダーの設定-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
         <script>
