@@ -22,6 +22,18 @@
 
 <br />
 
+* アドレス一覧
+
+![TOP](readme/list.png)
+
+<br />
+
+* 詳細
+
+![TOP](readme/detail.png)
+
+<br />
+
 ## 参考書
 
 * SpringFramework5 プログラミング入門
