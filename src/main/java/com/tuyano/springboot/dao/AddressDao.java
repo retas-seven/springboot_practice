@@ -65,4 +65,6 @@ public interface AddressDao {
     @Select(ensureResult = false)
     List<Address> selectBySearchCondirion(String belongUserEmail, String searchCondition);
 
+    @Select(ensureResult = false)
+    List<Address> selectBySearchIndividual(String belongUserEmail, String searchCondition);
 }

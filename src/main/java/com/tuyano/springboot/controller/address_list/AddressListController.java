@@ -86,6 +86,22 @@ public class AddressListController {
 		model.addAttribute(form);
 		return "/address_list/list";
 	}
+
+	/**
+	 * 検索ボタン押下時の処理。
+	 */
+	@RequestMapping(value="/search_individual/{searchCondition}", method=RequestMethod.GET)
+	public String searchIndividual(@PathVariable String searchCondition, Model model) {
+		AddressListForm form = new AddressListForm();
+		String belongUserEmail = ApUtil.getUserInfo().getEmail();
+
+		// 一覧情報を取得する
+		List<Address> addressList = addressListService.searchAddressIndividual(belongUserEmail, searchCondition);
+		form.setAddressList(addressList);
+		
+		model.addAttribute(form);
+		return "/address_list/list";
+	}
 	
 	/**
 	 * 編集ボタン押下時の処理。

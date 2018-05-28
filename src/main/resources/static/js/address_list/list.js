@@ -42,6 +42,14 @@ $(function() {
     });
     
 	/**
+	 * 検索条件（個別文字）押下時の処理
+	 */
+    $('.search_individual_str > p > a').click(function(e) {
+    	var searchCondition = $(this).text();
+    	window.location.href = '/address_list/search_individual/' + searchCondition;
+    });
+    
+	/**
 	 * 編集ボタン押下時の処理
 	 */
     $('.edit_btn').click(function(e) {
