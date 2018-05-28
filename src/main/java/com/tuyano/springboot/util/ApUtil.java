@@ -50,7 +50,25 @@ public class ApUtil {
         ret = (LocalDateTime) request.getAttribute(ApConst.REQUEST_KEY_SYSDATE);
         return ret;
 	}
-	
+
+    /**
+     * 全角ひらがなを全角カタカナに変換する。
+     * @param str 変換対象文字列
+     * @return 変換後文字列
+     */
+    public static String convHiraganaToKataKata(String str) {
+        StringBuilder sb = new StringBuilder(str);
+        
+        for (int i = 0; i < sb.length(); i++) {
+            char c = sb.charAt(i);
+            if (c >= 'ぁ' && c <= 'ん') {
+                sb.setCharAt(i, (char)(c - 'ぁ' + 'ァ'));
+            }
+        }
+        
+        return sb.toString();    
+    }
+    
     /**
      * URLエンコード処理を行う
      * @param text URLエンコード対象文字列

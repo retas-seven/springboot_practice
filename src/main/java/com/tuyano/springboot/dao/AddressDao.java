@@ -62,4 +62,7 @@ public interface AddressDao {
     @Select(ensureResult = false)
     List<Address> selectByBelongUserEmail(String belongUserEmail);
 
+    @Select(ensureResult = false)
+    List<Address> selectBySearchCondirion(String belongUserEmail, String searchCondition);
+
 }

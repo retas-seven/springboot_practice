@@ -17,17 +17,36 @@
 
             <!-- CONTENTS -->
             <div class="flex_contents bg_image">
-                <div class="container">
+                <div class="container-fluid" style="padding: 0px 90px;">
                     <div class="row">
                         <h2 class="screen_title">アドレス一覧</h2>
                         <hr class="hr_red">
                     </div>
+                </div>
+                <div class="container-fluid" style="padding: 0px 90px;">
                     <form method="post" action="/address_list/update" th:object="${addressListForm}">
                         <div class="row">
+                            <div class="col-2">
+                                <div class="form-group">
+
+                                    <!-- 検索条件 -->
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="search_condition" name="search_condition" placeholder="検索条件">
+                                        <div class="input-group-append">
+                                            <span class="input-group-append">
+                                                <button type="button" id="search_button" name="search_button">
+                                                    &nbsp;<i class="fab fa-sistrix"></i>&nbsp;
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-10">
                             <table class="table table-striped main_table">
                                 <thead>
                                     <tr class="main_table_header">
-                                        <th>名前</th>
+                                        <th class="pl-4">名前</th>
                                         <th>携帯電話番号</th>
                                         <th>電話番号</th>
                                         <th>メールアドレス</th>
@@ -36,7 +55,7 @@
                                 </thead>
                                 <tbody>
                                     <tr th:each="address : *{addressList}">
-                                        <td th:text="${address.lastname} + ' ' + ${address.firstname}">試験 一郎</td>
+                                        <td class="pl-4" th:text="${address.lastname} + ' ' + ${address.firstname}">試験 一郎</td>
                                         <td th:text="${address.mobilePhoneNumber}">090-1111-2222</td>
                                         <td th:text="${address.homePhoneNumber}">0144-11-2222</td>
                                         <td th:text="${address.email}">test@wabk.com</td>
@@ -57,6 +76,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </form>
                 </div>
