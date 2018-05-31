@@ -7,7 +7,7 @@
         <!-- ボタンなしヘッダ -->
         <div class="flex_header" th:fragment="no_button_header">
             <nav class="navbar navbar-light header_height">
-                <a class="navbar-brand" th:href="@{'/'}">WEB Addressbook</a>
+                <a class="navbar-brand" th:href="@{'/'}" title="TOPページへ戻る">WEB Addressbook</a>
                 <div class="justify-content-end">
                     <span th:if="${session.userInfo != null}">
                         <span class="header_mail" th:text="${session.userInfo.email}"></span>
@@ -19,7 +19,7 @@
         <!-- ログアウトボタンありヘッダ -->
         <div class="flex_header"　th:fragment="logout_header">
             <nav class="navbar navbar-light header_height">
-                <a class="navbar-brand" th:href="@{'/'}">WEB Addressbook</a>
+                <a class="navbar-brand" th:href="@{'/'}" title="TOPページへ戻る">WEB Addressbook</a>
                 <div class="justify-content-end">
                     <span th:if="${session.userInfo != null}">
                         <span class="header_mail" th:text="${session.userInfo.email}"></span>
@@ -33,7 +33,7 @@
         <!-- ログアウトボタンありヘッダ -->
         <div class="flex_header"　th:fragment="logout_only_header">
             <nav class="navbar navbar-light header_height">
-                <a class="navbar-brand" th:href="@{'/'}">WEB Addressbook</a>
+                <a class="navbar-brand" th:href="@{'/'}" title="TOPページへ戻る">WEB Addressbook</a>
                 <div class="justify-content-end">
                     <span th:if="${session.userInfo != null}">
                         <span class="header_mail" th:text="${session.userInfo.email}"></span>

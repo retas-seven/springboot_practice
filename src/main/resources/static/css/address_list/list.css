@@ -37,6 +37,16 @@
 	cursor: pointer;
 }
 
+.container_padding {
+    padding: 0px 90px;
+}
+
+.left_sticky {
+    height: 500px; 
+    position: sticky; 
+    top: 10px;
+}
+
 /* Bootstrap‚Ìtable‚Ì’è‹`‚ğã‘‚« */
 .table td, .table th {
     border-top: none;

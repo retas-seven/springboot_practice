@@ -17,19 +17,19 @@
 
             <!-- CONTENTS -->
             <div class="flex_contents bg_image">
-                <div class="container-fluid" style="padding: 0px 90px;">
+                <div class="container-fluid container_padding">
                     <div class="row">
                         <h2 class="screen_title">アドレス一覧</h2>
                         <hr class="hr_red">
                     </div>
                 </div>
-                <div class="container-fluid" style="padding: 0px 90px;">
+                <div class="container-fluid container_padding">
                     <form method="post" action="/address_list/update" th:object="${addressListForm}">
                         <div class="row">
-                            <div class="col-2">
-                                <div class="form-group">
-
-                                    <!-- 検索条件 -->
+                        
+                            <!-- 検索条件 -->
+                            <div class="col-2 left_sticky">
+                                <div class="form-group" id="right_component">
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" id="search_condition" name="search_condition" placeholder="検索条件">
                                         <div class="input-group-append">
