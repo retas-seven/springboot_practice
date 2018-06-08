@@ -15,6 +15,11 @@
         <div th:fragment="fragment_address_modal">
             <link href="../../static/css/fragment/address_modal.css" th:href="@{/css/fragment/address_modal.css}" rel="stylesheet" />
 
+            <!-- SPINNER -->
+	        <div id="loading" class="loading is_hide">
+	            <div class="loading_icon"></div>
+	        </div>
+        
             <!-- MODAL -->
             <div class="modal fade" id="address_modal">
                 <div class="modal-dialog modal-lg">
@@ -31,48 +36,58 @@
                             </div>
                             
                             <!-- MODAL BODY -->
+                            <input type="hidden" id="modalTargetId" name="targetId" />
+                            
                             <div class="modal-body">
+                                <div class="row">
+                                    <div id="modal_global_error" class="col-12">
+                                    </div>
+                                </div>
+                            
                                 <div class="form-group row">
-                                    <label for="homePhoneNumber" class="col-sm-3 col-form-label label_name">電話番号</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-plaintext" id="modalHomePhoneNumber"></p>
+                                    <label for="modalHomePhoneNumber" class="col-3 col-form-label label_name">電話番号</label>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control-plaintext" id="modalHomePhoneNumber" name="homePhoneNumber" autocomplete="off"/>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="mobilePhoneNumber" class="col-sm-3 col-form-label label_name">携帯電話番号</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-plaintext" id="modalMobilePhoneNumber"></p>
+                                    <label for="modalMobilePhoneNumber" class="col-3 col-form-label label_name">携帯電話番号</label>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control-plaintext" id="modalMobilePhoneNumber" name="mobilePhoneNumber" autocomplete="off"/>
                                     </div>
                                 </div>
             
                                 <div class="form-group row">
-                                    <label for="email" class="col-sm-3 col-form-label label_name">メールアドレス</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-plaintext" id="modalEmail"></p>
+                                    <label for="modalEmail" class="col-3 col-form-label label_name">メールアドレス</label>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control-plaintext" id="modalEmail" name="email" autocomplete="off"/>
                                     </div>
                                 </div>
             
                                 <div class="form-group row">
-                                    <label for="zipCode" class="col-sm-3 col-form-label label_name">郵便番号</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-plaintext" id="modalZipCode"></p>
+                                    <label for="modalZipCode" class="col-3 col-form-label label_name">郵便番号</label>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control-plaintext" id="modalZipCode" name="zipCode" autocomplete="off"/>
                                     </div>
                                 </div>
             
                                 <div class="form-group row">
-                                    <label for="prefecture" class="col-sm-3 col-form-label label_name">住所</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-plaintext" id="modalPrefecture"></p>
-                                        <p class="form-control-plaintext" id="modalAddress"></p>
-                                        <p class="form-control-plaintext" id="modalBuildingName"></p>
+                                    <label for="modalPrefecture" class="col-3 col-form-label label_name">住所</label>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control-plaintext" id="modalPrefecture" name="prefecture" autocomplete="off"/>
+                                        <input type="text" class="form-control-plaintext" id="modalAddress" name="address" autocomplete="off"/>
+                                        <input type="text" class="form-control-plaintext" id="modalBuildingName" name="buildingName" autocomplete="off"/>
                                     </div>
                                 </div>
                             </div>
                             
                             <!-- MODAL FOOTER -->
                             <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
+                                <!--  
+                                <button type="button" class="btn btn-info" data-dismiss="modal">閉じる</button>
+                                -->
+                                <button type="submit" id="modal_update_button" class="btn btn-info"><i class="fas fa-book fa-fw"></i> 更新</button>
                             </div>
                             
                         </div>

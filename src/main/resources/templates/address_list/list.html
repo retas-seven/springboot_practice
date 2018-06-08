@@ -15,92 +15,92 @@
             <!-- HEADER -->
             <div th:replace="/fragment/header.html::logout_header"></div>
 
-            <!-- CONTENTS -->
-            <div class="flex_contents bg_image">
-                <div class="container-fluid container_padding">
-                    <div class="row">
-                        <h2 class="screen_title">アドレス一覧</h2>
-                        <hr class="hr_red">
-                    </div>
-                </div>
-                <div class="container-fluid container_padding">
-                    <form method="post" action="/address_list/update" th:object="${addressListForm}">
-                        <div class="row">
-                        
-                            <!-- 検索条件 -->
-                            <div class="col-2 left_sticky">
-                                <div class="form-group" id="right_component">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="search_condition" name="search_condition" placeholder="検索条件">
-                                        <div class="input-group-append">
-                                            <span class="input-group-append">
-                                                <button type="button" id="search_button" name="search_button">
-                                                    &nbsp;<i class="fab fa-sistrix"></i>&nbsp;
-                                                </button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="search_individual_str">
-                                        <p><a>ア</a> / <a>イ</a> / <a>ウ</a> / <a>エ</a> / <a>オ</a></p>
-                                        <p><a>カ</a> / <a>キ</a> / <a>ク</a> / <a>ケ</a> / <a>コ</a></p>
-                                        <p><a>サ</a> / <a>シ</a> / <a>ス</a> / <a>セ</a> / <a>ソ</a></p>
-                                        <p><a>タ</a> / <a>チ</a> / <a>ツ</a> / <a>テ</a> / <a>ト</a></p>
-                                        <p><a>ナ</a> / <a>ニ</a> / <a>ヌ</a> / <a>ネ</a> / <a>ノ</a></p>
-                                        <p><a>ハ</a> / <a>ヒ</a> / <a>フ</a> / <a>ヘ</a> / <a>ホ</a></p>
-                                        <p><a>マ</a> / <a>ミ</a> / <a>ム</a> / <a>メ</a> / <a>モ</a></p>
-                                        <p><a>ヤ</a> / <a>ユ</a> / <a>ヨ</a></p>
-                                        <p><a>ワ</a> / <a>ヲ</a> / <a>ン</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-10">
-                            <table class="table table-striped main_table">
-                                <thead>
-                                    <tr class="main_table_header">
-                                        <th class="pl-4">名前</th>
-                                        <th>携帯電話番号</th>
-                                        <th>電話番号</th>
-                                        <th>メールアドレス</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr th:each="address : *{addressList}">
-                                        <td class="pl-4" th:text="${address.lastname} + ' ' + ${address.firstname}">試験 一郎</td>
-                                        <td th:text="${address.mobilePhoneNumber}">090-1111-2222</td>
-                                        <td th:text="${address.homePhoneNumber}">0144-11-2222</td>
-                                        <td th:text="${address.email}">test@wabk.com</td>
-                                        <td data-th-data-id="${address.id}"
-                                            data-th-data-fullname_kana="${address.lastnameKana} + ' ' + ${address.firstnameKana}"
-                                            data-th-data-fullname="${address.lastname} + ' ' + ${address.firstname}"
-                                            data-th-data-home_phone_number="${#strings.defaultString(address.homePhoneNumber, ' ')}"
-                                            data-th-data-mobile_phone_number="${#strings.defaultString(address.mobilePhoneNumber, ' ')}"
-                                            data-th-data-email="${#strings.defaultString(address.email, ' ')}"
-                                            data-th-data-zip_code="${#strings.defaultString(address.zipCode, ' ')}"
-                                            data-th-data-prefecture="${#strings.defaultString(address.prefecture, ' ')}"
-                                            data-th-data-address="${#strings.defaultString(address.address, ' ')}"
-                                            data-th-data-building_name="${#strings.defaultString(address.buildingName, ' ')}">
-                                            
-                                            <i class="detail_btn far fa-lg fa-address-card"></i>
-                                            <i class="ml-4 edit_btn fa-lg far fa-edit"></i>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            
-            <!-- MODAL -->
-            <div th:replace="/fragment/address_modal.html::fragment_address_modal"></div>
-            
+            <form id="addressListForm" name="addressListForm" method="post" action="/address_list/update" th:object="${addressListForm}">
+	            <!-- CONTENTS -->
+	            <div class="flex_contents bg_image">
+	                <div class="container-fluid container_padding">
+	                    <div class="row">
+	                        <h2 class="screen_title">アドレス一覧</h2>
+	                        <hr class="hr_red">
+	                    </div>
+	                </div>
+	                <div class="container-fluid container_padding">
+	                    <div class="row">
+	                    
+	                        <!-- 検索条件 -->
+	                        <div class="col-2 left_sticky">
+	                            <div class="form-group" id="right_component">
+	                                <div class="input-group mb-3">
+	                                    <input type="text" class="form-control" id="search_condition" name="search_condition" placeholder="検索条件">
+	                                    <div class="input-group-append">
+	                                        <span class="input-group-append">
+	                                            <button type="button" id="search_button" name="search_button">
+	                                                &nbsp;<i class="fab fa-sistrix"></i>&nbsp;
+	                                            </button>
+	                                        </span>
+	                                    </div>
+	                                </div>
+	                                <div class="search_individual_str">
+	                                    <p><a>ア</a> / <a>イ</a> / <a>ウ</a> / <a>エ</a> / <a>オ</a></p>
+	                                    <p><a>カ</a> / <a>キ</a> / <a>ク</a> / <a>ケ</a> / <a>コ</a></p>
+	                                    <p><a>サ</a> / <a>シ</a> / <a>ス</a> / <a>セ</a> / <a>ソ</a></p>
+	                                    <p><a>タ</a> / <a>チ</a> / <a>ツ</a> / <a>テ</a> / <a>ト</a></p>
+	                                    <p><a>ナ</a> / <a>ニ</a> / <a>ヌ</a> / <a>ネ</a> / <a>ノ</a></p>
+	                                    <p><a>ハ</a> / <a>ヒ</a> / <a>フ</a> / <a>ヘ</a> / <a>ホ</a></p>
+	                                    <p><a>マ</a> / <a>ミ</a> / <a>ム</a> / <a>メ</a> / <a>モ</a></p>
+	                                    <p><a>ヤ</a> / <a>ユ</a> / <a>ヨ</a></p>
+	                                    <p><a>ワ</a> / <a>ヲ</a> / <a>ン</a></p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="col-10">
+		                        <table class="table table-striped main_table">
+		                            <thead>
+		                                <tr class="main_table_header">
+		                                    <th class="pl-4">名前</th>
+		                                    <th>携帯電話番号</th>
+		                                    <th>電話番号</th>
+		                                    <th>メールアドレス</th>
+		                                    <th></th>
+		                                </tr>
+		                            </thead>
+		                            <tbody>
+		                                <tr th:each="address : *{addressList}">
+		                                    <td class="pl-4" th:text="${address.lastname} + ' ' + ${address.firstname}"></td>
+		                                    <td th:text="${address.mobilePhoneNumber}"></td>
+		                                    <td th:text="${address.homePhoneNumber}"></td>
+		                                    <td th:text="${address.email}"></td>
+		                                    <td data-th-data-id="${address.id}"
+		                                        data-th-data-fullname_kana="${address.lastnameKana} + ' ' + ${address.firstnameKana}"
+		                                        data-th-data-fullname="${address.lastname} + ' ' + ${address.firstname}"
+		                                        data-th-data-home_phone_number="${#strings.defaultString(address.homePhoneNumber, '')}"
+		                                        data-th-data-mobile_phone_number="${#strings.defaultString(address.mobilePhoneNumber, '')}"
+		                                        data-th-data-email="${#strings.defaultString(address.email, '')}"
+		                                        data-th-data-zip_code="${#strings.defaultString(address.zipCode, '')}"
+		                                        data-th-data-prefecture="${#strings.defaultString(address.prefecture, '')}"
+		                                        data-th-data-address="${#strings.defaultString(address.address, '')}"
+		                                        data-th-data-building_name="${#strings.defaultString(address.buildingName, '')}">
+                                                
+		                                        <i class="detail_btn far fa-lg fa-address-card"></i>
+		                                        <i class="ml-4 edit_btn fa-lg far fa-edit"></i>
+		                                    </td>
+		                                </tr>
+		                            </tbody>
+		                        </table>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            
+	            <!-- MODAL -->
+	            <div th:replace="/fragment/address_modal.html::fragment_address_modal"></div>
+            </form>
+	            
             <!-- FOOTER -->
             <div th:replace="/fragment/footer.html::footer"></div>
         </div>
         <!-- Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- 本画面用のJS -->

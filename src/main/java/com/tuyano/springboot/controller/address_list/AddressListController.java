@@ -1,21 +1,36 @@
 package com.tuyano.springboot.controller.address_list;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.tuyano.springboot.entity.Address;
 import com.tuyano.springboot.form.address_list.AddressListForm;
-import com.tuyano.springboot.form.regist_address.InputAddressForm;
+import com.tuyano.springboot.form.address_list.AddressListFormValidator;
+import com.tuyano.springboot.json.JsonResponse;
 import com.tuyano.springboot.service.address_list.AddressListService;
 import com.tuyano.springboot.util.ApUtil;
 
@@ -29,6 +44,17 @@ public class AddressListController {
 	@Autowired
 	AddressListService addressListService;
 	
+	@Autowired
+	private AddressListFormValidator addressListFormValidator;
+    
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.addValidators(addressListFormValidator);
+    }
+    
+    @Autowired
+	MessageSource messageSource;
+    
 	/**
 	 * アドレス一覧機能Formをセッションに登録する。
 	 * @return アドレス一覧機能Form
@@ -110,5 +136,50 @@ public class AddressListController {
 	public String update(@PathVariable String addressId, AddressListForm form, Model model) {
 		System.out.println("■addressId:" + addressId);
 		return "/address_list/list";
+	}
+	
+	/**
+	 * （モーダルの）更新ボタン押下時の処理。
+	 */
+	@RequestMapping(value="/update", method=RequestMethod.POST)
+	@ResponseBody
+	public JsonResponse updateAddress(@Valid AddressListForm form, BindingResult bindingResult) {
+		JsonResponse json = new JsonResponse();
+    	List<String> globalErrorList = new ArrayList<>();
+		
+        if (bindingResult.hasErrors()) {
+        	//----------------------------------------------------
+        	// 入力チェックエラーがある場合、モーダル画面にエラーメッセージを表示する
+        	//----------------------------------------------------
+        	json.setValidated(false);
+        	Map<String, String> fieldErrorMap = new HashMap<>();
+        	
+            // 全体のエラーメッセージを設定
+	        for (ObjectError err: bindingResult.getGlobalErrors()) {
+	        	  globalErrorList.add(messageSource.getMessage(err.getCode(), null, Locale.getDefault()));
+	        }
+            
+        	// フィールド個別のエラーメッセージを設定
+            for (FieldError err: bindingResult.getFieldErrors()) {
+                fieldErrorMap.put(err.getField(), err.getDefaultMessage());
+            }
+            json.setFieldErrorMessages(fieldErrorMap);
+            
+        } else {
+        	//----------------------------------------------------
+        	// 入力チェックエラーがない場合、アドレスを更新する
+        	//----------------------------------------------------
+        	json.setValidated(true);
+
+    		try {
+    			addressListService.updateAddress(form);
+    		} catch (OptimisticLockingFailureException oe) {
+    			globalErrorList.add(
+    					messageSource.getMessage("addresslist.optimisticLockingFailure.message", null, Locale.getDefault()));
+    		}
+        }
+
+        json.setGlobalErrorMessages(globalErrorList);
+		return json;
 	}
 }

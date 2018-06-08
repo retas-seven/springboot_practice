@@ -3,11 +3,13 @@ package com.tuyano.springboot.service.address_list;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tuyano.springboot.dao.AddressDao;
 import com.tuyano.springboot.entity.Address;
+import com.tuyano.springboot.form.address_list.AddressListForm;
 import com.tuyano.springboot.util.ApUtil;
 
 @Service
@@ -53,5 +55,21 @@ public class AddressListService {
 				belongUserEmail
 				, searchCondition);
 		return ret;
+	}
+	
+	/**
+	 * アドレスを更新する
+	 */
+	public void updateAddress(AddressListForm form) {
+    	for (Address address: form.getAddressList()) {
+    		if (form.getTargetId().equals(address.getId())) {
+    			// アドレスを更新する
+    			BeanUtils.copyProperties(form, address);
+    			address.setUpdateDate(ApUtil.getSysdate());
+    			address.setUpdateUserId(ApUtil.getUserInfo().getId().toString());
+    			addressDao.update(address);
+    			break;
+    		}
+    	}
 	}
 }

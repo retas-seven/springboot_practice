@@ -4,30 +4,34 @@ $(function() {
      */
     $('.detail_btn').click(function(e) {
     	var tmp = $(this).parent('td');
-        var fullnameKana = tmp.attr('data-fullname_kana');
-        var fullname = tmp.attr('data-fullname');
-        var homePhoneNumber = tmp.attr('data-home_phone_number');
-        var mobilePhoneNumber = tmp.attr('data-mobile_phone_number');
-        var email = tmp.attr('data-email');
-        var zipCode = tmp.attr('data-zip_code');
-        var prefecture = tmp.attr('data-prefecture');
-        var address = tmp.attr('data-address');
-        var buildingName = tmp.attr('data-building_name');
-        
-        if (fullnameKana.trim() != '') {
+    	var id = tmp.attr('data-id');
+        var fullnameKana = conv(tmp.attr('data-fullname_kana'));
+        var fullname = conv(tmp.attr('data-fullname'));
+        var homePhoneNumber = conv(tmp.attr('data-home_phone_number'));
+        var mobilePhoneNumber = conv(tmp.attr('data-mobile_phone_number'));
+        var email = conv(tmp.attr('data-email'));
+        var zipCode = conv(tmp.attr('data-zip_code'));
+        var prefecture = conv(tmp.attr('data-prefecture'));
+        var address = conv(tmp.attr('data-address'));
+        var buildingName = conv(tmp.attr('data-building_name'));
+
+        if (fullnameKana != '') {
             $('#modalFullnameKana').text('【' + fullnameKana + '】');
         } else {
         	$('#modalFullnameKana').text('');
         }
-        
+
+        $('#modalTargetId').val(id);
         $('#modalFullname').text(fullname);
-        $('#modalHomePhoneNumber').text(homePhoneNumber);
-        $('#modalMobilePhoneNumber').text(mobilePhoneNumber);
-        $('#modalEmail').text(email);
-        $('#modalZipCode').text(zipCode);
-        $('#modalPrefecture').text(prefecture);
-        $('#modalAddress').text(address);
-        $('#modalBuildingName').text(buildingName);
+        $('#modalHomePhoneNumber').val(homePhoneNumber);
+        $('#modalMobilePhoneNumber').val(mobilePhoneNumber);
+        $('#modalEmail').val(email);
+        $('#modalZipCode').val(zipCode);
+        $('#modalPrefecture').val(prefecture);
+        $('#modalAddress').val(address);
+        $('#modalBuildingName').val(buildingName);
+        
+        $('.ajax_result').remove();
         
         // モーダルで詳細情報を表示
         $('#address_modal').modal();
@@ -58,7 +62,43 @@ $(function() {
         mainForm.attr('action', mainForm.attr('action') + '/' + addressId);
         mainForm.submit();
     });
+    
+	/**
+	 * 更新ボタン押下時の処理
+	 */
+    $('#modal_update_button').click(function(e) {
+    	$('#loading').fadeIn();
+		e.preventDefault();
+		
+        $.post({
+            url: '/address_list/update',
+            data: $('#addressListForm').serialize(),
+            success: function(data) {
+                $('.ajax_result').remove();
+
+                // 全体のエラーメッセージを設定
+                $.each (data.globalErrorMessages, function (index, value){
+                    console.log('【' + index + '】【' + value+ '】');
+                    $('#modal_global_error').append('<p class="ajax_result has-global-error">' + value + '</p>');
+                });
+
+                // フィールド個別のエラーメッセージを設定
+                $.each (data.fieldErrorMessages, function (key, value){
+                    console.log('【' + key + '】【' + value+ '】');
+                    $('input[name=' + key + ']').after('<p class="ajax_result has-error">' + value + '</p>');
+                });
+
+                $('#loading').fadeOut();
+            }
+        })
+	});
 });
 
 
-
+function conv(value) {
+	if(value === undefined) {
+		return '';
+	} else {
+		return value;
+	}
+}
