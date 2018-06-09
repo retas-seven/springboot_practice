@@ -26,71 +26,71 @@
                     <form method="post" action="/regist_address/confirm" th:object="${inputAddressForm}">
                     
                       <div class="form-group row">
-                        <label for="firstNameKana" class="col-sm-2 col-form-label label_name">名前（カナ）</label>
-                        <div class="col-sm-10">
+                        <label for="firstNameKana" class="col-2 col-form-label label_name">名前（カナ）</label>
+                        <div class="col-10">
                           <input type="text" readonly class="form-control-plaintext" id="fullname" name="name" th:value="*{lastNameKana} + ' ' + *{firstNameKana}">
                         </div>
                       </div>
                     
                       <div class="form-group row">
-                        <label for="lastName" class="col-sm-2 col-form-label label_name">名前</label>
-                        <div class="col-sm-10">
+                        <label for="lastName" class="col-2 col-form-label label_name">名前</label>
+                        <div class="col-10">
                           <input type="text" readonly class="form-control-plaintext" id="fullnameKana" name="nameKana" th:value="*{lastName} + ' ' + *{firstName}">
                         </div>
                       </div>
 
                       <div class="form-group row">
-                        <label for="mobilePhoneNumber" class="col-sm-2 col-form-label label_name">携帯電話番号</label>
-                        <div class="col-sm-10">
+                        <label for="mobilePhoneNumber" class="col-2 col-form-label label_name">携帯電話番号</label>
+                        <div class="col-10">
                           <input type="text" readonly class="form-control-plaintext" id="mobilePhoneNumber" name="mobilePhoneNumber" th:field="*{mobilePhoneNumber}" value="090-1234-5678"/>
                         </div>
                       </div>
 
                       <div class="form-group row">
-                        <label for="homePhoneNumber" class="col-sm-2 col-form-label label_name">電話番号</label>
-                        <div class="col-sm-10">
+                        <label for="homePhoneNumber" class="col-2 col-form-label label_name">電話番号</label>
+                        <div class="col-10">
                           <input type="text" readonly class="form-control-plaintext" id="homePhoneNumber" name="homePhoneNumber" th:field="*{homePhoneNumber}" value="03-1234-5678"/>
                         </div>
                       </div>
 
                       <div class="form-group row">
-                        <label for="email" class="col-sm-2 col-form-label label_name">メールアドレス</label>
-                        <div class="col-sm-10">
+                        <label for="email" class="col-2 col-form-label label_name">メールアドレス</label>
+                        <div class="col-10">
                           <input type="text" readonly class="form-control-plaintext" id="email" name="email" th:field="*{email}" value="email@example.com"/>
                         </div>
                       </div>
 
                       <div class="form-group row">
-                        <label for="zipCode" class="col-sm-2 col-form-label label_name">郵便番号</label>
-                        <div class="col-sm-10">
+                        <label for="zipCode" class="col-2 col-form-label label_name">郵便番号</label>
+                        <div class="col-10">
                           <input type="text" readonly class="form-control-plaintext" id="zipCode" name="zipCode" th:field="*{zipCode}" value="100-1234"/>
                         </div>
                       </div>
 
                       <div class="form-group row">
-                        <label for="prefecture" class="col-sm-2 col-form-label label_name">都道府県</label>
-                        <div class="col-sm-10">
+                        <label for="prefecture" class="col-2 col-form-label label_name">都道府県</label>
+                        <div class="col-10">
                           <input type="text" readonly class="form-control-plaintext" id="prefecture" name="prefecture" th:field="*{prefecture}" value="東京都"/>
                         </div>
                       </div>
 
                       <div class="form-group row">
-                        <label for="address" class="col-sm-2 col-form-label label_name">住所・番地</label>
-                        <div class="col-sm-10">
+                        <label for="address" class="col-2 col-form-label label_name">住所・番地</label>
+                        <div class="col-10">
                           <input type="text" readonly class="form-control-plaintext" id="address" name="address" th:field="*{address}" value="武蔵野市山町１丁目２２－１"/>
                         </div>
                       </div>
 
                       <div class="form-group row">
-                        <label for="buildingName" class="col-sm-2 col-form-label label_name">建物名</label>
-                        <div class="col-sm-10">
+                        <label for="buildingName" class="col-2 col-form-label label_name">建物名</label>
+                        <div class="col-10">
                           <input type="text" readonly class="form-control-plaintext" id="buildingName" name="buildingName" th:field="*{buildingName}" value="武蔵山ビル３０１号室"/>
                         </div>
                       </div>
                       
                       <div class="row mt-4">
-                          <div class="col-sm-2"></div><!-- ボタン左側の隙間 -->
-                          <div class="col-sm-10">
+                          <div class="col-2"></div><!-- ボタン左側の隙間 -->
+                          <div class="col-10">
                               <button type="submit" id="back_button" name="back_button" class="btn btn-info mr-2"><i class="fas fa-arrow-left fa-fw"></i> 戻る</button>
                               <button type="submit" id="regist_button" name="regist_button" class="btn btn-execute"><i class="fas fa-book fa-fw"></i> 登録</button>
                           </div>

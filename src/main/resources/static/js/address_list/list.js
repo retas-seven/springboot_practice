@@ -31,6 +31,7 @@ $(function() {
         $('#modalAddress').val(address);
         $('#modalBuildingName').val(buildingName);
         
+        // 入力チェックエラーメッセージ等の表示が残っている場合があるので除去
         $('.ajax_result').remove();
         
         // モーダルで詳細情報を表示
@@ -74,6 +75,7 @@ $(function() {
             url: '/address_list/update',
             data: $('#addressListForm').serialize(),
             success: function(jsonResponse) {
+            	// 既存のエラーメッセージを除去
                 $('.ajax_result').remove();
 
                 // 全体のエラーメッセージを設定
