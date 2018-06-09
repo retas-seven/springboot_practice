@@ -73,20 +73,37 @@ $(function() {
         $.post({
             url: '/address_list/update',
             data: $('#addressListForm').serialize(),
-            success: function(data) {
+            success: function(jsonResponse) {
                 $('.ajax_result').remove();
 
                 // 全体のエラーメッセージを設定
-                $.each (data.globalErrorMessages, function (index, value){
-                    console.log('【' + index + '】【' + value+ '】');
+                $.each (jsonResponse.globalErrorMessages, function (index, value){
+//                  console.log('【' + index + '】【' + value+ '】');
                     $('#modal_global_error').append('<p class="ajax_result has-global-error">' + value + '</p>');
                 });
 
                 // フィールド個別のエラーメッセージを設定
-                $.each (data.fieldErrorMessages, function (key, value){
-                    console.log('【' + key + '】【' + value+ '】');
+                $.each (jsonResponse.fieldErrorMessages, function (key, value){
+//                  console.log('【' + key + '】【' + value+ '】');
                     $('input[name=' + key + ']').after('<p class="ajax_result has-error">' + value + '</p>');
                 });
+                
+            	// 更新内容を一覧表の行に反映
+                if (jsonResponse.updateSuccess) {
+                	var targetId = $('#modalTargetId').val();
+                	$('#' + targetId).children('td').eq(1).text($('#modalMobilePhoneNumber').val());
+                	$('#' + targetId).children('td').eq(2).text($('#modalHomePhoneNumber').val());
+                	$('#' + targetId).children('td').eq(3).text($('#modalEmail').val());
+                	
+                	var dataTd = $('#' + targetId).children('td').eq(4);
+                	dataTd.attr('data-mobile_phone_number', $('#modalMobilePhoneNumber').val());
+                	dataTd.attr('data-home_phone_number', $('#modalHomePhoneNumber').val());
+                	dataTd.attr('data-email', $('#modalEmail').val());
+                	dataTd.attr('data-zip_code', $('#modalZipCode').val());
+                	dataTd.attr('data-prefecture', $('#modalPrefecture').val());
+                	dataTd.attr('data-address', $('#modalAddress').val());
+                	dataTd.attr('data-building_name', $('#modalBuildingName').val());
+                }
 
                 $('#loading').fadeOut();
             }

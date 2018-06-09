@@ -144,14 +144,13 @@ public class AddressListController {
 	@RequestMapping(value="/update", method=RequestMethod.POST)
 	@ResponseBody
 	public JsonResponse updateAddress(@Valid AddressListForm form, BindingResult bindingResult) {
-		JsonResponse json = new JsonResponse();
+		JsonResponse jsonResponse = new JsonResponse();
     	List<String> globalErrorList = new ArrayList<>();
 		
         if (bindingResult.hasErrors()) {
         	//----------------------------------------------------
         	// 入力チェックエラーがある場合、モーダル画面にエラーメッセージを表示する
         	//----------------------------------------------------
-        	json.setValidated(false);
         	Map<String, String> fieldErrorMap = new HashMap<>();
         	
             // 全体のエラーメッセージを設定
@@ -163,23 +162,23 @@ public class AddressListController {
             for (FieldError err: bindingResult.getFieldErrors()) {
                 fieldErrorMap.put(err.getField(), err.getDefaultMessage());
             }
-            json.setFieldErrorMessages(fieldErrorMap);
+            jsonResponse.setFieldErrorMessages(fieldErrorMap);
             
         } else {
         	//----------------------------------------------------
         	// 入力チェックエラーがない場合、アドレスを更新する
         	//----------------------------------------------------
-        	json.setValidated(true);
-
     		try {
     			addressListService.updateAddress(form);
+    			jsonResponse.setUpdateSuccess(true);
     		} catch (OptimisticLockingFailureException oe) {
+    			// 排他エラー発生時
     			globalErrorList.add(
     					messageSource.getMessage("addresslist.optimisticLockingFailure.message", null, Locale.getDefault()));
     		}
         }
 
-        json.setGlobalErrorMessages(globalErrorList);
-		return json;
+        jsonResponse.setGlobalErrorMessages(globalErrorList);
+		return jsonResponse;
 	}
 }

@@ -65,7 +65,7 @@
 		                                </tr>
 		                            </thead>
 		                            <tbody>
-		                                <tr th:each="address : *{addressList}">
+		                                <tr th:each="address : *{addressList}" th:id="${address.id}">
 		                                    <td class="pl-4" th:text="${address.lastname} + ' ' + ${address.firstname}"></td>
 		                                    <td th:text="${address.mobilePhoneNumber}"></td>
 		                                    <td th:text="${address.homePhoneNumber}"></td>
@@ -81,6 +81,7 @@
 		                                        data-th-data-address="${#strings.defaultString(address.address, '')}"
 		                                        data-th-data-building_name="${#strings.defaultString(address.buildingName, '')}">
                                                 
+                                                <!-- 行右側のアイコン -->
 		                                        <i class="detail_btn far fa-lg fa-address-card"></i>
 		                                        <i class="ml-4 edit_btn fa-lg far fa-edit"></i>
 		                                    </td>
