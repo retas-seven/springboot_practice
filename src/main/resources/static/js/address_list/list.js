@@ -106,6 +106,19 @@ $(function() {
                 }
 
                 $('#loading').fadeOut();
+                
+                // 更新成功メッセージ
+                if (jsonResponse.updateSuccess) {
+                	iziToast.show({
+                		messageColor: 'rgba(13, 80, 36, 0.8)',
+                	    color: 'green',
+                	    position: 'topRight',
+                	    timeout: 3500,
+                	    messageSize: '17',
+                	    message: '更新しました。'
+                	});
+                }
+                
             }
         })
 	});

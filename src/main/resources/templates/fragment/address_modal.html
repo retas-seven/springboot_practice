@@ -12,9 +12,11 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#address_modal">表示</button>
         <button type="button" class="btn btn-primary" id="btn_view">表示(javascript)</button>
 
+        <!-- fragment start -->
         <div th:fragment="fragment_address_modal">
             <link href="../../static/css/fragment/address_modal.css" th:href="@{/css/fragment/address_modal.css}" rel="stylesheet" />
-
+            <link href="../../static/css/dl/iziToast.min.css" th:href="@{/css/dl/iziToast.min.css}" rel="stylesheet" />
+            
             <!-- SPINNER -->
 	        <div id="loading" class="loading is_hide">
 	            <div class="loading_icon"></div>
@@ -94,13 +96,16 @@
                     </div>
                 </div>
             </div>
+            
+            <script src="../../static/js/dl/iziToast.min.js" th:src="@{/js/dl/iziToast.min.js}"></script>
         </div>
-
+        <!-- fragment end -->
+        
         <!-- Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+
         <script>
             $( function() {
                 $('#btn_view').click( function () {
