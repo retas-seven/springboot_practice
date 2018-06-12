@@ -129,14 +129,41 @@ public class AddressListController {
 		return "/address_list/list";
 	}
 	
+//	/**
+//	 * 編集ボタン押下時の処理。
+//	 */
+//	@RequestMapping(value="/update/{addressId}")
+//	public String update(@PathVariable String addressId, AddressListForm form, Model model) {
+//		System.out.println("■addressId:" + addressId);
+//		return "/address_list/list";
+//	}
+	
 	/**
-	 * 編集ボタン押下時の処理。
+	 * 削除ボタン押下時の処理。
 	 */
-	@RequestMapping(value="/update/{addressId}")
-	public String update(@PathVariable String addressId, AddressListForm form, Model model) {
-		System.out.println("■addressId:" + addressId);
-		return "/address_list/list";
+	@RequestMapping(value="/delete", method=RequestMethod.POST)
+	@ResponseBody
+	public JsonResponse deleteAddress(AddressListForm form, Integer deleteTargetId) {
+		JsonResponse jsonResponse = new JsonResponse();
+		List<String> globalErrorList = new ArrayList<>();
+		System.out.println("■" + deleteTargetId);
+		
+    	//----------------------------------------------------
+    	// アドレスを削除する
+    	//----------------------------------------------------
+		try {
+			addressListService.deleteAddress(form, deleteTargetId);
+			jsonResponse.setSuccess(true);
+		} catch (OptimisticLockingFailureException oe) {
+			// 排他エラー発生時
+			globalErrorList.add(
+					messageSource.getMessage("addresslist.optimisticLockingFailure.message", null, Locale.getDefault()));
+		}
+
+        jsonResponse.setGlobalErrorMessages(globalErrorList);
+		return jsonResponse;
 	}
+	
 	
 	/**
 	 * （モーダルの）更新ボタン押下時の処理。
@@ -170,7 +197,7 @@ public class AddressListController {
         	//----------------------------------------------------
     		try {
     			addressListService.updateAddress(form);
-    			jsonResponse.setUpdateSuccess(true);
+    			jsonResponse.setSuccess(true);
     		} catch (OptimisticLockingFailureException oe) {
     			// 排他エラー発生時
     			globalErrorList.add(

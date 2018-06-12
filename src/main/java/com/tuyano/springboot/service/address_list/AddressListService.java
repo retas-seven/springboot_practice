@@ -56,6 +56,19 @@ public class AddressListService {
 				, searchCondition);
 		return ret;
 	}
+
+	/**
+	 * アドレスを削除する
+	 */
+	public void deleteAddress(AddressListForm form, Integer deleteTargetId) {
+    	for (Address address: form.getAddressList()) {
+    		if (address.getId().equals(deleteTargetId)) {
+    			// アドレスを削除する
+    			addressDao.delete(address);
+    			break;
+    		}
+    	}
+	}
 	
 	/**
 	 * アドレスを更新する

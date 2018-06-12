@@ -5,15 +5,16 @@ import java.util.Map;
 
 public class JsonResponse {
 
-    private boolean updateSuccess;
+    private boolean success;
     private Map<String, String> fieldErrorMessages;
     private List<String> globalErrorMessages;
     
-	public boolean isUpdateSuccess() {
-		return updateSuccess;
+	
+	public boolean isSuccess() {
+		return success;
 	}
-	public void setUpdateSuccess(boolean updateSuccess) {
-		this.updateSuccess = updateSuccess;
+	public void setSuccess(boolean success) {
+		this.success = success;
 	}
 	public Map<String, String> getFieldErrorMessages() {
 		return fieldErrorMessages;

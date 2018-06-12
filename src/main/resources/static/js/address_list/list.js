@@ -55,13 +55,52 @@ $(function() {
     });
     
 	/**
-	 * 編集ボタン押下時の処理
+	 * 削除ボタン押下時の処理
 	 */
-    $('.edit_btn').click(function(e) {
-        var addressId = $(this).attr('id');
-        var mainForm = $(this).parents('form');
-        mainForm.attr('action', mainForm.attr('action') + '/' + addressId);
-        mainForm.submit();
+    $('.delete_btn').click(function(e) {
+        if(!confirm('削除しますか？')){
+            return false;
+        }
+        
+		e.preventDefault();
+    	$('#loading').fadeIn();
+    	var deleteTargetId = $(this).parent('td').attr('data-id');
+        console.log('deleteTargetId:' + deleteTargetId);
+		
+        $.post({
+            url: '/address_list/delete',
+            data: {
+            	deleteTargetId: deleteTargetId
+            },
+            success: function(jsonResponse) {
+//            	// 既存のエラーメッセージを除去
+//                $('.ajax_result').remove();
+//
+//                // 全体のエラーメッセージを設定
+//                $.each (jsonResponse.globalErrorMessages, function (index, value){
+//                    $('#global_error').append('<p class="ajax_delete_result has-global-error">' + value + '</p>');
+//                });
+//                
+            	// 一覧表の行を削除
+                if (jsonResponse.success) {
+                	$('#' + deleteTargetId).remove();
+                }
+
+                $('#loading').fadeOut();
+                
+                // 削除成功メッセージ
+                if (jsonResponse.success) {
+                	iziToast.show({
+                		messageColor: 'rgba(13, 80, 36, 0.8)',
+                	    color: 'green',
+                	    position: 'topRight',
+                	    timeout: 3500,
+                	    messageSize: '17',
+                	    message: '削除しました。'
+                	});
+                }
+            }
+        })
     });
     
 	/**
@@ -91,7 +130,7 @@ $(function() {
                 });
                 
             	// 更新内容を一覧表の行に反映
-                if (jsonResponse.updateSuccess) {
+                if (jsonResponse.success) {
                 	var targetId = $('#modalTargetId').val();
                 	$('#' + targetId).children('td').eq(1).text($('#modalMobilePhoneNumber').val());
                 	$('#' + targetId).children('td').eq(2).text($('#modalHomePhoneNumber').val());
@@ -110,7 +149,7 @@ $(function() {
                 $('#loading').fadeOut();
                 
                 // 更新成功メッセージ
-                if (jsonResponse.updateSuccess) {
+                if (jsonResponse.success) {
                 	iziToast.show({
                 		messageColor: 'rgba(13, 80, 36, 0.8)',
                 	    color: 'green',
@@ -120,7 +159,6 @@ $(function() {
                 	    message: '更新しました。'
                 	});
                 }
-                
             }
         })
 	});
