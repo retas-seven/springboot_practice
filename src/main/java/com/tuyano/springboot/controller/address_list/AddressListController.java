@@ -146,7 +146,6 @@ public class AddressListController {
 	public JsonResponse deleteAddress(AddressListForm form, Integer deleteTargetId) {
 		JsonResponse jsonResponse = new JsonResponse();
 		List<String> globalErrorList = new ArrayList<>();
-		System.out.println("■" + deleteTargetId);
 		
     	//----------------------------------------------------
     	// アドレスを削除する
@@ -155,6 +154,7 @@ public class AddressListController {
 			addressListService.deleteAddress(form, deleteTargetId);
 			jsonResponse.setSuccess(true);
 		} catch (OptimisticLockingFailureException oe) {
+			System.out.println("■" + oe.getMessage());
 			// 排他エラー発生時
 			globalErrorList.add(
 					messageSource.getMessage("addresslist.optimisticLockingFailure.message", null, Locale.getDefault()));

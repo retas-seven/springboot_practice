@@ -73,17 +73,19 @@ $(function() {
             	deleteTargetId: deleteTargetId
             },
             success: function(jsonResponse) {
-//            	// 既存のエラーメッセージを除去
-//                $('.ajax_result').remove();
-//
-//                // 全体のエラーメッセージを設定
-//                $.each (jsonResponse.globalErrorMessages, function (index, value){
-//                    $('#global_error').append('<p class="ajax_delete_result has-global-error">' + value + '</p>');
-//                });
-//                
+            	// 既存のエラーメッセージを除去
+                $('.ajax_delete_result').remove();
+
+                // 全体のエラーメッセージを設定
+                $.each (jsonResponse.globalErrorMessages, function (index, value){
+                    $('#global_error').append('<p class="ajax_delete_result has-global-error">' + value + '</p>');
+                });
+                
             	// 一覧表の行を削除
                 if (jsonResponse.success) {
                 	$('#' + deleteTargetId).remove();
+                } else {
+                	$("html,body").animate({scrollTop:$('#addressListForm').offset().top});
                 }
 
                 $('#loading').fadeOut();
