@@ -6,6 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="../../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
+
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </head>
     
     <body style="background-color: papayawhip">
@@ -30,11 +35,34 @@
                         
                             <!-- MODAL HEADER -->
                             <div class="modal-header address_modal_header">
-                                <h4 class="modal-title address_modal_title">
-                                    <span class="label_name ml-4" id="modalFullname"></span>
-                                    <span class="label_name ml-3 fullname_kana_size" id="modalFullnameKana"></span>
-                                </h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <div id="name_output">
+                                    <h4 class="modal-title address_modal_title">
+                                        <span class="label_name ml-4" id="modalFullname"></span>
+                                        <span class="label_name ml-3 fullname_kana_size" id="modalFullnameKana"></span>
+                                    </h4>
+                                </div>
+                                <div id="name_input" class="name_is_hide" style="padding-left: 10px; padding-top: 10px;">
+                                    <div class="form-group row" style="width: 750px;">
+                                        <div class="col-6">
+                                            <input type="text" class="form-control" id="modalLastnameKana" name="lastNameKana" placeholder="姓（カナ）"  autocomplete="off" />
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="text" class="form-control" id="modalFirstnameKana" name="firstNameKana"  placeholder="名（カナ）"  autocomplete="off" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" style="width: 750px;">
+                                        <div class="col-6">
+                                            <input type="text" class="form-control" id="modalLastname" name="lastName" placeholder="姓" autocomplete="off" />
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="text" class="form-control" id="modalFirstname" name="firstName" placeholder="名" autocomplete="off" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 閉じるボタン -->
+                                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                                <!-- トグルボタン -->
+                                <span id="name_toggle">＋</span>
                             </div>
                             
                             <!-- MODAL BODY -->
@@ -97,14 +125,10 @@
                 </div>
             </div>
             
+            <script src="../../static/js/fragment/address_modal.js" th:src="@{/js/fragment/address_modal.js}"></script>
             <script src="../../static/js/dl/iziToast.min.js" th:src="@{/js/dl/iziToast.min.js}"></script>
         </div>
         <!-- fragment end -->
-        
-        <!-- Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
         <script>
             $( function() {

@@ -5,8 +5,10 @@ $(function() {
     $('.detail_btn').click(function(e) {
     	var tmp = $(this).parent('td');
     	var id = tmp.attr('data-id');
-        var fullnameKana = conv(tmp.attr('data-fullname_kana'));
-        var fullname = conv(tmp.attr('data-fullname'));
+        var lastnameKana= conv(tmp.attr('data-lastname_kana'));
+        var firstnameKana= conv(tmp.attr('data-firstname_kana'));
+        var lastname= conv(tmp.attr('data-lastname'));
+        var firstname= conv(tmp.attr('data-firstname'));
         var homePhoneNumber = conv(tmp.attr('data-home_phone_number'));
         var mobilePhoneNumber = conv(tmp.attr('data-mobile_phone_number'));
         var email = conv(tmp.attr('data-email'));
@@ -15,14 +17,13 @@ $(function() {
         var address = conv(tmp.attr('data-address'));
         var buildingName = conv(tmp.attr('data-building_name'));
 
-        if (fullnameKana != '') {
-            $('#modalFullnameKana').text('【' + fullnameKana + '】');
-        } else {
-        	$('#modalFullnameKana').text('');
-        }
-
         $('#modalTargetId').val(id);
-        $('#modalFullname').text(fullname);
+        $('#modalFullname').text(lastname + ' ' + firstname);
+        $('#modalFullnameKana').text('【' + lastnameKana + ' ' + firstnameKana + '】');
+        $('#modalLastnameKana').val(lastnameKana);
+        $('#modalFirstnameKana').val(firstnameKana);
+        $('#modalLastname').val(lastname);
+        $('#modalFirstname').val(firstname);
         $('#modalHomePhoneNumber').val(homePhoneNumber);
         $('#modalMobilePhoneNumber').val(mobilePhoneNumber);
         $('#modalEmail').val(email);
@@ -96,7 +97,7 @@ $(function() {
                 		messageColor: 'rgba(13, 80, 36, 0.8)',
                 	    color: 'green',
                 	    position: 'topRight',
-                	    timeout: 3500,
+                	    timeout: 3000,
                 	    messageSize: '17',
                 	    message: '削除しました。'
                 	});
@@ -134,11 +135,16 @@ $(function() {
             	// 更新内容を一覧表の行に反映
                 if (jsonResponse.success) {
                 	var targetId = $('#modalTargetId').val();
+                	$('#' + targetId).children('td').eq(0).text($('#modalLastname').val() + ' ' + $('#modalFirstname').val());
                 	$('#' + targetId).children('td').eq(1).text($('#modalMobilePhoneNumber').val());
                 	$('#' + targetId).children('td').eq(2).text($('#modalHomePhoneNumber').val());
                 	$('#' + targetId).children('td').eq(3).text($('#modalEmail').val());
                 	
                 	var dataTd = $('#' + targetId).children('td').eq(4);
+                	dataTd.attr('data-lastname_kana', $('#modalLastnameKana').val());
+                	dataTd.attr('data-firstname_kana', $('#modalFirstnameKana').val());
+                	dataTd.attr('data-lastname', $('#modalLastname').val());
+                	dataTd.attr('data-firstname', $('#modalFirstname').val());
                 	dataTd.attr('data-mobile_phone_number', $('#modalMobilePhoneNumber').val());
                 	dataTd.attr('data-home_phone_number', $('#modalHomePhoneNumber').val());
                 	dataTd.attr('data-email', $('#modalEmail').val());
@@ -156,7 +162,7 @@ $(function() {
                 		messageColor: 'rgba(13, 80, 36, 0.8)',
                 	    color: 'green',
                 	    position: 'topRight',
-                	    timeout: 3500,
+                	    timeout: 3000,
                 	    messageSize: '17',
                 	    message: '更新しました。'
                 	});

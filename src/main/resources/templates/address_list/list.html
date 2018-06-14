@@ -7,6 +7,12 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
         <link href="../../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
         <link href="../../static/css/address_list/list.css" th:href="@{/css/address_list/list.css}" rel="stylesheet" />
+        
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
         <title>WEB Addressbook</title>
     </head>
     
@@ -69,20 +75,22 @@
 		                            </thead>
 		                            <tbody>
 		                                <tr th:each="address : *{addressList}" th:id="${address.id}">
-		                                    <td class="pl-4" th:text="${address.lastname} + ' ' + ${address.firstname}"></td>
+		                                    <td th:text="${address.lastname} + ' ' + ${address.firstname}" class="pl-4"></td>
 		                                    <td th:text="${address.mobilePhoneNumber}"></td>
 		                                    <td th:text="${address.homePhoneNumber}"></td>
 		                                    <td th:text="${address.email}"></td>
 		                                    <td data-th-data-id="${address.id}"
-		                                        data-th-data-fullname_kana="${address.lastnameKana} + ' ' + ${address.firstnameKana}"
-		                                        data-th-data-fullname="${address.lastname} + ' ' + ${address.firstname}"
-		                                        data-th-data-home_phone_number="${#strings.defaultString(address.homePhoneNumber, '')}"
-		                                        data-th-data-mobile_phone_number="${#strings.defaultString(address.mobilePhoneNumber, '')}"
-		                                        data-th-data-email="${#strings.defaultString(address.email, '')}"
-		                                        data-th-data-zip_code="${#strings.defaultString(address.zipCode, '')}"
-		                                        data-th-data-prefecture="${#strings.defaultString(address.prefecture, '')}"
-		                                        data-th-data-address="${#strings.defaultString(address.address, '')}"
-		                                        data-th-data-building_name="${#strings.defaultString(address.buildingName, '')}">
+		                                        data-th-data-lastname_kana="${address.lastnameKana}"
+		                                        data-th-data-firstname_kana="${address.firstnameKana}"
+		                                        data-th-data-lastname="${address.lastname}"
+		                                        data-th-data-firstname="${address.firstname}"
+		                                        data-th-data-home_phone_number="${address.homePhoneNumber}"
+		                                        data-th-data-mobile_phone_number="${address.mobilePhoneNumber}"
+		                                        data-th-data-email="${address.email}"
+		                                        data-th-data-zip_code="${address.zipCode}"
+		                                        data-th-data-prefecture="${address.prefecture}"
+		                                        data-th-data-address="${address.address}"
+		                                        data-th-data-building_name="${address.buildingName}">
                                                 
                                                 <!-- 行右側のアイコン -->
                                                 <!--  
@@ -106,10 +114,6 @@
             <!-- FOOTER -->
             <div th:replace="/fragment/footer.html::footer"></div>
         </div>
-        <!-- Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- 本画面用のJS -->
         <script type="text/javascript" src="../../static/js/address_list/list.js" th:src="@{/js/address_list/list.js}"></script>
     </body>

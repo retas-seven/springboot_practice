@@ -78,6 +78,13 @@ public class AddressListService {
     		if (form.getTargetId().equals(address.getId())) {
     			// アドレスを更新する
     			BeanUtils.copyProperties(form, address);
+    			
+    			// formとentityのプロパティ名に相違があったため、手動で値を移す（後で修正）
+    			address.setFirstname(form.getFirstName());
+    			address.setFirstnameKana(form.getFirstNameKana());
+    			address.setLastname(form.getLastName());
+    			address.setLastnameKana(form.getLastNameKana());
+    			
     			address.setUpdateDate(ApUtil.getSysdate());
     			address.setUpdateUserId(ApUtil.getUserInfo().getId().toString());
     			addressDao.update(address);
