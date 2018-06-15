@@ -35,6 +35,25 @@ $(function() {
         // 入力チェックエラーメッセージ等の表示が残っている場合があるので除去
         $('.ajax_result').remove();
         
+        // 名前の入力項目を非表示にし、名前の文字列を表示する
+//        if ($('#name_output').hasClass('name_is_hide')) {
+    	$('#name_output').removeClass('name_is_hide');
+    	$('#name_input').addClass('name_is_hide');
+        $('#modalFullname').removeClass('input_mode').attr('readonly',true);
+        $('#modalFullnameKana').removeClass('input_mode').attr('readonly',true);
+        $('#modalLastnameKana').removeClass('input_mode').attr('readonly',true);
+        $('#modalFirstnameKana').removeClass('input_mode').attr('readonly',true);
+        $('#modalLastname').removeClass('input_mode').attr('readonly',true);
+        $('#modalFirstname').removeClass('input_mode').attr('readonly',true);
+        $('#modalHomePhoneNumber').removeClass('input_mode').attr('readonly',true);
+        $('#modalMobilePhoneNumber').removeClass('input_mode').attr('readonly',true);
+        $('#modalEmail').removeClass('input_mode').attr('readonly',true);
+        $('#modalZipCode').removeClass('input_mode').attr('readonly',true);
+        $('#modalPrefecture').removeClass('input_mode').attr('readonly',true);
+        $('#modalAddress').removeClass('input_mode').attr('readonly',true);
+        $('#modalBuildingName').removeClass('input_mode').attr('readonly',true);
+//        }
+        
         // モーダルで詳細情報を表示
         $('#address_modal').modal();
     });

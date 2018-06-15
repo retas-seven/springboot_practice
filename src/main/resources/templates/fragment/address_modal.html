@@ -34,7 +34,7 @@
                         <div class="container-flued">
                         
                             <!-- MODAL HEADER -->
-                            <div class="modal-header address_modal_header">
+                            <div class="modal-header address_modal_header" id="name_input_output">
                                 <div id="name_output">
                                     <h4 class="modal-title address_modal_title">
                                         <span class="label_name ml-4" id="modalFullname"></span>
@@ -44,25 +44,25 @@
                                 <div id="name_input" class="name_is_hide" style="padding-left: 10px; padding-top: 10px;">
                                     <div class="form-group row" style="width: 750px;">
                                         <div class="col-6">
-                                            <input type="text" class="form-control" id="modalLastnameKana" name="lastNameKana" placeholder="姓（カナ）"  autocomplete="off" />
+                                            <input type="text" class="form-control-plaintext" id="modalLastnameKana" name="lastNameKana" placeholder="姓（カナ）"  autocomplete="off" />
                                         </div>
                                         <div class="col-6">
-                                            <input type="text" class="form-control" id="modalFirstnameKana" name="firstNameKana"  placeholder="名（カナ）"  autocomplete="off" />
+                                            <input type="text" class="form-control-plaintext" id="modalFirstnameKana" name="firstNameKana"  placeholder="名（カナ）"  autocomplete="off" />
                                         </div>
                                     </div>
                                     <div class="form-group row" style="width: 750px;">
                                         <div class="col-6">
-                                            <input type="text" class="form-control" id="modalLastname" name="lastName" placeholder="姓" autocomplete="off" />
+                                            <input type="text" class="form-control-plaintext" id="modalLastname" name="lastName" placeholder="姓" autocomplete="off" />
                                         </div>
                                         <div class="col-6">
-                                            <input type="text" class="form-control" id="modalFirstname" name="firstName" placeholder="名" autocomplete="off" />
+                                            <input type="text" class="form-control-plaintext" id="modalFirstname" name="firstName" placeholder="名" autocomplete="off" />
                                         </div>
                                     </div>
                                 </div>
                                 <!-- 閉じるボタン -->
                                 <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
                                 <!-- トグルボタン -->
-                                <span id="name_toggle">＋</span>
+                                <span id="name_toggle"><i class="toggle_btn far fa-lg fa-edit"></i></span>
                             </div>
                             
                             <!-- MODAL BODY -->
@@ -101,12 +101,24 @@
                                         <input type="text" class="form-control-plaintext" id="modalZipCode" name="zipCode" autocomplete="off"/>
                                     </div>
                                 </div>
-            
+   
                                 <div class="form-group row">
-                                    <label for="modalPrefecture" class="col-3 col-form-label label_name">住所</label>
+                                    <label for="modalPrefecture" class="col-3 col-form-label label_name">都道府県</label>
                                     <div class="col-9">
                                         <input type="text" class="form-control-plaintext" id="modalPrefecture" name="prefecture" autocomplete="off"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="modalAddress" class="col-3 col-form-label label_name">住所・番地</label>
+                                    <div class="col-9">
                                         <input type="text" class="form-control-plaintext" id="modalAddress" name="address" autocomplete="off"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="modalBuildingName" class="col-3 col-form-label label_name">建物名</label>
+                                    <div class="col-9">
                                         <input type="text" class="form-control-plaintext" id="modalBuildingName" name="buildingName" autocomplete="off"/>
                                     </div>
                                 </div>

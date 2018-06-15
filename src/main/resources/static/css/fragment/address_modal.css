@@ -6,9 +6,17 @@
 
 .address_modal_header {
     background-color: rgb(228, 203, 178);
-    /*height: 58px;*/
-    /*transition: all 10ms 0s ease;*/
+    /*
+    max-height: 100px;
+    transition: all 500ms 0s ease;
+    */
 }
+
+/*
+.address_modal_header_nobiru {
+	max-height: 500px;
+}
+*/
 
 .address_modal_title {
 	display: flex;
@@ -19,18 +27,35 @@
 	font-size: 0.6em;
 }
 
-input[type="text"]:focus {
+input[type="text"] {
+    letter-spacing: .1em;
+}
+
+.input_mode:focus {
     box-shadow: 0 0 0 0 rgba(255,153,0,1);
-    border: 0 0 0 0 solid #ff9900;
-    border-bottom: solid 1px #ff9900;
+    border: 0 0 0 0 solid #fc4703;
+    border-bottom: solid 1px #fc4703;
     outline: 0;
 }
 
-input[type="text"] {
-	letter-spacing: .1em;
+.input_mode {
+	border: 0 0 0 0 solid #ff9900;
+    border-bottom: solid 1px #ff9900;
+    outline: 0;
+    transition: all 500ms 0s ease;
 }
 
 .name_is_hide{
     display:none; 
+}
+
+.toggle_btn {
+    color: rgba(117, 27, 5, 0.87);
+    cursor: pointer;
+    transition: all 500ms 0s ease;
+}
+
+.toggle_btn:hover {
+    color: rgb(177, 150, 150);
 }
 
