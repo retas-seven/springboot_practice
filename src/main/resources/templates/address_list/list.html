@@ -20,17 +20,17 @@
         <div class="flex_column">
             <!-- HEADER -->
             <div th:replace="/fragment/header.html::logout_header"></div>
-
-            <form id="addressListForm" name="addressListForm" method="post" action="/address_list/update" th:object="${addressListForm}">
-	            <!-- CONTENTS -->
-	            <div class="flex_contents bg_image">
+            
+            <!-- CONTENTS -->
+            <div class="flex_contents bg_image">
+                <form id="addressListForm" name="addressListForm" method="post" action="/address_list/update" th:object="${addressListForm}">
 	                <div class="container-fluid container_padding">
 	                    <div class="row">
 	                        <h2 class="screen_title">アドレス一覧</h2>
 	                        <hr class="hr_red">
 	                    </div>
 	                </div>
-	                <div class="container-fluid container_padding">
+	                <div class="container-fluid container_padding" >
 	                    <div class="row">
 	                        
                             <div id="global_error" class="col-12">
@@ -105,11 +105,11 @@
 	                        </div>
 	                    </div>
 	                </div>
-	            </div>
-	            
-	            <!-- MODAL -->
-	            <div th:replace="/fragment/address_modal.html::fragment_address_modal"></div>
-            </form>
+	                
+	                <!-- MODAL -->
+	                <div th:replace="/fragment/address_modal.html::fragment_address_modal"></div>
+	            </form>
+	        </div>
 	            
             <!-- FOOTER -->
             <div th:replace="/fragment/footer.html::footer"></div>
