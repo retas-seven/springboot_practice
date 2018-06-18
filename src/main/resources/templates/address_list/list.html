@@ -19,7 +19,7 @@
     <body>
         <div class="flex_column">
             <!-- HEADER -->
-            <div th:replace="/fragment/header.html::logout_header"></div>
+            <div th:replace="fragment/header.html::logout_header"></div>
             
             <!-- CONTENTS -->
             <div class="flex_contents bg_image">
@@ -107,14 +107,14 @@
 	                </div>
 	                
 	                <!-- MODAL -->
-	                <div th:replace="/fragment/address_modal.html::fragment_address_modal"></div>
+	                <div th:replace="fragment/address_modal.html::fragment_address_modal"></div>
 	            </form>
 	        </div>
 	            
             <!-- FOOTER -->
-            <div th:replace="/fragment/footer.html::footer"></div>
+            <div th:replace="fragment/footer.html::footer"></div>
         </div>
-        <!-- 本画面用のJS -->
+        <!-- 画面用のJS -->
         <script type="text/javascript" src="../../static/js/address_list/list.js" th:src="@{/js/address_list/list.js}"></script>
     </body>
 </html>

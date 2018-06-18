@@ -68,10 +68,10 @@ public class RegistUserController {
 	@RequestMapping(value="/regist", method=RequestMethod.POST)
 	public String tempRegist(@Valid RegistUserForm form, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "/regist_user/input";
+            return "regist_user/input";
         }
         registUserService.tempRegist(form);
-		return "/regist_user/temp_complete";
+		return "regist_user/temp_complete";
 	}
 	
 	/**
@@ -85,7 +85,7 @@ public class RegistUserController {
 	public String mainRegist(@RequestParam(name = "p", required = false) String p, Model model, SessionStatus sessionStatus) {
 		if (StringUtils.isEmpty(p)) {
 			// URLパラメータなしで手打ちされた場合の想定
-			return "/login";
+			return "login";
 		}
 		
 		// 本登録
@@ -94,7 +94,7 @@ public class RegistUserController {
 		// 後処理：セッション削除
 		sessionStatus.setComplete(); 
 		
-		return "/regist_user/complete";
+		return "regist_user/complete";
 	}
 	
 //	/**

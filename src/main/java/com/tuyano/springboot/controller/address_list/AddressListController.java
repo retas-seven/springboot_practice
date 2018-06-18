@@ -78,7 +78,7 @@ public class AddressListController {
 		List<Address> addressList = addressListService.searchAddress(belongUserEmail);
 		form.setAddressList(addressList);
 		
-		return "/address_list/list";
+		return "address_list/list";
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class AddressListController {
 		form.setAddressList(addressList);
 		
 		model.addAttribute(form);
-		return "/address_list/list";
+		return "address_list/list";
 	}
 	
 	/**
@@ -126,7 +126,7 @@ public class AddressListController {
 		form.setAddressList(addressList);
 		
 		model.addAttribute(form);
-		return "/address_list/list";
+		return "address_list/list";
 	}
 	
 //	/**
@@ -154,7 +154,6 @@ public class AddressListController {
 			addressListService.deleteAddress(form, deleteTargetId);
 			jsonResponse.setSuccess(true);
 		} catch (OptimisticLockingFailureException oe) {
-			System.out.println("■" + oe.getMessage());
 			// 排他エラー発生時
 			globalErrorList.add(
 					messageSource.getMessage("addresslist.optimisticLockingFailure.message", null, Locale.getDefault()));

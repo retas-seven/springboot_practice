@@ -34,7 +34,7 @@ public class HelloController {
     @GetMapping("/login_error")
     public String loginError(Model model) {
         model.addAttribute("loginError", true);
-        return "/login";
+        return "login";
     }
     
 	/**
@@ -44,7 +44,7 @@ public class HelloController {
 	 */
 	@RequestMapping(value="/login")
 	public ModelAndView tempTop(ModelAndView mav) {
-		mav.setViewName("/login");
+		mav.setViewName("login");
 		return mav;
 	}
 	
@@ -55,7 +55,7 @@ public class HelloController {
 	 */
 	@RequestMapping(value="/menu")
 	public ModelAndView menu(ModelAndView mav) {
-		mav.setViewName("/menu");
+		mav.setViewName("menu");
 		return mav;
 	}
 }

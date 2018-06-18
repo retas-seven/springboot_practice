@@ -54,7 +54,7 @@ public class RegistAddressController {
 	 */
 	@RequestMapping(value="/init")
 	public String init(Model model) {
-		return "/regist_address/input";
+		return "regist_address/input";
 	}
 	
 	/**
@@ -66,9 +66,9 @@ public class RegistAddressController {
 	@RequestMapping(value="/input", method=RequestMethod.POST)
 	public String confirmAddress(@Valid InputAddressForm inputAddressForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "/regist_address/input";
+            return "regist_address/input";
         }
-		return "/regist_address/confirm";
+		return "regist_address/confirm";
 	}
 	
 	 /**
@@ -81,7 +81,7 @@ public class RegistAddressController {
 	public String registAddress(InputAddressForm inputAddressForm, Model model) {
 		// アドレス情報登録処理
 		registAddressService.regist(inputAddressForm);
-		return "/regist_address/complete";
+		return "regist_address/complete";
 	}
 	
 	 /**
@@ -92,7 +92,7 @@ public class RegistAddressController {
 	  */
 	@RequestMapping(value="/confirm", params="back_button", method=RequestMethod.POST)
 	public String backInput(Model model) {
-		return "/regist_address/input";
+		return "regist_address/input";
 	}
 	
 	/**
@@ -104,7 +104,7 @@ public class RegistAddressController {
 	public String completeAddress(SessionStatus sessionStatus) {
 		// 後処理：セッション削除
 		sessionStatus.setComplete();
-		return "/menu";
+		return "menu";
 	}
 	
 
@@ -116,6 +116,6 @@ public class RegistAddressController {
 	@RequestMapping(value="/complete", params="saitouroku_button", method=RequestMethod.POST)
 	public String saitourokuAddress(Model model) {
 		model.addAttribute(new InputAddressForm());
-		return "/regist_address/input";
+		return "regist_address/input";
 	}
 }
