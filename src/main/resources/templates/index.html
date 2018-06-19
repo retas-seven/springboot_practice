@@ -10,6 +10,13 @@
         <link href="../static/css/dl/animate.css" th:href="@{/css/dl/animate.css}" rel="stylesheet" />
         <link href="../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
         <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
+        <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+        <meta property="og:title" content="WEB Addressbook" />
+		<meta property="og:description" content="オンラインでアドレス帳を管理できる便利なWEBアプリです。" />
+		<meta property="og:type" content="ページのタイプ" />
+		<meta property="og:url" content="http://www.itariya.live-on.net" />
+		<meta property="og:image" content="../static/img/bg.png" th:content="@{/img/tbg8.png}"/>
+		<meta property="og:locale" content="ja_JP" />
         <title>WEB Addressbook</title>
     </head>
     
@@ -159,8 +166,10 @@
             </div>
             <div class="row">
                 <div class="col-4">
-                    <a href="#"><i class="fab fa-twitter fa-2x"></i></a>&nbsp;
-                    <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="http://twitter.com/share" onclick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;" rel="nofollow"><i class="fab fa-twitter fa-2x"></i></a>
+                    &nbsp;
+                    <a href="http://www.facebook.com/share.php" onclick="window.open(encodeURI(decodeURI(this.href)), 'FBwindow', 'width=554, height=470, menubar=no, toolbar=no, scrollbars=yes'); return false;" rel="nofollow"><i class="fab fa-facebook fa-2x"></i></a>
+                    
                 </div>
                 <div class="col-8" style="text-align: right;">
                     <a href="/doc/rule.html" target="_blank">利用規約</a>
