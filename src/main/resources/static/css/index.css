@@ -80,6 +80,27 @@
     background-attachment: fixed;
  }
 */
+ 
+ .riyoukiyaku_checkbox {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 5px;
+    margin-left: 5px;
+ }
+ 
+.riyoukiyaku_link {
+    margin-left: 8px;
+    margin-right: 5px;
+    text-decoration: underline;
+    font-size: 14.5px;
+    letter-spacing: .15em;
+}
+.riyoukiyaku_link > a:link { color: rgb(232, 231, 220); }
+.riyoukiyaku_link > a:visited { color: rgb(232, 231, 220); }
+.riyoukiyaku_link > a:hover { color: rgb(232, 231, 220); }
+.riyoukiyaku_link > a:active { color: rgb(232, 231, 220); }
+ 
 /* ------------------------------------------- */
 /* ２段目 */
 /* ------------------------------------------- */

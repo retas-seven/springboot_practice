@@ -64,7 +64,14 @@
 	                            <input type="password" class="form-control input-lg mail_input" id="password" name="password" placeholder="パスワードを設定" required>
 	                            <div style="margin-top: 10px"></div>
 	                            <input type="password" class="form-control input-lg mail_input" id="confirmPassword" name="confirmPassword" placeholder="同じパスワードを入力" required>
-	                            <div style="text-align: right; margin-top: 30px; margin-bottom: 70px;">
+	                            
+	                            <div style="margin-top: 20px"></div>
+                                <div>
+                                    <label for="agree" class="mail_input_rabel"><i class="fas fa-check"></i><span class="riyoukiyaku_link"><a href="/doc/rule.html" target="_blank">利用規約</a></span>に同意する</label>
+                                    <input class="riyoukiyaku_checkbox" type="checkbox" id="agree" name="agree" />
+                                </div>
+	                            
+	                            <div style="text-align: right; margin-top: -22px; margin-bottom: 70px;">
 	                                <button type="submit" id="regist_button" class="btn btn-execute" style="width: 150px; line-height: 30px"><i class="fas fa-leaf fa-fw"></i> 新規登録</button>
 	                            </div>
 	                        </form>

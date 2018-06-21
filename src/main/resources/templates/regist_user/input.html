@@ -43,6 +43,21 @@
                         </div>
                       </div>
 
+                      <div class="form-group row">
+                        <div class="col-2"></div>
+                        <div class="col-10 form-check">
+                          <!-- 
+                          <label for="agree" class="form-check label_name_agree">利用規約に同意する</label>
+                          <input type="checkbox" class="form-check-input riyoukiyaku_checkbox" id="agree" name="agree">
+                          -->
+                          
+                          <input type="checkbox" class="form-check-input riyoukiyaku_checkbox" id="agree" name="agree">
+                          <label class="label_name_agree" for="agree">利用規約に同意する</label>
+                          
+                          <p th:if="${#fields.hasErrors('agree')}" th:errors="*{agree}" th:errorclass="has-error" />
+                        </div>
+                      </div>
+
                       <div class="row mt-4">
                           <div class="col-2"></div>
                           <div class="col-10">

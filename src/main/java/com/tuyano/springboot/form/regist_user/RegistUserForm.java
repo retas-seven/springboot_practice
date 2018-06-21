@@ -1,5 +1,6 @@
 package com.tuyano.springboot.form.regist_user;
 
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -19,6 +20,17 @@ public class RegistUserForm {
 
 	@Size(max = 100)
     private String confirmPassword;
+	
+	@AssertTrue(message="{Riyoukiyaku.agree.message}")
+	private boolean agree;
+
+	public boolean isAgree() {
+		return agree;
+	}
+
+	public void setAgree(boolean agree) {
+		this.agree = agree;
+	}
 
 	public String getEmail() {
 		return email;
