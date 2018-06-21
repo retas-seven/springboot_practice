@@ -110,7 +110,7 @@ public class AddressListController {
 		form.setAddressList(addressList);
 		
 		model.addAttribute(form);
-		return "/address_list/list";
+		return "address_list/list";
 	}
 
 	/**
