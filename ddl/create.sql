@@ -4,51 +4,51 @@ CREATE USER test01_user IDENTIFIED BY 'test01_user!';
 
 GRANT ALL ON test01.* TO test01_user;
 
-CREATE TABLE ADDRESS (
+CREATE TABLE test01.ADDRESS (
   ID                      INT(11)     NOT NULL AUTO_INCREMENT            COMMENT 'ID'
-  , BELONG_USER_EMAIL     VARCHAR(50) NOT NULL                           COMMENT 'Š‘®ƒ†[ƒUƒ[ƒ‹ƒAƒhƒŒƒX'
-  , LASTNAME_KANA         VARCHAR(50)                                    COMMENT '©ƒJƒi'
-  , FIRSTNAME_KANA        VARCHAR(50)                                    COMMENT '–¼ƒJƒi'
-  , LASTNAME              VARCHAR(50)                                    COMMENT '©'
-  , FIRSTNAME             VARCHAR(50)                                    COMMENT '–¼'
-  , HOME_PHONE_NUMBER     VARCHAR(15)                                    COMMENT '“d˜b”Ô†'
-  , MOBILE_PHONE_NUMBER   VARCHAR(15)                                    COMMENT 'Œg‘Ñ“d˜b”Ô†'
-  , EMAIL                 VARCHAR(50)                                    COMMENT 'ƒ[ƒ‹ƒAƒhƒŒƒX'
-  , ZIP_CODE              VARCHAR(8)                                     COMMENT '—X•Ö”Ô†'
-  , PREFECTURE            VARCHAR(50)                                    COMMENT '“s“¹•{Œ§'
-  , ADDRESS               VARCHAR(50)                                    COMMENT 'ZŠE”Ô’n'
-  , BUILDING_NAME         VARCHAR(50)                                    COMMENT 'Œš•¨–¼'
-  , REGIST_DATE           TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '“o˜^”NŒŽ“ú'
-  , REGIST_USER_ID        VARCHAR(11) NOT NULL                           COMMENT '“o˜^ƒ†[ƒUID'
-  , UPDATE_DATE           TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'XV”NŒŽ“ú'
-  , UPDATE_USER_ID        VARCHAR(11) NOT NULL                           COMMENT 'XVƒ†[ƒUID'
-  , VERSION               INT(11)     NOT NULL DEFAULT '0'               COMMENT 'ƒo[ƒWƒ‡ƒ“iŠyŠÏƒƒbƒN—pj'
+  , BELONG_USER_EMAIL     VARCHAR(50) NOT NULL                           COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Aï¿½hï¿½ï¿½ï¿½X'
+  , LASTNAME_KANA         VARCHAR(50)                                    COMMENT 'ï¿½ï¿½ï¿½Jï¿½i'
+  , FIRSTNAME_KANA        VARCHAR(50)                                    COMMENT 'ï¿½ï¿½ï¿½Jï¿½i'
+  , LASTNAME              VARCHAR(50)                                    COMMENT 'ï¿½ï¿½'
+  , FIRSTNAME             VARCHAR(50)                                    COMMENT 'ï¿½ï¿½'
+  , HOME_PHONE_NUMBER     VARCHAR(15)                                    COMMENT 'ï¿½dï¿½bï¿½Ôï¿½'
+  , MOBILE_PHONE_NUMBER   VARCHAR(15)                                    COMMENT 'ï¿½gï¿½Ñ“dï¿½bï¿½Ôï¿½'
+  , EMAIL                 VARCHAR(50)                                    COMMENT 'ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Aï¿½hï¿½ï¿½ï¿½X'
+  , ZIP_CODE              VARCHAR(8)                                     COMMENT 'ï¿½Xï¿½Ö”Ôï¿½'
+  , PREFECTURE            VARCHAR(50)                                    COMMENT 'ï¿½sï¿½ï¿½ï¿½{ï¿½ï¿½'
+  , ADDRESS               VARCHAR(50)                                    COMMENT 'ï¿½Zï¿½ï¿½ï¿½Eï¿½Ô’n'
+  , BUILDING_NAME         VARCHAR(50)                                    COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'
+  , REGIST_DATE           TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ï¿½oï¿½^ï¿½Nï¿½ï¿½ï¿½ï¿½'
+  , REGIST_USER_ID        VARCHAR(11) NOT NULL                           COMMENT 'ï¿½oï¿½^ï¿½ï¿½ï¿½[ï¿½UID'
+  , UPDATE_DATE           TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ï¿½Xï¿½Vï¿½Nï¿½ï¿½ï¿½ï¿½'
+  , UPDATE_USER_ID        VARCHAR(11) NOT NULL                           COMMENT 'ï¿½Xï¿½Vï¿½ï¿½ï¿½[ï¿½UID'
+  , VERSION               INT(11)     NOT NULL DEFAULT '0'               COMMENT 'ï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½iï¿½yï¿½Ïƒï¿½ï¿½bï¿½Nï¿½pï¿½j'
   , PRIMARY KEY (ID)
 );
 
-CREATE TABLE USER_INFO (
+CREATE TABLE test01.USER_INFO (
   ID                      INT(11)      NOT NULL AUTO_INCREMENT            COMMENT 'ID'
-  , EMAIL                 VARCHAR(50)  NOT NULL                           COMMENT 'ƒ[ƒ‹ƒAƒhƒŒƒX'
-  , PASSWORD              VARCHAR(100) NOT NULL                           COMMENT 'ƒpƒXƒ[ƒh'
-  , REGIST_DATE           TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '“o˜^”NŒŽ“ú'
-  , REGIST_USER_ID        VARCHAR(11)  NOT NULL                           COMMENT '“o˜^ƒ†[ƒUID'
-  , UPDATE_DATE           TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'XV”NŒŽ“ú'
-  , UPDATE_USER_ID        VARCHAR(11)  NOT NULL                           COMMENT 'XVƒ†[ƒUID'
-  , VERSION               INT(11)      NOT NULL DEFAULT '0'               COMMENT 'ƒo[ƒWƒ‡ƒ“iŠyŠÏƒƒbƒN—pj'
+  , EMAIL                 VARCHAR(50)  NOT NULL                           COMMENT 'ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Aï¿½hï¿½ï¿½ï¿½X'
+  , PASSWORD              VARCHAR(100) NOT NULL                           COMMENT 'ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½h'
+  , REGIST_DATE           TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ï¿½oï¿½^ï¿½Nï¿½ï¿½ï¿½ï¿½'
+  , REGIST_USER_ID        VARCHAR(11)  NOT NULL                           COMMENT 'ï¿½oï¿½^ï¿½ï¿½ï¿½[ï¿½UID'
+  , UPDATE_DATE           TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ï¿½Xï¿½Vï¿½Nï¿½ï¿½ï¿½ï¿½'
+  , UPDATE_USER_ID        VARCHAR(11)  NOT NULL                           COMMENT 'ï¿½Xï¿½Vï¿½ï¿½ï¿½[ï¿½UID'
+  , VERSION               INT(11)      NOT NULL DEFAULT '0'               COMMENT 'ï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½iï¿½yï¿½Ïƒï¿½ï¿½bï¿½Nï¿½pï¿½j'
   , PRIMARY KEY (ID)
   , UNIQUE(EMAIL)
 );
 
-CREATE TABLE TEMP_USER_INFO (
+CREATE TABLE test01.TEMP_USER_INFO (
   ID                      INT(11)      NOT NULL AUTO_INCREMENT            COMMENT 'ID'
-  , AUTH_KEY              VARCHAR(150) NOT NULL                           COMMENT '”FØƒL['
-  , EMAIL                 VARCHAR(50)  NOT NULL                           COMMENT 'ƒ[ƒ‹ƒAƒhƒŒƒX'
-  , PASSWORD              VARCHAR(100) NOT NULL                           COMMENT 'ƒpƒXƒ[ƒh'
-  , REGIST_DATE           TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '“o˜^”NŒŽ“ú'
-  , REGIST_USER_ID        VARCHAR(11)  NOT NULL                           COMMENT '“o˜^ƒ†[ƒUID'
-  , UPDATE_DATE           TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'XV”NŒŽ“ú'
-  , UPDATE_USER_ID        VARCHAR(11)  NOT NULL                           COMMENT 'XVƒ†[ƒUID'
-  , VERSION               INT(11)      NOT NULL DEFAULT '0'               COMMENT 'ƒo[ƒWƒ‡ƒ“iŠyŠÏƒƒbƒN—pj'
+  , AUTH_KEY              VARCHAR(150) NOT NULL                           COMMENT 'ï¿½Fï¿½ØƒLï¿½['
+  , EMAIL                 VARCHAR(50)  NOT NULL                           COMMENT 'ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Aï¿½hï¿½ï¿½ï¿½X'
+  , PASSWORD              VARCHAR(100) NOT NULL                           COMMENT 'ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½h'
+  , REGIST_DATE           TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ï¿½oï¿½^ï¿½Nï¿½ï¿½ï¿½ï¿½'
+  , REGIST_USER_ID        VARCHAR(11)  NOT NULL                           COMMENT 'ï¿½oï¿½^ï¿½ï¿½ï¿½[ï¿½UID'
+  , UPDATE_DATE           TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ï¿½Xï¿½Vï¿½Nï¿½ï¿½ï¿½ï¿½'
+  , UPDATE_USER_ID        VARCHAR(11)  NOT NULL                           COMMENT 'ï¿½Xï¿½Vï¿½ï¿½ï¿½[ï¿½UID'
+  , VERSION               INT(11)      NOT NULL DEFAULT '0'               COMMENT 'ï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½iï¿½yï¿½Ïƒï¿½ï¿½bï¿½Nï¿½pï¿½j'
   , PRIMARY KEY (ID)
   , UNIQUE(AUTH_KEY)
 );
